@@ -2088,7 +2088,7 @@
   <header class="site-header" aria-label="Navegación principal">
     <div class="nav-shell">
       <a class="brand" href="#top" aria-label="Artefact">
-      <img class="brand-logo" src="data:image"  
+      <img class="brand-logo" src="images/ARTEFACT.png" alt="Artefact">
       </a>
       <nav class="nav-links" aria-label="Secciones">
         <a href="#pov-artefact">POV Artefact</a>
@@ -2096,9 +2096,9 @@
         <a href="#credenciales">Credenciales</a>
         <a href="#artefact">Artefact</a>
       </nav>
-      <div class="lang-pill" aria-label="Idioma">
-        <span class="active">ES</span>
-        <span>EN</span>
+      <div class="lang-pill" aria-label="Idioma" role="group">
+        <span class="active" data-lang="es" role="button" tabindex="0" aria-pressed="true">ES</span>
+        <span data-lang="en" role="button" tabindex="0" aria-pressed="false">EN</span>
       </div>
     </div>
   </header>
@@ -2485,28 +2485,28 @@
         </div>
         <div class="capabilities">
           <article class="capability" style="min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <img class="capability-bg" src="data:image"
+            <img class="capability-bg" src="images/1-pureplayerdataandIA.png" alt="">
             <div class="capability-overlay"></div>
             <span>01</span>
             <h3>Pure player Data & IA</h3>
             <p>Especialización profunda frente a consultoras generalistas, desde visión estratégica hasta modelos y productos de datos operativos.</p>
           </article>
           <article class="capability" style="min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <img class="capability-bg" src="data:image"
+            <img class="capability-bg" src="images/2-end-to-endreal.png" alt="">
             <div class="capability-overlay"></div>
             <span>02</span>
             <h3>End-to-end real</h3>
             <p>Blueprint, arquitectura, ingeniería, MLOps, adopción y gobierno conectados desde el inicio para evitar pilotos aislados.</p>
           </article>
           <article class="capability" style="min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <img class="capability-bg" src="data:image"
+            <img class="capability-bg" src="images/3-cloudagnostic.png" alt="">
             <div class="capability-overlay"></div>
             <span>03</span>
             <h3>Cloud agnostic</h3>
             <p>Diseño en la nube del cliente, con DataOps, IaC, seguridad por diseño y contratos de datos para escalar con control.</p>
           </article>
           <article class="capability" style="min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <img class="capability-bg" src="data:image"
+            <img class="capability-bg" src="images/4-experienciat3.png" alt="">
             <div class="capability-overlay"></div>
             <span>04</span>
             <h3>Experiencia T3</h3>
@@ -2536,7 +2536,7 @@
   </main>
 
   <script>
-    const HERO_BANNER_DATA = "images/portada.png";
+    const HERO_BANNER_DATA = "gifs/portadapng.gif";
     const hero = document.querySelector(".hero");
 
     if (hero) {
@@ -2820,6 +2820,7 @@
     function renderValueExplorer() {
       renderRoute();
       renderSpotlight();
+      if (window.__retranslate) window.__retranslate();
     }
 
     routeMap.addEventListener("click", (event) => {
@@ -2872,6 +2873,7 @@
       var btn = document.getElementById('btn-' + name);
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
+      if (window.__retranslate) window.__retranslate();
     }
     function toggleCard(btn) {
       var body = btn.closest('.cred-card').querySelector('.cred-body');
@@ -2879,6 +2881,297 @@
       btn.setAttribute('aria-expanded', String(!expanded));
       body.hidden = expanded;
     }
+  </script>
+
+  <script>
+    /* Traducción ES <-> EN: diccionario de textos de cara al usuario.
+       Se aplica sobre nodos de texto, conservando el original en node.__orig
+       para poder restaurar el español. El contenido dinámico (mapa de valor,
+       spotlight, tabs) se re-traduce vía window.__retranslate. */
+    (function () {
+      var I18N = {
+        // Navegación
+        "Cadena": "Value Chain",
+        "Credenciales": "Credentials",
+        // Hero
+        "Aerolíneas · Data & AI": "Airlines · Data & AI",
+        "Agregar valor con IA en aerolíneas": "Adding value with AI in airlines",
+        "La oportunidad no está solo en usar IA, sino en convertir datos comerciales, operacionales y de cliente en mejores decisiones.": "The opportunity is not only about using AI, but about turning commercial, operational and customer data into better decisions.",
+        "Anticipar demanda": "Anticipate demand",
+        "Optimizar capacidad": "Optimize capacity",
+        "Proteger el revenue": "Protect revenue",
+        "Mejorar la experiencia del pasajero": "Improve the passenger experience",
+        "Aumentar la eficiencia operativa": "Increase operational efficiency",
+        // POV Artefact
+        "La IA vale cuando mejora decisiones, procesos y se industrializa dentro del negocio.": "AI is worth it when it improves decisions and processes and is industrialized within the business.",
+        "Valor real: mejores decisiones comerciales, operacionales y de cliente": "Real value: better commercial, operational and customer decisions",
+        "El foco no está en desplegar modelos aislados, sino en mejorar decisiones como capacidad, pricing, recuperación operativa, atención en IRROPS o productividad de backoffice.": "The focus is not on deploying isolated models, but on improving decisions such as capacity, pricing, operational recovery, IRROPS handling or back-office productivity.",
+        "Datos conectados para decidir con contexto completo": "Connected data to decide with full context",
+        "La oportunidad aparece cuando revenue, operación, canales y cliente dejan de vivir en silos y pasan a leerse como una sola capa de señal para decidir mejor.": "The opportunity appears when revenue, operations, channels and customer stop living in silos and become a single signal layer for better decisions.",
+        "Industrialización: IA operable, no pilotos perpetuos": "Industrialization: operable AI, not perpetual pilots",
+        "La postura de Artefact combina aceleradores, integración y operación escalable para mover casos desde la idea hasta una capacidad industrial dentro de la nube y la gobernanza del cliente.": "Artefact's approach combines accelerators, integration and scalable operation to move use cases from idea to an industrial capability within the client's cloud and governance.",
+        // Casos de uso (intro)
+        "Casos de uso": "Use cases",
+        "Desbloquea el potencial de la IA en la cadena de valor y back office": "Unlock the potential of AI across the value chain and back office",
+        "Descubre metodologías y soluciones para identificar dónde se crea, protege o recupera valor en tu compañía antes de hablar de herramientas aisladas de IA": "Discover methodologies and solutions to identify where value is created, protected or recovered in your company before talking about isolated AI tools",
+        "Explora las 5 áreas clave del negocio y 3 capacidades transversales": "Explore the 5 key business areas and 3 cross-cutting capabilities",
+        "Principales pain points y el análisis detallado de casos de uso para cada frente estratégico": "Main pain points and detailed use-case analysis for each strategic front",
+        "Comercial": "Commercial",
+        "Operación": "Operations",
+        "Experiencia": "Experience",
+        "Soporte corporativo": "Corporate support",
+        // Mapa de valor: tipos, títulos, definiciones y pains
+        "Cadena de valor": "Value chain",
+        "Backoffice": "Back office",
+        "Tripulación / Crew Planning": "Crew / Crew Planning",
+        "Finanzas y Soporte Corporativo": "Finance & Corporate Support",
+        "Mejora decisiones de rutas, frecuencias, horarios y gauge con lectura integrada de demanda, rentabilidad y fragilidad operativa.": "Improves decisions on routes, frequencies, schedules and gauge with an integrated read of demand, profitability and operational fragility.",
+        "Decisiones de red lentas": "Slow network decisions",
+        "Capacidad mal asignada": "Poorly allocated capacity",
+        "Propagación de demoras": "Delay propagation",
+        "Mejora decisiones de forecast, pricing e ingresos complementarios para capturar valor por asiento y contexto comercial.": "Improves decisions on forecast, pricing and ancillary revenue to capture value per seat and commercial context.",
+        "Forecast rígido": "Rigid forecast",
+        "Pricing poco contextual": "Low-context pricing",
+        "Ancillaries submonetizados": "Under-monetized ancillaries",
+        "Mejora decisiones de mix de canales, agencias y POS para crecer sin sacrificar margen comercial.": "Improves decisions on the mix of channels, agencies and POS to grow without sacrificing commercial margin.",
+        "Costo de distribución opaco": "Opaque distribution cost",
+        "Canales sin rentabilidad clara": "Channels with unclear profitability",
+        "Fugas de margen": "Margin leakage",
+        "Mejora decisiones de recuperación operativa y priorización de demoras con visión económica total de la red.": "Improves decisions on operational recovery and delay prioritization with a total economic view of the network.",
+        "OCC en silos": "OCC in silos",
+        "Recuperación reactiva": "Reactive recovery",
+        "Costo total invisible": "Invisible total cost",
+        "Mejora decisiones de staffing, capacidad belly y atención en crisis para proteger puntualidad y experiencia.": "Improves decisions on staffing, belly capacity and crisis handling to protect punctuality and experience.",
+        "Staffing reactivo": "Reactive staffing",
+        "Capacidad belly incierta": "Uncertain belly capacity",
+        "IRROPS saturan atención": "IRROPS overwhelm service",
+        "Mejora decisiones preventivas sobre disponibilidad, legalidad y readiness de tripulación antes de la contingencia.": "Improves preventive decisions on crew availability, legality and readiness before contingencies arise.",
+        "Problemas visibles tarde": "Problems visible too late",
+        "Overtime costoso": "Costly overtime",
+        "Riesgo de compliance": "Compliance risk",
+        "Mejora decisiones de intervención, inventario y abastecimiento técnico para reducir AOG y capital inmovilizado.": "Improves decisions on intervention, inventory and technical supply to reduce AOG and tied-up capital.",
+        "Fallas no planificadas": "Unplanned failures",
+        "Inventario defensivo": "Defensive inventory",
+        "Visibilidad limitada de repuestos": "Limited spare-parts visibility",
+        "Mejora decisiones de cierre, conciliación y performance management para dirigir con una sola historia financiera.": "Improves decisions on closing, reconciliation and performance management to steer with a single financial story.",
+        "Cierres lentos": "Slow closings",
+        "Revenue accounting manual": "Manual revenue accounting",
+        "KPIs en silos": "KPIs in silos",
+        // Mapa de valor: casos (name en español) y campos decision/pain/solution
+        "Optimización de costo de distribución / CER por canal": "Distribution cost optimization / CER by channel",
+        "Qué rutas, frecuencias y capacidad priorizar antes de que el margen se erosione.": "Which routes, frequencies and capacity to prioritize before margin erodes.",
+        "La red se ajusta tarde porque revenue, market share y desempeño forward/flown se leen en vistas fragmentadas.": "The network adjusts too late because revenue, market share and forward/flown performance are read in fragmented views.",
+        "Integra demanda flown y forward, rentabilidad, fares y señales competitivas en una vista unificada para priorizar rutas, frecuencias y gauge con mayor velocidad y criterio económico.": "Integrates flown and forward demand, profitability, fares and competitive signals into a unified view to prioritize routes, frequencies and gauge with greater speed and economic judgment.",
+        "Dónde reforzar buffers o rediseñar horarios para proteger completion factor y utilización real.": "Where to reinforce buffers or redesign schedules to protect completion factor and real utilization.",
+        "Schedules comercialmente atractivos terminan siendo frágiles y amplifican retrasos a través de la red.": "Commercially attractive schedules end up fragile and amplify delays across the network.",
+        "Mide la robustez del schedule por vuelo, rotación y banco, simula propagación de demoras y recomienda ajustes de buffers u horarios antes de que la fragilidad impacte la operación.": "Measures schedule robustness by flight, rotation and bank, simulates delay propagation and recommends buffer or schedule adjustments before fragility impacts operations.",
+        "Cómo ajustar inventory y pricing con un forecast útil para Revenue Management.": "How to adjust inventory and pricing with a forecast that is useful for Revenue Management.",
+        "El forecast manual o rígido limita la velocidad de reacción frente a shocks comerciales y reduce precisión en ingresos.": "Manual or rigid forecasting limits reaction speed to commercial shocks and reduces revenue accuracy.",
+        "Estandariza fuentes comerciales, automatiza corridas de forecast y publica una lectura diaria de demanda, bookings, fares y ancillaries para acelerar decisiones de inventory y pricing.": "Standardizes commercial sources, automates forecast runs and publishes a daily read of demand, bookings, fares and ancillaries to accelerate inventory and pricing decisions.",
+        "Qué bundle y precio ofrecer según contexto, canal y propensión del pasajero.": "Which bundle and price to offer based on context, channel and passenger propensity.",
+        "Los ancillaries suelen venderse con listas fijas y baja personalización, dejando margen sin capturar.": "Ancillaries are usually sold with fixed lists and low personalization, leaving margin uncaptured.",
+        "Ajusta bundles y precios de equipaje, asientos o upgrades según contexto de compra, canal, perfil y comportamiento del pasajero, activando ofertas más relevantes en cada punto del journey.": "Adjusts bundles and prices for baggage, seats or upgrades based on purchase context, channel, profile and passenger behavior, activating more relevant offers at every point of the journey.",
+        "Dónde empujar esfuerzo comercial y qué agencias o mercados corrigen crecimiento no rentable.": "Where to push commercial effort and which agencies or markets correct unprofitable growth.",
+        "Falta una sola versión de la verdad para entender qué POS, distribuidores o agencias realmente aportan valor.": "There is no single version of the truth to understand which POS, distributors or agencies truly add value.",
+        "Consolida desempeño de agencias, POS y distribuidores indirectos en una vista única para detectar gaps comerciales, comparar contribution real y orientar acciones por mercado o partner.": "Consolidates the performance of agencies, POS and indirect distributors into a single view to detect commercial gaps, compare real contribution and guide actions by market or partner.",
+        "Qué volumen migrar entre OTA, GDS, NDC, agencia y canal directo para mejorar margen.": "Which volume to shift among OTA, GDS, NDC, agency and direct channel to improve margin.",
+        "La aerolínea no ve con claridad cuánto margen pierde por canal ni dónde mover volumen para mejorar CER.": "The airline cannot clearly see how much margin it loses per channel or where to move volume to improve CER.",
+        "Cruza bookings, revenue, comisiones y costos de distribución para calcular CER real por canal, agencia y POS, y así decidir migraciones de mix con mejor impacto en margen.": "Cross-references bookings, revenue, commissions and distribution costs to compute real CER by channel, agency and POS, in order to decide mix migrations with the best margin impact.",
+        "Qué causas controlables atacar primero para proteger OTP y estabilizar la red.": "Which controllable causes to tackle first to protect OTP and stabilize the network.",
+        "Las demoras se repiten y se discuten en silos, sin una base común para priorizar acciones correctivas.": "Delays recur and are discussed in silos, without a common basis to prioritize corrective actions.",
+        "Centraliza la data de delays, clasifica causas, identifica hotspots por estación, ruta o partner y permite priorizar acciones correctivas sobre los desvíos que más afectan la puntualidad.": "Centralizes delay data, classifies causes, identifies hotspots by station, route or partner and enables prioritizing corrective actions on the deviations that most affect punctuality.",
+        "Qué alternativa de recuperación minimiza costo total, impacto al cliente y disrupción futura.": "Which recovery alternative minimizes total cost, customer impact and future disruption.",
+        "El OCC suele optimizar localmente y no por costo total de red, compensaciones, legalidad y CX.": "The OCC usually optimizes locally rather than by total network cost, compensation, legality and CX.",
+        "Evalúa escenarios de recuperación integrando red, tripulación, flota y pasajeros para priorizar la alternativa que mejor balancea costo operativo, compensaciones y continuidad de la red.": "Evaluates recovery scenarios integrating network, crew, fleet and passengers to prioritize the alternative that best balances operating cost, compensation and network continuity.",
+        "Cómo planificar staffing y abastecimiento en check-in, lounges y operación de aeropuerto.": "How to plan staffing and supply at check-in, lounges and airport operations.",
+        "La planificación llega tarde y produce colas evitables, desperdicio operativo o quiebre de insumos.": "Planning arrives too late and causes avoidable queues, operational waste or supply shortages.",
+        "Proyecta volúmenes por franja horaria para anticipar necesidades de personal, capacidad e insumos en check-in, salones y otros puntos críticos de atención.": "Projects volumes by time slot to anticipate needs for staff, capacity and supplies at check-in, lounges and other critical service points.",
+        "Cuánta capacidad belly puede venderse y cómo planificar despacho con más certeza.": "How much belly capacity can be sold and how to plan dispatch with more certainty.",
+        "El peso y volumen de equipaje se estiman tarde, generando subventa o sorpresas operativas.": "Baggage weight and volume are estimated too late, causing underselling or operational surprises.",
+        "Predice peso y volumen de equipaje por vuelo con anticipación para exponer capacidad belly disponible y mejorar decisiones comerciales y operativas de carga.": "Predicts baggage weight and volume per flight in advance to expose available belly capacity and improve commercial and operational cargo decisions.",
+        "Qué opciones ofrecer al pasajero y cuándo escalar solo los casos que realmente requieren intervención humana.": "Which options to offer the passenger and when to escalate only the cases that truly require human intervention.",
+        "En IRROPS colapsan counters y call center, sube el costo de atención y cae la experiencia.": "During IRROPS, counters and call centers collapse, service cost rises and experience drops.",
+        "Orquesta rebooking, vouchers y alternativas de autogestión en canales digitales para resolver casos estándar rápidamente y derivar solo las excepciones al equipo humano.": "Orchestrates rebooking, vouchers and self-service alternatives across digital channels to resolve standard cases quickly and route only exceptions to the human team.",
+        "Qué vuelos o rotaciones están en riesgo y dónde intervenir antes de perder continuidad operativa.": "Which flights or rotations are at risk and where to intervene before losing operational continuity.",
+        "Los problemas de tripulación suelen hacerse visibles tarde, generando overtime, cancelaciones y riesgos regulatorios.": "Crew problems usually become visible too late, causing overtime, cancellations and regulatory risks.",
+        "Integra roster, training, ausentismo, legalidad y contexto operativo en un cockpit único para anticipar riesgos y activar acciones preventivas antes de la contingencia.": "Integrates roster, training, absenteeism, legality and operational context into a single cockpit to anticipate risks and trigger preventive actions before contingencies.",
+        "Qué componente intervenir, cuándo hacerlo y dónde posicionar capacidad técnica antes de un AOG.": "Which component to service, when to do it and where to position technical capacity before an AOG.",
+        "Las fallas no planificadas disparan cancelaciones, baja disponibilidad y exceso de stock de seguridad.": "Unplanned failures trigger cancellations, low availability and excess safety stock.",
+        "Combina historial técnico, sensores y contexto de mantenimiento para anticipar fallas, planificar intervenciones y posicionar recursos antes de que el evento afecte la operación.": "Combines technical history, sensors and maintenance context to anticipate failures, plan interventions and position resources before the event affects operations.",
+        "Qué repuestos priorizar y dónde actuar primero para evitar stockouts con impacto operativo real.": "Which spare parts to prioritize and where to act first to avoid stockouts with real operational impact.",
+        "Compras y abastecimiento operan con poca visibilidad sobre cuellos de botella y riesgo de exposición AOG.": "Procurement and supply operate with little visibility over bottlenecks and AOG exposure risk.",
+        "Da visibilidad punta a punta del flujo de requisición y compra de repuestos para priorizar partes críticas, alertar retrasos y reducir exposición operativa por faltantes.": "Provides end-to-end visibility of the spare-parts requisition and purchasing flow to prioritize critical parts, flag delays and reduce operational exposure from shortages.",
+        "Qué excepciones resolver automáticamente y cuáles escalar al analista para acelerar caja y cierre.": "Which exceptions to resolve automatically and which to escalate to the analyst to accelerate cash and closing.",
+        "El backlog manual y las conciliaciones complejas frenan reconocimiento de ingresos y dejan leakage sin atender.": "Manual backlog and complex reconciliations slow revenue recognition and leave leakage unaddressed.",
+        "Cruza tickets, EMD, refunds, cupones flown e interline para resolver automáticamente casos estándar y enfocar al analista en las excepciones que realmente requieren revisión.": "Cross-references tickets, EMD, refunds, flown coupons and interline to automatically resolve standard cases and focus the analyst on the exceptions that truly require review.",
+        "Dónde priorizar acciones de revenue, OPEX, cash o transformación con lectura común a nivel C-level.": "Where to prioritize revenue, OPEX, cash or transformation actions with a common read at C-level.",
+        "Liderazgo financiero y operativo mira métricas en silos y le cuesta explicar desvíos o seguir impacto real.": "Financial and operational leadership looks at metrics in silos and struggles to explain deviations or track real impact.",
+        "Consolida KPIs comerciales, operativos y financieros en una vista ejecutiva común para entender desvíos, seguir prioridades y alinear decisiones de performance management.": "Consolidates commercial, operational and financial KPIs into a common executive view to understand deviations, track priorities and align performance-management decisions.",
+        // Etiquetas del spotlight
+        "Deep-dive de casos por punto": "Case deep-dive by area",
+        "Decisión que mejora": "Decision it improves",
+        "Dolor actual": "Current pain",
+        // Credenciales (intro y tabs)
+        "Credenciales Artefact": "Artefact Credentials",
+        "Casos de éxito aplicables a la realidad de una aerolínea.": "Success stories applicable to the reality of an airline.",
+        "Inspírate con nuestros casos de éxito y descubre qué es posible": "Get inspired by our success stories and discover what's possible",
+        "✈ Cadena de Valor": "✈ Value Chain",
+        // Credenciales: etiquetas de tarjeta
+        "Desafío": "Challenge",
+        "Solución": "Solution",
+        "Resultados": "Results",
+        // Credenciales: clientes / áreas en español
+        "Aerolínea Norteamericana": "North American Airline",
+        "Estrategia & Transformación Digital": "Strategy & Digital Transformation",
+        "Inteligencia de Mercado & Estrategia Comercial": "Market Intelligence & Commercial Strategy",
+        "Inteligencia Comercial & Network": "Commercial Intelligence & Network",
+        // Credenciales: títulos en español
+        "Ecosistema de Revenue Forecast": "Revenue Forecast Ecosystem",
+        "Modelo de Costos de Distribución (CER)": "Distribution Cost Model (CER)",
+        // Credenciales: cuerpos (Cadena de Valor)
+        "Los equipos de Network Planning y Revenue carecían de una fuente única para evaluar rentabilidad, RASK y load factor a nivel de ruta.": "Network Planning and Revenue teams lacked a single source to assess profitability, RASK and load factor at route level.",
+        "Dashboards interactivos con datos flown y forward-looking (Flyr + Sutherland), con filtros y drill-downs por ruta, región y período, más reglas automatizadas de validación.": "Interactive dashboards with flown and forward-looking data (Flyr + Sutherland), with filters and drill-downs by route, region and period, plus automated validation rules.",
+        "Plataforma central para decisiones de red · Visibilidad de yield, RASK y tendencias de demanda · Detección de rutas underperforming para acciones dirigidas.": "Central platform for network decisions · Visibility of yield, RASK and demand trends · Detection of underperforming routes for targeted actions.",
+        "Sin herramienta para cuantificar la resiliencia de los itinerarios ni modelar la propagación de retrasos a través de rotaciones consecutivas.": "No tool to quantify itinerary resilience or model delay propagation across consecutive rotations.",
+        "Algoritmo de Robustness Index que calcula el delay efectivo de cada vuelo (original + propagado), agregado por rotación y a nivel de red, exportado como tabla de análisis.": "A Robustness Index algorithm that computes the effective delay of each flight (original + propagated), aggregated by rotation and at network level, exported as an analysis table.",
+        "Identificación de rotaciones de baja robustez · Optimización de buffer times · Reducción de efectos cascada en la red de vuelos.": "Identification of low-robustness rotations · Optimization of buffer times · Reduction of cascade effects across the flight network.",
+        "Proceso de forecast de ingresos completamente manual, sin la granularidad ni flexibilidad necesarias para decisiones diarias de Revenue Management.": "A fully manual revenue forecasting process, without the granularity or flexibility needed for daily Revenue Management decisions.",
+        "Ecosistema de modelos ML en AWS (Amazon Redshift + Glue) que pronostican Fare, Seat Factor y Ancillaries de forma independiente, con ejecuciones diarias automáticas y dashboard Power BI de 6 páginas.": "An ecosystem of ML models on AWS (Amazon Redshift + Glue) that forecast Fare, Seat Factor and Ancillaries independently, with automated daily runs and a 6-page Power BI dashboard.",
+        "Pronósticos fiables para los próximos 3 meses · Reducción significativa en tiempos de ejecución · Solución escalable a nuevos mercados y rutas.": "Reliable forecasts for the next 3 months · Significant reduction in run times · Solution scalable to new markets and routes.",
+        "Los equipos comerciales no tenían visión consolidada del performance de ventas indirectas por agencia, país o mercado para guiar decisiones de distribución.": "Commercial teams had no consolidated view of indirect sales performance by agency, country or market to guide distribution decisions.",
+        "ETL pipelines consolidando datos flown y forward-looking + dashboard Power BI con filtros dinámicos por agencia, país y mercado, incluyendo tendencias de tarifas y contribución por canal.": "ETL pipelines consolidating flown and forward-looking data + a Power BI dashboard with dynamic filters by agency, country and market, including fare trends and contribution by channel.",
+        "Identificación de mercados y agencias underperforming · Estrategias comerciales más precisas · Visibilidad única y consistente de ventas indirectas.": "Identification of underperforming markets and agencies · More precise commercial strategies · A single, consistent view of indirect sales.",
+        "Centralizar los costos de distribución (comisiones, reservaciones, sistemas, gastos de venta) dispersos en 15+ orígenes para optimizar el Cost Effectiveness Revenue (CER) por canal, tipo de costo y agencia.": "Centralize distribution costs (commissions, reservations, systems, sales expenses) spread across 15+ sources to optimize Cost Effectiveness Revenue (CER) by channel, cost type and agency.",
+        "Pipeline integral de ingesta en AWS desde 4 fuentes principales y 15+ orígenes de datos, con un Modelo de Costos centralizado con reglas de negocio propias y reporte CER automatizado en Tableau con múltiples niveles de granularidad.": "An end-to-end ingestion pipeline on AWS from 4 main sources and 15+ data origins, with a centralized Cost Model with custom business rules and an automated CER report in Tableau with multiple levels of granularity.",
+        "USD 1.9M de ahorro detectados al redirigir volumen desde OTAs hacia AM.COM · Modelo centralizado para estrategias de reducción de costos y negociaciones con agencias · Visibilidad completa del CER por canal.": "USD 1.9M in savings identified by shifting volume from OTAs to AM.COM · Centralized model for cost-reduction strategies and agency negotiations · Full visibility of CER by channel.",
+        "Sin monitoreo centralizado de demoras por ruta, aeropuerto o tipo de aeronave, ni herramienta de Root Cause Analysis para el equipo de operaciones.": "No centralized monitoring of delays by route, airport or aircraft type, nor a Root Cause Analysis tool for the operations team.",
+        "Dashboard en dos capas: live monitoring de OTP y pantallas analíticas de Root Cause Analysis y Disruption Scale, consolidando datos de Flight Ops, Scheduling y Ground Handling.": "A two-layer dashboard: live OTP monitoring and analytical screens for Root Cause Analysis and Disruption Scale, consolidating data from Flight Ops, Scheduling and Ground Handling.",
+        "Detección proactiva de patrones de demora recurrentes · Intervenciones dirigidas para reducir retrasos · Base para decisiones de recuperación operacional.": "Proactive detection of recurring delay patterns · Targeted interventions to reduce delays · Foundation for operational recovery decisions.",
+        "Imposibilidad de planificar recursos de check-in y lounge con anticipación por falta de forecast preciso de volúmenes de pasajeros en aeropuerto.": "Inability to plan check-in and lounge resources in advance due to the lack of an accurate forecast of passenger volumes at the airport.",
+        "Pipeline de ingesta de ~50 GB de datos Sabre (transacciones de check-in y solicitudes de lounge) + modelos Prophet y XGBoost para predicción en ventanas rodantes de 2 horas.": "An ingestion pipeline for ~50 GB of Sabre data (check-in transactions and lounge requests) + Prophet and XGBoost models for prediction over rolling 2-hour windows.",
+        "Mejora en planificación de personal de aeropuerto · Decisiones más precisas de supply de alimentos en lounge · Reducción de sobre y sub-aprovisionamiento.": "Improved airport staff planning · More accurate lounge food-supply decisions · Reduction of over- and under-provisioning.",
+        "Sin visibilidad integral de satisfacción del pasajero a través de las distintas etapas del viaje, desde la reserva hasta el post-trip.": "No holistic visibility of passenger satisfaction across the different journey stages, from booking to post-trip.",
+        "Dashboard end-to-end monitoreando satisfacción en 6 etapas clave del journey, con satisfaction matrix cross-cutting y drill-downs por touchpoint y segmento de pasajero.": "An end-to-end dashboard monitoring satisfaction across 6 key journey stages, with a cross-cutting satisfaction matrix and drill-downs by touchpoint and passenger segment.",
+        "Monitoreo unificado desde booking hasta engagement de loyalty · Insights accionables para el equipo de CX · Base para mejoras dirigidas por touchpoint.": "Unified monitoring from booking to loyalty engagement · Actionable insights for the CX team · Foundation for targeted improvements by touchpoint.",
+        "El equipo de cargo no podía asignar capacidad disponible con precisión por desconocimiento del volumen y peso de equipaje a nivel de vuelo.": "The cargo team could not accurately allocate available capacity because baggage volume and weight at flight level were unknown.",
+        "Pipeline ML end-to-end: padding de bookings futuros con XGBoost + modelos separados (XGBoost, Ridge, Random Forest) para bag count y peso · ~5.6% de error validado en ventana rodante semanal.": "An end-to-end ML pipeline: padding of future bookings with XGBoost + separate models (XGBoost, Ridge, Random Forest) for bag count and weight · ~5.6% error validated on a weekly rolling window.",
+        "Forecast preciso de carga de equipaje a nivel de vuelo · Prevención de underselling de capacidad de cargo · Mejor planificación para la semana siguiente.": "Accurate baggage-load forecast at flight level · Prevention of cargo-capacity underselling · Better planning for the following week.",
+        // Credenciales: cuerpos (Back Office)
+        "Sin sistema centralizado ni visibilidad analítica sobre desempeño, capacitación, certificaciones y absentismo de la tripulación de vuelo.": "No centralized system or analytical visibility over flight crew performance, training, certifications and absenteeism.",
+        "Dashboard Power BI con 20+ KPIs de crew (staffing, training, performance) + diseño completo en Figma del Crew Management System con 100+ features, cubriendo scheduling, productivity, visas e incidentes.": "A Power BI dashboard with 20+ crew KPIs (staffing, training, performance) + a complete Figma design of the Crew Management System with 100+ features, covering scheduling, productivity, visas and incidents.",
+        "Visibilidad integral sobre absentismo, satisfacción y training gaps · Sistema listo para implementación acelerada por el equipo tech de la aerolínea.": "Holistic visibility over absenteeism, satisfaction and training gaps · A system ready for accelerated implementation by the airline's tech team.",
+        "Necesidad de una visión unificada de IA con casos de uso priorizados y un plan claro de habilitación de datos de primera parte y tecnología.": "The need for a unified AI vision with prioritized use cases and a clear plan for enabling first-party data and technology.",
+        "Roadmap de IA a 3 años con 50+ oportunidades identificadas en toda la organización, estrategia de datos 1P (guest data, web data), definición de 2nd/3rd party partnerships, plan de upskilling y 20+ casos detallados.": "A 3-year AI roadmap with 50+ opportunities identified across the organization, a 1P data strategy (guest data, web data), definition of 2nd/3rd party partnerships, an upskilling plan and 20+ detailed use cases.",
+        "Roadmap activado con casos como Audience Targeting Engine, personalización web, CVM para loyalty y SLF forecast para planificación de rutas y capacidad.": "An activated roadmap with use cases such as Audience Targeting Engine, web personalization, CVM for loyalty and SLF forecast for route and capacity planning.",
+        "Sin analytics centralizado para evaluar efectividad de programas de entrenamiento de tripulación ni identificar brechas de desempeño por rango, flota o base.": "No centralized analytics to assess the effectiveness of crew training programs or identify performance gaps by rank, fleet or base.",
+        "Dashboard Power BI integrando Prodefis y Netline Crew con 10+ KPIs de programas Initial, Recurrent, Line Check y Proficiency Check, con filtros multidimensionales (flota, rango, homebase, nacionalidad).": "A Power BI dashboard integrating Prodefis and Netline Crew with 10+ KPIs for Initial, Recurrent, Line Check and Proficiency Check programs, with multidimensional filters (fleet, rank, homebase, nationality).",
+        "Mejora continua de programas de entrenamiento · Identificación de brechas de desempeño por segmento · Benchmarking con performance histórico.": "Continuous improvement of training programs · Identification of performance gaps by segment · Benchmarking against historical performance.",
+        "Sin visión centralizada del proceso de reclutamiento ni KPIs de hiring en tiempo real; reportes manuales que impedían decisiones ágiles en Talent Acquisition.": "No centralized view of the recruitment process or real-time hiring KPIs; manual reports that prevented agile decisions in Talent Acquisition.",
+        "Integración directa con iCIMS (ATS) + dashboard interactivo con tracking automatizado end-to-end de métricas de contratación: hiring funnel, SLA por etapa y tendencias de talento.": "Direct integration with iCIMS (ATS) + an interactive dashboard with automated end-to-end tracking of hiring metrics: hiring funnel, SLA by stage and talent trends.",
+        "Decisiones de RRHH más rápidas y data-driven · Visión unificada del estado de reclutamiento · Base para reportes automáticos de la función de RRHH.": "Faster, data-driven HR decisions · A unified view of recruitment status · Foundation for automated reporting of the HR function.",
+        "Sin herramienta para monitorear la percepción pública de competidores ni benchmarks sistematizados de calidad de experiencia en las etapas clave del journey del pasajero.": "No tool to monitor competitors' public perception or systematized benchmarks of experience quality across the key stages of the passenger journey.",
+        "Web scraping con UiPath sobre sitios y blogs + análisis de sentimiento con GenAI (IA generativa) across 6 etapas del journey · Dashboard con Overview de sentimiento y Rating Analysis por touchpoint.": "Web scraping with UiPath over sites and blogs + sentiment analysis with GenAI (generative AI) across 6 journey stages · A dashboard with a sentiment Overview and Rating Analysis by touchpoint.",
+        "Benchmarking granular de competidores por etapa del journey · Identificación de áreas donde competidores destacan o fallan · Base para mejoras estratégicas de servicio.": "Granular benchmarking of competitors by journey stage · Identification of areas where competitors excel or fail · Foundation for strategic service improvements.",
+        "Datos de marketing fragmentados entre múltiples plataformas (GA, Adobe, Meta, Sprinklr, Snapchat) sin visión consolidada de performance de canales pagos, orgánicos y web/app.": "Marketing data fragmented across multiple platforms (GA, Adobe, Meta, Sprinklr, Snapchat) with no consolidated view of paid, organic and web/app channel performance.",
+        "Implementación de GA360 Suite + BigQuery para FlyDubai + dashboard consolidado para Riyadh Air integrando Paid Media, Social Media, Web/App Engagement y conversión, con 60+ KPIs mapeados.": "Implementation of GA360 Suite + BigQuery for FlyDubai + a consolidated dashboard for Riyadh Air integrating Paid Media, Social Media, Web/App Engagement and conversion, with 60+ mapped KPIs.",
+        "Page load time mejorado 16% (FlyDubai) · Visión cross-channel unificada · Optimización de targeting y asignación de presupuesto basada en ROAS y atribución.": "Page load time improved by 16% (FlyDubai) · Unified cross-channel view · Optimization of targeting and budget allocation based on ROAS and attribution.",
+        "Se necesitaba un ecosistema de datos unificado en AWS para consolidar fuentes clave de demanda a nivel industria (MIDT, DDS, PRISM) y habilitar análisis de market share, market size y analítica self-service para Revenue Management, Network Planning y Sales.": "A unified data ecosystem on AWS was needed to consolidate key industry-level demand sources (MIDT, DDS, PRISM) and enable market share, market size and self-service analytics for Revenue Management, Network Planning and Sales.",
+        "Pipeline ETL con AWS Redshift + Apache Iceberg (arquitectura Hot & Cold), ETLs incrementales automáticos, arquitectura medallón con reglas de calidad DAMA, 6 vistas materializadas y data marts para múltiples unidades de negocio.": "An ETL pipeline with AWS Redshift + Apache Iceberg (Hot & Cold architecture), automated incremental ETLs, a medallion architecture with DAMA quality rules, 6 materialized views and data marts for multiple business units.",
+        "Eliminación de procesos manuales de ingesta · Acceso inmediato a datos recientes (2-3 años) · 8 nuevos casos de uso y 7 reportes de Tableau habilitados · Gobernanza robusta y analítica self-service para Revenue Management, Sales y Network Planning.": "Elimination of manual ingestion processes · Immediate access to recent data (2-3 years) · 8 new use cases and 7 Tableau reports enabled · Robust governance and self-service analytics for Revenue Management, Sales and Network Planning.",
+        // Por qué Artefact
+        "Por qué Artefact": "Why Artefact",
+        "La credibilidad viene de unir estrategia, ingeniería y conocimiento industrial.": "Credibility comes from uniting strategy, engineering and industry knowledge.",
+        "Artefact compite como pure player global de Data & AI: combina profundidad técnica, entrega end-to-end, certificaciones cloud, aceleradores y equipos multidisciplinarios para industrializar casos de uso en el entorno del cliente.": "Artefact competes as a global Data & AI pure player: it combines technical depth, end-to-end delivery, cloud certifications, accelerators and multidisciplinary teams to industrialize use cases in the client's environment.",
+        "Pure player Data & IA": "Pure player Data & AI",
+        "Especialización profunda frente a consultoras generalistas, desde visión estratégica hasta modelos y productos de datos operativos.": "Deep specialization versus generalist consultancies, from strategic vision to operational data models and products.",
+        "End-to-end real": "True end-to-end",
+        "Blueprint, arquitectura, ingeniería, MLOps, adopción y gobierno conectados desde el inicio para evitar pilotos aislados.": "Blueprint, architecture, engineering, MLOps, adoption and governance connected from the start to avoid isolated pilots.",
+        "Diseño en la nube del cliente, con DataOps, IaC, seguridad por diseño y contratos de datos para escalar con control.": "Designed in the client's cloud, with DataOps, IaC, security by design and data contracts to scale under control.",
+        "Experiencia T3": "T3 Experience",
+        "Credenciales en airlines, airports, travel, tourism y transportation, con nearshoring y presencia global para delivery regional.": "Credentials across airlines, airports, travel, tourism and transportation, with nearshoring and global presence for regional delivery.",
+        "Presencia Artefact": "Artefact Presence",
+        "empleados especializados en Data & IA": "specialists in Data & AI",
+        "oficinas con capacidad de despliegue global": "offices with global deployment capability",
+        "países para operar programas multi-mercado": "countries to run multi-market programs"
+      };
+
+      // Reglas por patrón (para textos con números variables)
+      var REGEX = [
+        [/^(\d+) casos de uso$/, "$1 use cases"]
+      ];
+
+      var currentLang = "es";
+
+      function translate(root, lang) {
+        var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode: function (node) {
+            var p = node.parentNode;
+            if (p && (p.nodeName === "SCRIPT" || p.nodeName === "STYLE")) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return node.nodeValue && node.nodeValue.trim()
+              ? NodeFilter.FILTER_ACCEPT
+              : NodeFilter.FILTER_REJECT;
+          }
+        });
+        var nodes = [], n;
+        while ((n = walker.nextNode())) nodes.push(n);
+        nodes.forEach(function (node) {
+          if (node.__orig === undefined) node.__orig = node.nodeValue;
+          var raw = node.__orig;
+          var trimmed = raw.trim();
+          if (lang === "en") {
+            var out = I18N[trimmed];
+            if (out === undefined) {
+              for (var i = 0; i < REGEX.length; i++) {
+                if (REGEX[i][0].test(trimmed)) {
+                  out = trimmed.replace(REGEX[i][0], REGEX[i][1]);
+                  break;
+                }
+              }
+            }
+            if (out !== undefined) {
+              var lead = raw.match(/^\s*/)[0];
+              var trail = raw.match(/\s*$/)[0];
+              node.nodeValue = lead + out + trail;
+            } else {
+              node.nodeValue = raw;
+            }
+          } else {
+            node.nodeValue = raw;
+          }
+        });
+      }
+
+      // Permite re-traducir contenido inyectado dinámicamente (mapa, spotlight, tabs)
+      window.__retranslate = function () {
+        if (currentLang === "en") translate(document.body, "en");
+      };
+
+      function setLang(lang) {
+        if (lang === currentLang) return;
+        currentLang = lang;
+        translate(document.body, lang);
+        document.documentElement.setAttribute("lang", lang);
+        document.querySelectorAll(".lang-pill span").forEach(function (span) {
+          var isActive = span.getAttribute("data-lang") === lang;
+          span.classList.toggle("active", isActive);
+          span.setAttribute("aria-pressed", String(isActive));
+        });
+      }
+
+      document.querySelectorAll(".lang-pill span").forEach(function (span) {
+        span.addEventListener("click", function () {
+          setLang(span.getAttribute("data-lang"));
+        });
+        span.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setLang(span.getAttribute("data-lang"));
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
