@@ -1589,8 +1589,7 @@
       background: #07152c;
     }
 
-    .hero-media,
-    .hero-plane-layer,
+    .hero-video,
     .hero-grid-overlay,
     .hero-glow,
     .hero-vignette {
@@ -1599,29 +1598,28 @@
       pointer-events: none;
     }
 
-    .hero-media,
-    .hero-plane-layer {
-      background-image: var(--hero-banner-image);
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .hero-media {
+    .hero-video {
       z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
       opacity: 0.94;
-      transform: scale(1.04);
-      transform-origin: center center;
     }
 
-    .hero-plane-layer {
-      z-index: 3;
-      opacity: 1;
-      filter: saturate(1.18) brightness(1.18) contrast(1.06) drop-shadow(0 24px 72px rgba(7, 21, 44, 0.34));
-      transform: translate3d(0, -10px, 0) scale(1.1);
-      transform-origin: 70% 50%;
-      -webkit-mask-image: radial-gradient(ellipse 42% 36% at 70% 50%, #000 40%, rgba(0, 0, 0, 0.98) 58%, transparent 78%);
-      mask-image: radial-gradient(ellipse 42% 36% at 70% 50%, #000 40%, rgba(0, 0, 0, 0.98) 58%, transparent 78%);
+    /* Fallback para usuarios con "reducir movimiento": imagen estática */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video {
+        display: none;
+      }
+      .hero {
+        background-image:
+          linear-gradient(92deg, rgba(6, 18, 37, 0.9) 6%, rgba(6, 18, 37, 0.5) 34%, rgba(6, 18, 37, 0.2) 62%, rgba(6, 18, 37, 0.4) 100%),
+          url("images/portada.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
 
     .hero-grid-overlay {
@@ -1738,11 +1736,6 @@
         font-size: 54px;
       }
 
-      .hero-plane-layer {
-        -webkit-mask-image: radial-gradient(ellipse 48% 36% at 70% 50%, #000 42%, rgba(0, 0, 0, 0.97) 60%, transparent 80%);
-        mask-image: radial-gradient(ellipse 48% 36% at 70% 50%, #000 42%, rgba(0, 0, 0, 0.97) 60%, transparent 80%);
-      }
-
       .section {
         padding: 82px 24px;
       }
@@ -1808,12 +1801,6 @@
 
       .hero-copy {
         font-size: 17px;
-      }
-
-      .hero-plane-layer {
-        transform: translate3d(0, -6px, 0) scale(1.12);
-        -webkit-mask-image: radial-gradient(ellipse 58% 38% at 70% 48%, #000 42%, rgba(0, 0, 0, 0.97) 60%, transparent 82%);
-        mask-image: radial-gradient(ellipse 58% 38% at 70% 48%, #000 42%, rgba(0, 0, 0, 0.97) 60%, transparent 82%);
       }
 
       .route-map {
@@ -2105,9 +2092,10 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-media" aria-hidden="true"></div>
+      <video class="hero-video" autoplay loop muted playsinline preload="auto" poster="images/portada.png" aria-hidden="true">
+        <source src="videos/PORTADA_HD.mp4" type="video/mp4">
+      </video>
       <div class="hero-grid-overlay" aria-hidden="true"></div>
-      <div class="hero-plane-layer" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-vignette" aria-hidden="true"></div>
       <div class="hero-inner">
@@ -2534,15 +2522,6 @@
 
 
   </main>
-
-  <script>
-    const HERO_BANNER_DATA = "gifs/portadapng.gif";
-    const hero = document.querySelector(".hero");
-
-    if (hero) {
-      hero.style.setProperty("--hero-banner-image", `url("${HERO_BANNER_DATA}")`);
-    }
-  </script>
 
   <script>
     const valueStages = [
