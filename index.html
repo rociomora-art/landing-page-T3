@@ -19,6 +19,7 @@
       --cyan: #7dd3fc;
       --green: #38d39f;
       --amber: #ffc857;
+      --slate-700: #334155;
       --shadow: 0 24px 70px rgba(6, 18, 37, 0.18);
     }
 
@@ -1332,6 +1333,384 @@
       font-size: 15px;
     }
 
+    /* ===== Sales & Distribution: tarjetas de caso 2 columnas + mockups ===== */
+    .sd-cards {
+      display: grid;
+      gap: 14px;
+    }
+
+    .sd-card {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      align-items: stretch;
+      min-height: 340px;
+      border: 1px solid var(--slate-700);
+      border-radius: 10px;
+      background: var(--ink);
+      overflow: hidden;
+    }
+
+    .sd-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 22px 24px;
+    }
+
+    .sd-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .sd-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 11px;
+      border: 1px solid rgba(125, 211, 252, 0.4);
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(125, 211, 252, 0.08);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .sd-headline {
+      margin: 2px 0 6px;
+      color: var(--white);
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .sd-field strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--magenta);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .sd-field p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+
+    .sd-card-visual {
+      position: relative;
+      display: flex;
+      padding: 16px;
+      border-left: 1px solid var(--slate-700);
+      background:
+        radial-gradient(circle at 78% 12%, rgba(255, 0, 102, 0.12), transparent 42%),
+        radial-gradient(circle at 20% 90%, rgba(125, 211, 252, 0.12), transparent 45%),
+        var(--ink);
+    }
+
+    .sd-viz {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      padding: 16px;
+      border: 1px solid var(--slate-700);
+      border-radius: 10px;
+      background: #0b1424;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.6), 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .sd-viz-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sd-viz-title {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .sd-viz-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      color: var(--green);
+      background: rgba(56, 211, 159, 0.12);
+      box-shadow: 0 0 12px rgba(56, 211, 159, 0.35);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .sd-viz-live::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: sdPulse 1.6s ease-in-out infinite;
+    }
+
+    /* Caso 1 - CER */
+    .cer-rows {
+      display: grid;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .cer-row {
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cer-label {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .cer-bar {
+      position: relative;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .cer-fill {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: 999px;
+      transform-origin: left center;
+      animation: sdGrow 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .cer-fill--hi { background: linear-gradient(90deg, #ff0066, #ff5a94); box-shadow: 0 0 14px rgba(255, 0, 102, 0.5); }
+    .cer-fill--mid { background: linear-gradient(90deg, #ffc857, #ffe0a3); box-shadow: 0 0 14px rgba(255, 200, 87, 0.4); }
+    .cer-fill--lo { background: linear-gradient(90deg, #38d39f, #7df0c9); box-shadow: 0 0 14px rgba(56, 211, 159, 0.45); }
+
+    .cer-val {
+      color: var(--white);
+      font-size: 12.5px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cer-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--slate-700);
+    }
+
+    .cer-foot-label {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .cer-badge {
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: #04140d;
+      background: linear-gradient(135deg, #38d39f, #7df0c9);
+      box-shadow: 0 0 18px rgba(56, 211, 159, 0.55);
+      font-size: 13px;
+      font-weight: 900;
+      animation: sdPop 0.6s 0.9s both;
+    }
+
+    /* Caso 2 - B2B */
+    .b2b-curve {
+      width: 100%;
+      height: 92px;
+    }
+
+    .b2b-line {
+      fill: none;
+      stroke: var(--cyan);
+      stroke-width: 1.6;
+      filter: drop-shadow(0 0 4px rgba(125, 211, 252, 0.7));
+    }
+
+    .b2b-dot {
+      fill: var(--white);
+      stroke: var(--magenta);
+      stroke-width: 1.6;
+      filter: drop-shadow(0 0 6px rgba(255, 0, 102, 0.9));
+      transition: cx 0.12s linear, cy 0.12s linear;
+    }
+
+    .b2b-control {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .b2b-ctl-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .b2b-ctl-label b { color: var(--cyan); font-size: 13px; }
+
+    .b2b-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(125, 211, 252, 0.7), rgba(255, 0, 102, 0.7));
+      outline: none;
+      cursor: pointer;
+    }
+
+    .b2b-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--magenta);
+      box-shadow: 0 0 10px rgba(255, 0, 102, 0.7);
+    }
+
+    .b2b-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--magenta);
+      box-shadow: 0 0 10px rgba(255, 0, 102, 0.7);
+    }
+
+    .b2b-readouts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .b2b-kpi {
+      padding: 10px 12px;
+      border: 1px solid var(--slate-700);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .b2b-kpi span {
+      display: block;
+      margin-bottom: 3px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .b2b-kpi b {
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Caso 3 - Chat conserje */
+    .chat-body {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      min-height: 190px;
+      justify-content: flex-end;
+    }
+
+    .chat-msg {
+      max-width: 86%;
+      padding: 9px 12px;
+      border-radius: 12px;
+      font-size: 12.5px;
+      line-height: 1.35;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .chat-msg.show { opacity: 1; transform: translateY(0); }
+
+    .chat-msg--user {
+      align-self: flex-end;
+      color: var(--white);
+      background: linear-gradient(135deg, #18325a, #26457a);
+      border-bottom-right-radius: 3px;
+    }
+
+    .chat-msg--ai {
+      align-self: flex-start;
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--slate-700);
+      border-bottom-left-radius: 3px;
+    }
+
+    .chat-msg--confirm {
+      align-self: flex-start;
+      color: #04140d;
+      background: linear-gradient(135deg, #38d39f, #7df0c9);
+      box-shadow: 0 0 16px rgba(56, 211, 159, 0.4);
+      font-weight: 900;
+    }
+
+    .chat-msg--typing {
+      display: flex;
+      gap: 4px;
+      align-self: flex-start;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--slate-700);
+    }
+
+    .chat-msg--typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      animation: sdBlink 1.1s infinite;
+    }
+
+    .chat-msg--typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-msg--typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes sdGrow { from { width: 0; } }
+    @keyframes sdPop { 0% { opacity: 0; transform: scale(0.7); } 60% { transform: scale(1.08); } 100% { opacity: 1; transform: scale(1); } }
+    @keyframes sdPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    @keyframes sdBlink { 0%, 100% { opacity: 0.3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-2px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cer-fill, .cer-badge, .sd-viz-live::before, .chat-msg--typing span { animation: none; }
+      .chat-msg { transition: none; }
+    }
+
     .credentials {
       background: var(--white);
       min-height: 100vh;
@@ -1917,8 +2296,14 @@
       .stage-flow,
       .case-body,
       .credential-grid,
-      .capabilities {
+      .capabilities,
+      .sd-card {
         grid-template-columns: 1fr;
+      }
+
+      .sd-card-visual {
+        border-left: none;
+        border-top: 1px solid var(--slate-700);
       }
 
       .closing {
@@ -2578,16 +2963,31 @@
         image: "gifs/cdv3.gif",
         cases: [
           {
-            name: "Indirect Sales & POS Performance Insights",
-            decision: "Dónde empujar esfuerzo comercial y qué agencias o mercados corrigen crecimiento no rentable.",
-            pain: "Falta una sola versión de la verdad para entender qué POS, distribuidores o agencias realmente aportan valor.",
-            solution: "Consolida desempeño de agencias, POS y distribuidores indirectos en una vista única para detectar gaps comerciales, comparar contribution real y orientar acciones por mercado o partner."
+            badge: "Financial Analytics & Lakehouse",
+            name: "Cost of Distribution & CER Optimization per Channel",
+            headline: "Transparencia total del costo de distribución para capturar fugas invisibles de margen.",
+            decision: "Qué volumen y rutas migrar activamente entre GDS, OTAs, NDC y canal directo para maximizar la contribución neta por billete.",
+            pain: "Desconexión entre bookings, comisiones e incentivos que impide medir el Cost Effectiveness Revenue (CER) real por agencia y punto de venta.",
+            solution: "Plataforma de análisis de distribución que cruza datos transaccionales de reservaciones y costos para calcular el CER dinámico y recomendar el mix de mayor rentabilidad.",
+            visual: "cer"
           },
           {
-            name: "Optimización de costo de distribución / CER por canal",
-            decision: "Qué volumen migrar entre OTA, GDS, NDC, agencia y canal directo para mejorar margen.",
-            pain: "La aerolínea no ve con claridad cuánto margen pierde por canal ni dónde mover volumen para mejorar CER.",
-            solution: "Cruza bookings, revenue, comisiones y costos de distribución para calcular CER real por canal, agencia y POS, y así decidir migraciones de mix con mejor impacto en margen."
+            badge: "Prescriptive ML & Elasticity Modeling",
+            name: "B2B Incentives & Corporate Agreement Optimization",
+            headline: "Elimina la dependencia de software de terceros y optimiza contratos de agencias y corporativos.",
+            decision: "Estructuración y ajuste en tiempo real de programas tácticos de incentivos B2B respaldados por inteligencia predictiva.",
+            pain: "Vendor lock-in con proveedores legacy rígidos, tabulación manual de contratos e incapacidad para simular el impacto en volumen y rentabilidad de un incentivo.",
+            solution: "Ecosistema propietario de analítica avanzada que modela elasticidad y asigna metas óptimas, integrando la liquidación y firma electrónica de contratos.",
+            visual: "b2b"
+          },
+          {
+            badge: "GenAI & Multi-Agent System",
+            name: "AI Digital Concierge & Direct Channel Attach Rate",
+            headline: "Convierte el sitio web y la app en un motor de ventas proactivo y personalizado 24/7.",
+            decision: "Personalización contextual de la oferta y ancillaries durante todo el funnel de compra para acelerar la conversión directa.",
+            pain: "Chatbots de soporte rígidos limitados a FAQ estáticos que no aprovechan las señales de intención del usuario ni personalizan la venta cruzada.",
+            solution: "Conserje digital con IA Generativa integrado a la CDP y PSS capaz de asesorar al pasajero, predecir compras y ejecutar transacciones de ancillaries de manera autónoma.",
+            visual: "concierge"
           }
         ]
       },
@@ -2754,22 +3154,122 @@
       `;
     }
 
+    // Timer del chat del conserje (mockup Caso 3). Se limpia solo al re-renderizar.
+    let sdChatTimer = null;
+
+    // Mockups visuales (CSS/JS puro, sin video ni base64) para Sales & Distribution.
+    function renderSDVisual(kind) {
+      if (kind === "cer") {
+        return `
+          <div class="sd-viz cer-viz">
+            <div class="sd-viz-head"><span class="sd-viz-title">Costo por reserva</span><span class="sd-viz-live">LIVE</span></div>
+            <div class="cer-rows">
+              <div class="cer-row"><span class="cer-label">GDS</span><span class="cer-bar"><span class="cer-fill cer-fill--hi" style="--w:100%"></span></span><span class="cer-val">$14.50</span></div>
+              <div class="cer-row"><span class="cer-label">NDC</span><span class="cer-bar"><span class="cer-fill cer-fill--mid" style="--w:29%"></span></span><span class="cer-val">$4.20</span></div>
+              <div class="cer-row"><span class="cer-label">Direct</span><span class="cer-bar"><span class="cer-fill cer-fill--lo" style="--w:8%"></span></span><span class="cer-val">$1.10</span></div>
+            </div>
+            <div class="cer-foot"><span class="cer-foot-label">Ahorro potencial de margen</span><span class="cer-badge">+$1.9M USD</span></div>
+          </div>`;
+      }
+      if (kind === "b2b") {
+        return `
+          <div class="sd-viz b2b-viz">
+            <div class="sd-viz-head"><span class="sd-viz-title">Simulador de incentivos</span><span class="sd-viz-live">ML</span></div>
+            <svg class="b2b-curve" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="b2bGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="rgba(125,211,252,0.34)"></stop><stop offset="1" stop-color="rgba(125,211,252,0)"></stop></linearGradient></defs>
+              <path class="b2b-area" d="M2,50 Q50,4 98,44 L98,60 L2,60 Z" fill="url(#b2bGrad)"></path>
+              <path class="b2b-line" d="M2,50 Q50,4 98,44"></path>
+              <circle id="sdCurveDot" class="b2b-dot" cx="50" cy="15.5" r="2.8"></circle>
+            </svg>
+            <div class="b2b-control">
+              <label class="b2b-ctl-label" for="sdShareSlider">Meta de market share <b id="sdShareVal">60%</b></label>
+              <input id="sdShareSlider" class="b2b-slider" type="range" min="0" max="100" value="60" aria-label="Meta de market share">
+            </div>
+            <div class="b2b-readouts">
+              <div class="b2b-kpi"><span>Margen resultante</span><b id="sdMarginVal">$5.6M</b></div>
+              <div class="b2b-kpi"><span>Elasticidad</span><b id="sdElastVal">1.16</b></div>
+            </div>
+          </div>`;
+      }
+      // concierge
+      return `
+        <div class="sd-viz chat-viz">
+          <div class="sd-viz-head"><span class="sd-viz-title">Asistente de viaje IA</span><span class="sd-viz-live">GENAI</span></div>
+          <div class="chat-body" id="sdChat">
+            <div class="chat-msg chat-msg--user" data-step="0">Vuelo a Madrid en junio, viajo con familia</div>
+            <div class="chat-msg chat-msg--typing" data-step="1"><span></span><span></span><span></span></div>
+            <div class="chat-msg chat-msg--ai" data-step="2">Te recomiendo 2 maletas + asientos juntos. ¿Los agrego?</div>
+            <div class="chat-msg chat-msg--confirm" data-step="3">✓ Equipaje y asientos añadidos · +€86</div>
+          </div>
+        </div>`;
+    }
+
+    function renderSDCards(stage) {
+      return `
+        <div class="case-deep-title">Casos de uso de alto impacto</div>
+        <div class="sd-cards">
+          ${stage.cases.map((item) => `
+            <article class="sd-card">
+              <div class="sd-card-text">
+                <div class="sd-badges"><span class="sd-badge">${item.badge}</span></div>
+                <h4 class="sd-headline">${item.headline}</h4>
+                <div class="sd-field"><strong>Decisión que mejora</strong><p>${item.decision}</p></div>
+                <div class="sd-field"><strong>Dolor actual</strong><p>${item.pain}</p></div>
+                <div class="sd-field"><strong>Solución</strong><p>${item.solution}</p></div>
+              </div>
+              <div class="sd-card-visual">${renderSDVisual(item.visual)}</div>
+            </article>
+          `).join("")}
+        </div>`;
+    }
+
+    function initSDVisuals() {
+      // Caso 2: slider de market share -> mueve el punto sobre la curva y actualiza KPIs.
+      const slider = stageSpotlight.querySelector("#sdShareSlider");
+      if (slider) {
+        const dot = stageSpotlight.querySelector("#sdCurveDot");
+        const shareOut = stageSpotlight.querySelector("#sdShareVal");
+        const marginOut = stageSpotlight.querySelector("#sdMarginVal");
+        const elastOut = stageSpotlight.querySelector("#sdElastVal");
+        const P0 = [2, 50], P1 = [50, 4], P2 = [98, 44];
+        const bez = (a, b, c, t) => (1 - t) * (1 - t) * a + 2 * (1 - t) * t * b + t * t * c;
+        const update = () => {
+          const s = +slider.value, t = s / 100;
+          const cx = bez(P0[0], P1[0], P2[0], t);
+          const cy = bez(P0[1], P1[1], P2[1], t);
+          dot.setAttribute("cx", cx.toFixed(1));
+          dot.setAttribute("cy", cy.toFixed(1));
+          shareOut.textContent = s + "%";
+          const margin = Math.max(2.2, Math.min(6, 2.2 + ((50 - cy) / 36) * 3.8));
+          marginOut.textContent = "$" + margin.toFixed(1) + "M";
+          elastOut.textContent = (0.6 + ((100 - s) / 100) * 1.4).toFixed(2);
+        };
+        slider.addEventListener("input", update);
+        update();
+      }
+      // Caso 3: loop del chat del conserje, auto-terminante si se sale de la sección.
+      const chat = stageSpotlight.querySelector("#sdChat");
+      if (chat) {
+        const steps = Array.prototype.slice.call(chat.querySelectorAll("[data-step]"));
+        let i = 0;
+        const tick = () => {
+          if (!document.body.contains(chat)) return;
+          if (i === 0) steps.forEach((el) => el.classList.remove("show"));
+          if (i < steps.length) { steps[i].classList.add("show"); i++; }
+          else { i = 0; }
+          sdChatTimer = window.setTimeout(tick, i === 0 ? 1500 : (i === 2 ? 900 : 1150));
+        };
+        window.clearTimeout(sdChatTimer);
+        tick();
+      }
+    }
+
     function renderSpotlight() {
       const stage = activeStage();
-      stageSpotlight.innerHTML = `
-        <div class="stage-media">
-          <img src="${stage.image}" alt="Imagen temporal para ${stage.title}">
-        </div>
-        <div class="stage-content">
-          <div class="stage-kicker">
-            <span class="meta-chip">${stage.type}</span>
-            <span class="meta-chip">${stage.cases.length} casos de uso</span>
-          </div>
-          <h3>${stage.title}</h3>
-          <p class="stage-summary">${stage.definition}</p>
-          <div class="pain-cloud">
-            ${stage.pains.map((pain) => `<span class="pain-chip">${pain}</span>`).join("")}
-          </div>
+      const isRich = stage.cases.some((c) => c.visual);
+      const detail = isRich
+        ? renderSDCards(stage)
+        : `
           <div class="case-deep-title">Deep-dive de casos por punto</div>
           <div class="case-accordion">
             ${stage.cases.map((item, index) => `
@@ -2791,9 +3291,25 @@
                 </div>
               </details>
             `).join("")}
+          </div>`;
+      stageSpotlight.innerHTML = `
+        <div class="stage-media">
+          <img src="${stage.image}" alt="Imagen temporal para ${stage.title}">
+        </div>
+        <div class="stage-content">
+          <div class="stage-kicker">
+            <span class="meta-chip">${stage.type}</span>
+            <span class="meta-chip">${stage.cases.length} casos de uso</span>
           </div>
+          <h3>${stage.title}</h3>
+          <p class="stage-summary">${stage.definition}</p>
+          <div class="pain-cloud">
+            ${stage.pains.map((pain) => `<span class="pain-chip">${pain}</span>`).join("")}
+          </div>
+          ${detail}
         </div>
       `;
+      if (isRich) initSDVisuals();
     }
 
     function renderValueExplorer() {
@@ -2990,6 +3506,30 @@
         "Deep-dive de casos por punto": "Case deep-dive by area",
         "Decisión que mejora": "Decision it improves",
         "Dolor actual": "Current pain",
+        // Sales & Distribution: tarjetas de alto impacto + mockups
+        "Casos de uso de alto impacto": "High-impact use cases",
+        "Transparencia total del costo de distribución para capturar fugas invisibles de margen.": "Full transparency of distribution cost to capture invisible margin leaks.",
+        "Qué volumen y rutas migrar activamente entre GDS, OTAs, NDC y canal directo para maximizar la contribución neta por billete.": "Which volume and routes to actively shift among GDS, OTAs, NDC and direct channel to maximize net contribution per ticket.",
+        "Desconexión entre bookings, comisiones e incentivos que impide medir el Cost Effectiveness Revenue (CER) real por agencia y punto de venta.": "A disconnect between bookings, commissions and incentives that prevents measuring the real Cost Effectiveness Revenue (CER) by agency and point of sale.",
+        "Plataforma de análisis de distribución que cruza datos transaccionales de reservaciones y costos para calcular el CER dinámico y recomendar el mix de mayor rentabilidad.": "A distribution analytics platform that cross-references transactional booking and cost data to compute dynamic CER and recommend the most profitable mix.",
+        "Elimina la dependencia de software de terceros y optimiza contratos de agencias y corporativos.": "Eliminate dependency on third-party software and optimize agency and corporate agreements.",
+        "Estructuración y ajuste en tiempo real de programas tácticos de incentivos B2B respaldados por inteligencia predictiva.": "Real-time structuring and adjustment of tactical B2B incentive programs backed by predictive intelligence.",
+        "Vendor lock-in con proveedores legacy rígidos, tabulación manual de contratos e incapacidad para simular el impacto en volumen y rentabilidad de un incentivo.": "Vendor lock-in with rigid legacy providers, manual contract tabulation and the inability to simulate an incentive's impact on volume and profitability.",
+        "Ecosistema propietario de analítica avanzada que modela elasticidad y asigna metas óptimas, integrando la liquidación y firma electrónica de contratos.": "A proprietary advanced-analytics ecosystem that models elasticity and assigns optimal targets, integrating contract settlement and e-signature.",
+        "Convierte el sitio web y la app en un motor de ventas proactivo y personalizado 24/7.": "Turn the website and app into a proactive, personalized 24/7 sales engine.",
+        "Personalización contextual de la oferta y ancillaries durante todo el funnel de compra para acelerar la conversión directa.": "Contextual personalization of the offer and ancillaries throughout the purchase funnel to accelerate direct conversion.",
+        "Chatbots de soporte rígidos limitados a FAQ estáticos que no aprovechan las señales de intención del usuario ni personalizan la venta cruzada.": "Rigid support chatbots limited to static FAQs that neither leverage user intent signals nor personalize cross-selling.",
+        "Conserje digital con IA Generativa integrado a la CDP y PSS capaz de asesorar al pasajero, predecir compras y ejecutar transacciones de ancillaries de manera autónoma.": "A Generative AI digital concierge integrated with the CDP and PSS, able to advise the passenger, predict purchases and autonomously execute ancillary transactions.",
+        "Costo por reserva": "Cost per booking",
+        "Ahorro potencial de margen": "Potential margin savings",
+        "Simulador de incentivos": "Incentive simulator",
+        "Meta de market share": "Market share goal",
+        "Margen resultante": "Resulting margin",
+        "Elasticidad": "Elasticity",
+        "Asistente de viaje IA": "AI travel assistant",
+        "Vuelo a Madrid en junio, viajo con familia": "Flight to Madrid in June, traveling with family",
+        "Te recomiendo 2 maletas + asientos juntos. ¿Los agrego?": "I recommend 2 bags + seats together. Shall I add them?",
+        "✓ Equipaje y asientos añadidos · +€86": "✓ Baggage and seats added · +€86",
         // Credenciales (intro y tabs)
         "Credenciales Artefact": "Artefact Credentials",
         "Casos de éxito aplicables a la realidad de una aerolínea.": "Success stories applicable to the reality of an airline.",
