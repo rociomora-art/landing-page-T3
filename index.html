@@ -1902,6 +1902,98 @@
       animation: sdPop 0.6s 1.3s both;
     }
 
+    /* Pricing & Revenue Caso 1 - Forecast diario */
+    .fc-chart { width: 100%; height: 96px; }
+    .fc-area { opacity: 0; animation: sdFade 0.8s 1s forwards; }
+    .fc-demand { fill: none; stroke: var(--cyan); stroke-width: 1.8; filter: drop-shadow(0 0 4px rgba(125, 211, 252, 0.7)); stroke-dasharray: 180; stroke-dashoffset: 180; animation: sdDraw 1.4s ease forwards; }
+    .fc-occ { fill: none; stroke: rgba(125, 211, 252, 0.55); stroke-width: 1.4; stroke-dasharray: 4 3; }
+
+    .fc-legend { display: flex; gap: 14px; }
+    .fc-leg { display: inline-flex; align-items: center; gap: 6px; color: rgba(255, 255, 255, 0.6); font-size: 11px; font-weight: 700; }
+    .fc-leg::before { content: ""; width: 11px; height: 3px; border-radius: 2px; }
+    .fc-leg--d::before { background: var(--cyan); box-shadow: 0 0 6px rgba(125, 211, 252, 0.7); }
+    .fc-leg--o::before { background: rgba(125, 211, 252, 0.55); }
+
+    .fc-foot { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--slate-700); }
+    .fc-kpi span { display: block; margin-bottom: 2px; color: rgba(255, 255, 255, 0.55); font-size: 10px; font-weight: 700; text-transform: uppercase; }
+    .fc-kpi b { color: var(--white); font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; }
+
+    /* Pricing & Revenue Caso 2 - Matriz de ancillaries */
+    .anc-matrix { display: grid; grid-template-columns: 1.1fr 1fr 1fr 1fr; gap: 6px; }
+    .anc-h { color: rgba(255, 255, 255, 0.5); font-size: 10px; font-weight: 900; text-transform: uppercase; text-align: center; }
+    .anc-seg { display: flex; align-items: center; color: rgba(255, 255, 255, 0.72); font-size: 11.5px; font-weight: 700; }
+
+    .anc-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 0;
+      border: 1px solid var(--slate-700);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--white);
+      font-size: 12.5px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      animation: sdCellPulse 3.2s ease-in-out infinite;
+    }
+
+    .anc-cell:nth-child(7) { animation-delay: 0.2s; }
+    .anc-cell:nth-child(8) { animation-delay: 0.4s; }
+    .anc-cell:nth-child(10) { animation-delay: 0.3s; }
+    .anc-cell:nth-child(11) { animation-delay: 0.5s; }
+    .anc-cell:nth-child(12) { animation-delay: 0.7s; }
+    .anc-cell:nth-child(14) { animation-delay: 0.6s; }
+    .anc-cell:nth-child(15) { animation-delay: 0.8s; }
+    .anc-cell:nth-child(16) { animation-delay: 1s; }
+
+    .anc-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--slate-700); }
+    .anc-foot span { color: rgba(255, 255, 255, 0.6); font-size: 11px; }
+    .anc-foot b { color: var(--green); font-size: 16px; font-weight: 900; }
+
+    /* Pricing & Revenue Caso 3 - MROI CoE (LATAM Hub) */
+    .mroi-tri { position: relative; height: 108px; }
+    .mroi-tri svg { width: 100%; height: 100%; }
+    .mroi-edge { fill: rgba(125, 211, 252, 0.06); stroke: rgba(125, 211, 252, 0.5); stroke-width: 1.2; }
+    .mroi-spoke { stroke: rgba(255, 255, 255, 0.2); stroke-width: 1; animation: sdSpoke 3s ease-in-out infinite; }
+    .mroi-spoke--2 { animation-delay: 1s; }
+    .mroi-spoke--3 { animation-delay: 2s; }
+    .mroi-core { fill: var(--magenta); filter: drop-shadow(0 0 6px rgba(255, 0, 102, 0.85)); animation: sdPulse 1.8s ease-in-out infinite; }
+
+    .mroi-node {
+      position: absolute;
+      padding: 2px 7px;
+      border-radius: 999px;
+      color: var(--white);
+      background: rgba(11, 20, 36, 0.92);
+      border: 1px solid var(--slate-700);
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+      transform: translateX(-50%);
+    }
+    .mroi-node--t { top: 2%; left: 50%; }
+    .mroi-node--r { top: 80%; left: 90%; }
+    .mroi-node--l { top: 80%; left: 10%; }
+
+    .mroi-routes { display: grid; gap: 6px; margin-top: 8px; }
+    .mroi-route { display: grid; grid-template-columns: 62px 1fr; align-items: center; gap: 8px; }
+    .mroi-route > span:first-child { color: rgba(255, 255, 255, 0.6); font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .mroi-bar { height: 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.06); overflow: hidden; }
+    .mroi-bar i { display: block; width: var(--w); height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7dd3fc, #38d39f); box-shadow: 0 0 10px rgba(56, 211, 159, 0.35); animation: sdGrow 1.1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+    .mroi-foot { display: flex; justify-content: flex-end; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--slate-700); }
+    .mroi-badge {
+      padding: 7px 12px;
+      border-radius: 8px;
+      color: #04140d;
+      background: linear-gradient(135deg, #38d39f, #7df0c9);
+      box-shadow: 0 0 18px rgba(56, 211, 159, 0.55);
+      font-size: 12.5px;
+      font-weight: 900;
+      animation: sdPop 0.6s 1.1s both;
+    }
+
     @keyframes sdGrow { from { width: 0; } }
     @keyframes sdPop { 0% { opacity: 0; transform: scale(0.7); } 60% { transform: scale(1.08); } 100% { opacity: 1; transform: scale(1); } }
     @keyframes sdPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
@@ -1913,14 +2005,17 @@
     @keyframes sdShiftC { 0%, 100% { left: 54%; width: 22%; } 50% { left: 20%; width: 30%; } }
     @keyframes sdDraw { to { stroke-dashoffset: 0; } }
     @keyframes sdFade { to { opacity: 1; } }
+    @keyframes sdCellPulse { 0%, 100% { border-color: var(--slate-700); box-shadow: none; } 50% { border-color: rgba(125, 211, 252, 0.5); box-shadow: 0 0 10px rgba(125, 211, 252, 0.25); } }
+    @keyframes sdSpoke { 0%, 100% { stroke: rgba(255, 255, 255, 0.15); } 50% { stroke: rgba(125, 211, 252, 0.8); } }
 
     @media (prefers-reduced-motion: reduce) {
       .cer-fill, .cer-badge, .sd-viz-live::before, .chat-msg--typing span,
       .tower-flight--delay, .tower-panel, .gantt-block,
-      .fuel-opt, .fuel-area, .fuel-badge { animation: none; }
+      .fuel-opt, .fuel-area, .fuel-badge,
+      .fc-demand, .fc-area, .anc-cell, .mroi-spoke, .mroi-core, .mroi-bar i, .mroi-badge { animation: none; }
       .chat-msg { transition: none; }
-      .fuel-opt { stroke-dashoffset: 0; }
-      .fuel-area { opacity: 1; }
+      .fuel-opt, .fc-demand { stroke-dashoffset: 0; }
+      .fuel-area, .fc-area { opacity: 1; }
     }
 
     .credentials {
@@ -3153,16 +3248,31 @@
         image: "gifs/cdv2.gif",
         cases: [
           {
+            badge: "Predictive ML & Automation",
             name: "Revenue Forecast Model Ecosystem",
-            decision: "Cómo ajustar inventory y pricing con un forecast útil para Revenue Management.",
-            pain: "El forecast manual o rígido limita la velocidad de reacción frente a shocks comerciales y reduce precisión en ingresos.",
-            solution: "Estandariza fuentes comerciales, automatiza corridas de forecast y publica una lectura diaria de demanda, bookings, fares y ancillaries para acelerar decisiones de inventory y pricing."
+            headline: "Automatiza proyecciones diarias de tarifas, ocupación y ancillaries para acelerar la toma de decisiones.",
+            decision: "Cómo ajustar inventory y pricing con un forecast dinámico y confiable útil para Revenue Management.",
+            pain: "El forecast manual o rígido limita la velocidad de reacción frente a shocks comerciales y reduce la precisión en ingresos.",
+            solution: "Estandariza fuentes comerciales, automatiza corridas de forecast y publica una lectura diaria de demanda, bookings, fares y ancillaries para acelerar decisiones de inventory y pricing.",
+            visual: "forecast"
           },
           {
+            badge: "Prescriptive ML & Personalization",
             name: "Dynamic Ancillary Pricing & Offer Personalization",
+            headline: "Captura el máximo willingness-to-pay ofreciendo el bundle y precio correcto según el perfil del viajero.",
             decision: "Qué bundle y precio ofrecer según contexto, canal y propensión del pasajero.",
-            pain: "Los ancillaries suelen venderse con listas fijas y baja personalización, dejando margen sin capturar.",
-            solution: "Ajusta bundles y precios de equipaje, asientos o upgrades según contexto de compra, canal, perfil y comportamiento del pasajero, activando ofertas más relevantes en cada punto del journey."
+            pain: "Los ancillaries suelen venderse con listas fijas y baja personalización, dejando margen significativo sin capturar.",
+            solution: "Ajusta bundles y precios de equipaje, asientos o upgrades según contexto de compra, canal, perfil y comportamiento del pasajero, activando ofertas más relevantes en cada punto del journey.",
+            visual: "ancillary"
+          },
+          {
+            badge: "Econometrics & Attribution ML",
+            name: "MROI Center of Excellence & Budget Optimizer (LATAM Hub)",
+            headline: "Optimiza el ROI de marketing y la rentabilidad por ruta eliminando la inversión en tráfico no incremental.",
+            decision: "Cómo distribuir óptimamente el presupuesto de comercialización entre canales y rutas, aislando las compras orgánicas de la conversión causada por medios.",
+            pain: "Presupuestos asignados con datos históricos manuales o modelos de atribución sesgados que sobreestiman el ROI en rutas de alta demanda estacional.",
+            solution: "Hub de medición de retorno (MROI CoE) que integra Marketing Mix Modeling (Google Meridian), Atribución Multicanal (MTA) y tests de incrementalidad para calibrar pujas y maximizar el margen de ingresos.",
+            visual: "mroi"
           }
         ]
       },
@@ -3467,6 +3577,61 @@
               <div class="fuel-kpi"><span>CO₂ evitado</span><b>-4.1%</b></div>
               <span class="fuel-badge">-3.8% Fuel Burn / +$2.4M USD</span>
             </div>
+          </div>`;
+      }
+      if (kind === "forecast") {
+        return `
+          <div class="sd-viz fc-viz">
+            <div class="sd-viz-head"><span class="sd-viz-title">Forecast diario</span><span class="sd-viz-live">ML</span></div>
+            <svg class="fc-chart" viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="fcGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="rgba(125,211,252,0.32)"></stop><stop offset="1" stop-color="rgba(125,211,252,0)"></stop></linearGradient></defs>
+              <path class="fc-area" d="M2,34 C28,28 58,20 98,12 L98,46 L2,46 Z" fill="url(#fcGrad)"></path>
+              <path class="fc-demand" d="M2,34 C28,28 58,20 98,12"></path>
+              <path class="fc-occ" d="M2,40 C30,37 60,31 98,25"></path>
+            </svg>
+            <div class="fc-legend"><span class="fc-leg fc-leg--d">Demanda</span><span class="fc-leg fc-leg--o">Ocupación</span></div>
+            <div class="fc-foot">
+              <div class="fc-kpi"><span>Demanda 30d</span><b>+6.4%</b></div>
+              <div class="fc-kpi"><span>Load factor</span><b>84%</b></div>
+              <div class="fc-kpi"><span>Corridas/día</span><b>24</b></div>
+            </div>
+          </div>`;
+      }
+      if (kind === "ancillary") {
+        return `
+          <div class="sd-viz anc-viz">
+            <div class="sd-viz-head"><span class="sd-viz-title">Matriz de precios dinámicos</span><span class="sd-viz-live">ML</span></div>
+            <div class="anc-matrix">
+              <span class="anc-h"></span><span class="anc-h">Equipaje</span><span class="anc-h">Asiento</span><span class="anc-h">Upgrade</span>
+              <span class="anc-seg">Business</span><span class="anc-cell">$32</span><span class="anc-cell">$18</span><span class="anc-cell">$120</span>
+              <span class="anc-seg">Familia</span><span class="anc-cell">$24</span><span class="anc-cell">$12</span><span class="anc-cell">$0</span>
+              <span class="anc-seg">Leisure</span><span class="anc-cell">$28</span><span class="anc-cell">$9</span><span class="anc-cell">$75</span>
+            </div>
+            <div class="anc-foot"><span>Uplift de conversión</span><b>+11%</b></div>
+          </div>`;
+      }
+      if (kind === "mroi") {
+        return `
+          <div class="sd-viz mroi-viz">
+            <div class="sd-viz-head"><span class="sd-viz-title">MROI CoE · LATAM Hub</span><span class="sd-viz-live">ML</span></div>
+            <div class="mroi-tri">
+              <svg viewBox="0 0 100 74" preserveAspectRatio="none" aria-hidden="true">
+                <polygon class="mroi-edge" points="50,8 90,66 10,66"></polygon>
+                <line class="mroi-spoke mroi-spoke--1" x1="50" y1="44" x2="50" y2="8"></line>
+                <line class="mroi-spoke mroi-spoke--2" x1="50" y1="44" x2="90" y2="66"></line>
+                <line class="mroi-spoke mroi-spoke--3" x1="50" y1="44" x2="10" y2="66"></line>
+                <circle class="mroi-core" cx="50" cy="44" r="4.5"></circle>
+              </svg>
+              <span class="mroi-node mroi-node--t">MMM</span>
+              <span class="mroi-node mroi-node--r">MTA</span>
+              <span class="mroi-node mroi-node--l">Experiments</span>
+            </div>
+            <div class="mroi-routes">
+              <div class="mroi-route"><span>GRU–SCL</span><span class="mroi-bar"><i style="--w:82%"></i></span></div>
+              <div class="mroi-route"><span>LIM–BOG</span><span class="mroi-bar"><i style="--w:58%"></i></span></div>
+              <div class="mroi-route"><span>EZE–MIA</span><span class="mroi-bar"><i style="--w:94%"></i></span></div>
+            </div>
+            <div class="mroi-foot"><span class="mroi-badge">+18% Incremental Margin Lift</span></div>
           </div>`;
       }
       // concierge
@@ -3784,6 +3949,26 @@
         "Deep-dive de casos por punto": "Case deep-dive by area",
         "Decisión que mejora": "Decision it improves",
         "Dolor actual": "Current pain",
+        // Pricing & Revenue Management: tarjetas de alto impacto + mockups
+        "Automatiza proyecciones diarias de tarifas, ocupación y ancillaries para acelerar la toma de decisiones.": "Automates daily projections of fares, occupancy and ancillaries to accelerate decision-making.",
+        "Cómo ajustar inventory y pricing con un forecast dinámico y confiable útil para Revenue Management.": "How to adjust inventory and pricing with a dynamic, reliable forecast that is useful for Revenue Management.",
+        "El forecast manual o rígido limita la velocidad de reacción frente a shocks comerciales y reduce la precisión en ingresos.": "Manual or rigid forecasting limits reaction speed to commercial shocks and reduces revenue accuracy.",
+        "Captura el máximo willingness-to-pay ofreciendo el bundle y precio correcto según el perfil del viajero.": "Captures maximum willingness-to-pay by offering the right bundle and price based on the traveler's profile.",
+        "Los ancillaries suelen venderse con listas fijas y baja personalización, dejando margen significativo sin capturar.": "Ancillaries are usually sold with fixed lists and low personalization, leaving significant margin uncaptured.",
+        "Optimiza el ROI de marketing y la rentabilidad por ruta eliminando la inversión en tráfico no incremental.": "Optimizes marketing ROI and per-route profitability by eliminating spend on non-incremental traffic.",
+        "Cómo distribuir óptimamente el presupuesto de comercialización entre canales y rutas, aislando las compras orgánicas de la conversión causada por medios.": "How to optimally distribute the marketing budget across channels and routes, isolating organic purchases from media-driven conversion.",
+        "Presupuestos asignados con datos históricos manuales o modelos de atribución sesgados que sobreestiman el ROI en rutas de alta demanda estacional.": "Budgets allocated with manual historical data or biased attribution models that overstate ROI on routes with high seasonal demand.",
+        "Hub de medición de retorno (MROI CoE) que integra Marketing Mix Modeling (Google Meridian), Atribución Multicanal (MTA) y tests de incrementalidad para calibrar pujas y maximizar el margen de ingresos.": "A return-measurement hub (MROI CoE) that integrates Marketing Mix Modeling (Google Meridian), Multi-Touch Attribution (MTA) and incrementality tests to calibrate bids and maximize revenue margin.",
+        "Forecast diario": "Daily forecast",
+        "Demanda": "Demand",
+        "Ocupación": "Occupancy",
+        "Demanda 30d": "Demand 30d",
+        "Corridas/día": "Runs/day",
+        "Matriz de precios dinámicos": "Dynamic pricing matrix",
+        "Equipaje": "Baggage",
+        "Asiento": "Seat",
+        "Familia": "Family",
+        "Uplift de conversión": "Conversion uplift",
         // Sales & Distribution: tarjetas de alto impacto + mockups
         "Casos de uso de alto impacto": "High-impact use cases",
         "Transparencia total del costo de distribución para capturar fugas invisibles de margen.": "Full transparency of distribution cost to capture invisible margin leaks.",
