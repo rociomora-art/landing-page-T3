@@ -2761,6 +2761,548 @@
       .cred-tabs { flex-direction: column; }
       .cred-tab { text-align: center; }
     }
+
+    /* ==========================================================
+       AGENTES EN AEROLÍNEAS — sección agéntica
+       Todo el CSS va scopeado bajo #agentic-airlines para no
+       colisionar con los estilos de la landing principal.
+       ========================================================== */
+
+    @keyframes agWaveGradient { 0% { background-position: 0% center; } 100% { background-position: 100% center; } }
+    @keyframes agSlideInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes agFloatUp { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes agMeshFloatA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,-40px) scale(1.15); } }
+    @keyframes agMeshFloatB { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-70px,50px) scale(1.1); } }
+    @keyframes agMeshFloatC { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,60px) scale(0.9); } }
+    @keyframes agMeshFloatD { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,-50px) scale(1.08); } }
+    @keyframes agPulse { 0%, 100% { opacity: 1; } 50% { opacity: 1.3; } }
+    @keyframes agBob { 0%,100% { transform: translateY(0);} 50% { transform: translateY(5px);} }
+    @keyframes agFadeUp { from { opacity: 0; transform: translateY(24px); filter: blur(4px);} to { opacity: 1; transform: translateY(0); filter: blur(0);} }
+    @keyframes agGradientShift { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+    #agentic-airlines {
+      --ag-gradient: linear-gradient(90deg, #002244 0%, #273275 34%, #752E7D 62%, #FF0066 100%);
+      position: relative;
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    #agentic-airlines * { box-sizing: border-box; }
+    #agentic-airlines h1,
+    #agentic-airlines h2,
+    #agentic-airlines h3,
+    #agentic-airlines h4,
+    #agentic-airlines h5,
+    #agentic-airlines p { margin: 0; }
+    #agentic-airlines img { max-width: 100%; display: block; }
+    #agentic-airlines a,
+    #agentic-airlines button { font: inherit; color: inherit; text-decoration: none; }
+
+    #agentic-airlines a:focus-visible,
+    #agentic-airlines button:focus-visible { outline: 3px solid var(--magenta); outline-offset: 2px; }
+    #agentic-airlines .chain-tile:focus-visible { outline: 3px solid var(--cyan); outline-offset: -2px; }
+    #agentic-airlines .process-card:focus-visible { outline: 2px solid var(--magenta); outline-offset: 2px; }
+    #agentic-airlines .flight-node:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+    #agentic-airlines .help-card:focus-visible { outline: 2px solid var(--magenta); outline-offset: 2px; }
+
+    /* --- Fondos animados --- */
+    #agentic-airlines .mesh-blobs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    #agentic-airlines .mesh-blob { position: absolute; border-radius: 50%; filter: blur(80px); will-change: transform; }
+    #agentic-airlines .mesh-blob.b1 { width: 520px; height: 520px; top: -160px; left: -100px; background: radial-gradient(circle, rgba(255,0,102,0.6), transparent 70%); mix-blend-mode: screen; opacity: 0.65; animation: agMeshFloatA 19s ease-in-out infinite; }
+    #agentic-airlines .mesh-blob.b2 { width: 460px; height: 460px; top: 5%; right: -140px; background: radial-gradient(circle, rgba(125,211,252,0.55), transparent 70%); mix-blend-mode: screen; opacity: 0.6; animation: agMeshFloatB 23s ease-in-out infinite; }
+    #agentic-airlines .mesh-blob.b3 { width: 420px; height: 420px; bottom: -160px; left: 28%; background: radial-gradient(circle, rgba(117,46,125,0.6), transparent 70%); mix-blend-mode: screen; opacity: 0.55; animation: agMeshFloatC 21s ease-in-out infinite; }
+    #agentic-airlines .mesh-blob.b4 { width: 300px; height: 300px; top: 40%; right: 20%; background: radial-gradient(circle, rgba(56,211,159,0.4), transparent 70%); mix-blend-mode: screen; opacity: 0.45; animation: agMeshFloatD 25s ease-in-out infinite; }
+
+    #agentic-airlines .grain-overlay {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #agentic-airlines .mesh-blob { animation: none !important; }
+    }
+
+    /* --- Layout base de la sección --- */
+    #agentic-airlines .ag-container { max-width: 1180px; margin: 0 auto; padding: 0 42px; }
+    #agentic-airlines .ag-section { padding: 120px 0; }
+    #agentic-airlines .ag-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--magenta); font-size: 12px; font-weight: 900; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 18px;
+    }
+    #agentic-airlines .ag-label::before { content: ""; width: 22px; height: 2px; background: var(--magenta); display: inline-block; }
+    #agentic-airlines .ag-title { font-size: 42px; font-weight: 900; line-height: 1.1; max-width: 780px; letter-spacing: -0.01em; }
+    #agentic-airlines .ag-lead { margin-top: 20px; max-width: 640px; color: var(--muted); font-size: 17px; line-height: 1.6; }
+    #agentic-airlines .light-on-dark .ag-label { color: var(--cyan); }
+    #agentic-airlines .light-on-dark .ag-label::before { background: var(--cyan); }
+
+    /* --- Hero de la sección --- */
+    #agentic-airlines .ag-hero {
+      position: relative; min-height: 92vh; color: var(--white); overflow: hidden;
+      display: flex; align-items: center;
+      background: var(--navy-950);
+    }
+    #agentic-airlines .ag-hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(115deg, rgba(6,18,37,0.97) 4%, rgba(8,19,43,0.9) 34%, rgba(31,39,85,0.72) 62%, rgba(89,28,91,0.55) 100%),
+        url('images/hero-airline-ai.png');
+      background-size: cover; background-position: center;
+      animation: agWaveGradient 16s ease-in-out infinite;
+    }
+    #agentic-airlines .ag-hero-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255,0,102,0.08), transparent 25%),
+        radial-gradient(circle at 80% 40%, rgba(125,211,252,0.06), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(255,0,102,0.04), transparent 30%);
+      animation: agPulse 8s ease-in-out infinite;
+    }
+    #agentic-airlines .ag-hero-gridlines {
+      position: absolute; inset: 0; z-index: 1; opacity: 0.5; pointer-events: none;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.045) 0, rgba(255,255,255,0.045) 1px, transparent 1px, transparent 64px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0, rgba(255,255,255,0.045) 1px, transparent 1px, transparent 64px);
+    }
+    #agentic-airlines .ag-hero-inner { position: relative; z-index: 2; max-width: 1000px; padding: 140px 42px 70px; margin: 0; width: 100%; animation: agSlideInLeft 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both; }
+    #agentic-airlines .ag-hero h1 { font-size: 96px; line-height: 0.92; font-weight: 900; letter-spacing: -0.055em; margin-bottom: 20px; animation: agSlideInLeft 0.9s ease-out 0.5s both; }
+    #agentic-airlines .ag-hero h1 span { background: linear-gradient(96deg, #ff0066 0%, #7dd3fc 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    #agentic-airlines .ag-hero-copy { max-width: 580px; color: rgba(255,255,255,0.82); font-size: 20px; line-height: 1.55; margin-bottom: 36px; animation: agFloatUp 1s ease-out 0.6s both; }
+    #agentic-airlines .ag-hero-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+    #agentic-airlines .scroll-cue {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--magenta);
+      font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+      animation: agFloatUp 1.2s ease-out 0.8s both;
+    }
+    #agentic-airlines .scroll-cue .dot { width: 30px; height: 30px; border: 1px solid rgba(255,0,102,0.45); border-radius: 50%; color: var(--magenta);
+      display: grid; place-items: center; animation: agBob 1.8s ease-in-out infinite; }
+
+    /* --- Cadena de valor --- */
+    #agentic-airlines .impact-chain { background: var(--soft); }
+    #agentic-airlines .chain-rail { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+    #agentic-airlines .chain-tile {
+      position: relative; perspective: 1400px; height: 360px; cursor: pointer;
+      animation: agFloatUp 0.8s ease-out both;
+    }
+    #agentic-airlines .chain-tile:nth-child(1) { animation-delay: 0.1s; }
+    #agentic-airlines .chain-tile:nth-child(2) { animation-delay: 0.2s; }
+    #agentic-airlines .chain-tile:nth-child(3) { animation-delay: 0.3s; }
+    #agentic-airlines .chain-tile:nth-child(4) { animation-delay: 0.4s; }
+    #agentic-airlines .chain-tile:nth-child(5) { animation-delay: 0.5s; }
+    #agentic-airlines .chain-tile:nth-child(6) { animation-delay: 0.6s; }
+    #agentic-airlines .chain-tile:nth-child(7) { animation-delay: 0.7s; }
+    #agentic-airlines .chain-tile:nth-child(8) { animation-delay: 0.8s; }
+    #agentic-airlines .tile-inner {
+      position: relative; width: 100%; height: 100%;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-style: preserve-3d;
+    }
+    #agentic-airlines .chain-tile:hover .tile-inner { transform: translateY(-8px); }
+    #agentic-airlines .chain-tile.flipped .tile-inner { transform: rotateY(180deg); }
+    #agentic-airlines .chain-tile.flipped:hover .tile-inner { transform: rotateY(180deg) translateY(-8px); }
+    #agentic-airlines .tile-face {
+      position: absolute; inset: 0; border-radius: 14px; overflow: hidden;
+      backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(6,18,37,0.14);
+    }
+    #agentic-airlines .tile-front { background: var(--navy-950); }
+    #agentic-airlines .tile-front img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.85; transition: transform 6s ease;
+    }
+    #agentic-airlines .chain-tile:hover .tile-front img { transform: scale(1.08); }
+    #agentic-airlines .tile-front-tint { position: absolute; inset: 0; background: linear-gradient(165deg, rgba(6,18,37,0.35) 0%, rgba(6,18,37,0.8) 100%); }
+    #agentic-airlines .chain-rank { position: absolute; top: 12px; left: 12px; z-index: 2; width: 26px; height: 26px; border-radius: 50%;
+      background: rgba(6,18,37,0.6); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 11px; font-weight: 900;
+      display: grid; place-items: center; }
+    #agentic-airlines .chain-score { position: absolute; top: 12px; right: 12px; z-index: 2; font-size: 22px; font-weight: 900; color: var(--white); }
+    #agentic-airlines .chain-score small { font-size: 11px; font-weight: 700; opacity: 0.7; display: block; }
+    #agentic-airlines .tile-front-name {
+      position: absolute; left: 18px; right: 18px; bottom: 46px; z-index: 2;
+      color: #fff; font-size: 20px; font-weight: 900; line-height: 1.18;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.45);
+    }
+    #agentic-airlines .tile-flip-hint {
+      position: absolute; left: 18px; bottom: 16px; z-index: 2;
+      font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+    }
+    #agentic-airlines .tile-back {
+      background: var(--navy-950); color: #fff; padding: 20px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transform: rotateY(180deg);
+    }
+    #agentic-airlines .tile-back-rank { font-size: 11px; font-weight: 900; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    #agentic-airlines .tile-back-title { font-size: 16px; font-weight: 900; line-height: 1.25; margin-bottom: 10px; }
+    #agentic-airlines .tile-back-read { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.55; }
+    #agentic-airlines .tile-back-scores { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; margin-top: 14px; }
+    #agentic-airlines .spotlight-score-card {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      text-align: center; padding: 10px 2px; border-radius: 8px; min-width: 0;
+    }
+    #agentic-airlines .spotlight-score-card .num { font-size: 14px; font-weight: 900; color: var(--cyan); white-space: nowrap; }
+    #agentic-airlines .spotlight-score-card .lbl {
+      font-size: 9px; letter-spacing: 0; margin-top: 4px; color: rgba(255,255,255,0.6);
+      white-space: nowrap; overflow: visible; line-height: 1.25; font-weight: 700;
+    }
+
+    #agentic-airlines .chain-toggle,
+    #agentic-airlines .help-toggle {
+      display: inline-flex; background: var(--white); border: 1px solid var(--line); border-radius: 999px;
+      padding: 6px; gap: 4px; box-shadow: 0 4px 14px rgba(6,18,37,0.06);
+    }
+    #agentic-airlines .chain-toggle { margin: 32px 0 8px; }
+    #agentic-airlines .help-toggle { margin-top: 40px; }
+    #agentic-airlines .chain-toggle-btn,
+    #agentic-airlines .help-toggle-btn { padding: 10px 22px; border-radius: 999px; border: none; background: none; cursor: pointer; text-align: left; transition: all 0.3s; }
+    #agentic-airlines .chain-toggle-btn strong,
+    #agentic-airlines .help-toggle-btn strong { display: block; font-size: 13px; font-weight: 900; color: var(--navy-800); }
+    #agentic-airlines .chain-toggle-btn span,
+    #agentic-airlines .help-toggle-btn span { display: block; font-size: 10.5px; font-weight: 700; color: var(--muted); margin-top: 1px; }
+    #agentic-airlines .chain-toggle-btn.active,
+    #agentic-airlines .help-toggle-btn.active { background: var(--navy-950); }
+    #agentic-airlines .chain-toggle-btn.active strong,
+    #agentic-airlines .help-toggle-btn.active strong { color: #fff; }
+    #agentic-airlines .chain-toggle-btn.active span,
+    #agentic-airlines .help-toggle-btn.active span { color: rgba(255,255,255,0.65); }
+
+    #agentic-airlines .chain-ranking { display: flex; flex-direction: column; gap: 14px; margin-top: 48px; }
+    #agentic-airlines .rank-row {
+      position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      background: var(--navy-950); color: #fff; border-radius: 12px; padding: 20px 28px;
+      border-left: 4px solid var(--magenta);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+      animation: agFloatUp 0.6s ease-out both;
+    }
+    #agentic-airlines .rank-row:hover { transform: translateX(8px); box-shadow: 0 14px 32px rgba(6,18,37,0.2); }
+    #agentic-airlines .rank-row-left { display: flex; align-items: flex-start; gap: 18px; min-width: 0; }
+    #agentic-airlines .rank-row-num { flex-shrink: 0; font-size: 13px; font-weight: 900; color: var(--cyan); padding-top: 3px; white-space: nowrap; }
+    #agentic-airlines .rank-row-name { font-size: 16px; font-weight: 900; margin-bottom: 5px; }
+    #agentic-airlines .rank-row-desc { font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.5; max-width: 560px; }
+    #agentic-airlines .rank-row-score { flex-shrink: 0; text-align: right; }
+    #agentic-airlines .rank-row-score .num { font-size: 26px; font-weight: 900; color: var(--cyan); line-height: 1; }
+    #agentic-airlines .rank-row-score .lbl { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+    /* --- Foco a corto plazo --- */
+    #agentic-airlines .area-tabnav { display: flex; gap: 0; margin-top: 56px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+    #agentic-airlines .area-tab {
+      display: flex; align-items: baseline; gap: 10px; padding: 18px 28px 18px 0; margin-right: 32px;
+      background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer;
+      white-space: nowrap; transition: border-color 0.3s;
+    }
+    #agentic-airlines .area-tab-num { font-size: 12px; font-weight: 900; color: var(--muted); letter-spacing: 0.04em; }
+    #agentic-airlines .area-tab-name { font-size: 16px; font-weight: 800; color: var(--muted); transition: color 0.3s; }
+    #agentic-airlines .area-tab:hover .area-tab-name { color: var(--ink); }
+    #agentic-airlines .area-tab.active { border-color: var(--magenta); }
+    #agentic-airlines .area-tab.active .area-tab-num { color: var(--magenta); }
+    #agentic-airlines .area-tab.active .area-tab-name { color: var(--ink); }
+    #agentic-airlines .area-block { display: none; margin-top: 48px; }
+    #agentic-airlines .area-block.active { display: block; animation: agFadeUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    #agentic-airlines .area-head {
+      position: relative; border-radius: 16px; overflow: hidden; min-height: 180px;
+      display: flex; align-items: center; padding: 32px 40px; color: var(--white); margin-bottom: 28px;
+      background: var(--navy-950);
+    }
+    #agentic-airlines .area-head img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+    #agentic-airlines .area-head::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(6,18,37,0.94) 20%, rgba(10,23,48,0.55) 100%); }
+    #agentic-airlines .area-head-body { position: relative; z-index: 1; max-width: 640px; }
+    #agentic-airlines .area-tag { display: inline-block; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cyan); margin-bottom: 10px; }
+    #agentic-airlines .area-head h3 { font-size: 30px; font-weight: 900; margin-bottom: 8px; }
+    #agentic-airlines .area-head p { color: rgba(255,255,255,0.78); font-size: 15px; }
+
+    #agentic-airlines .process-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    #agentic-airlines .process-card {
+      border: 1px solid var(--line); border-radius: 14px; padding: 26px; cursor: pointer;
+      transition: box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s, transform 0.3s;
+      background: var(--white);
+      box-shadow: 0 4px 12px rgba(6,18,37,0.06);
+    }
+    #agentic-airlines .process-card:hover { box-shadow: 0 16px 48px rgba(6,18,37,0.18); border-color: rgba(255,0,102,0.4); transform: translateY(-4px); }
+    #agentic-airlines .process-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    #agentic-airlines .process-tag { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    #agentic-airlines .process-card h4 { font-size: 19px; font-weight: 800; margin: 10px 0 8px; line-height: 1.3; }
+    #agentic-airlines .process-card p.teaser { font-size: 14px; color: var(--muted); }
+    #agentic-airlines .process-toggle-ico {
+      width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line);
+      display: grid; place-items: center; font-size: 16px; font-weight: 900; color: var(--navy-800);
+      flex-shrink: 0; transition: transform 0.3s, background 0.3s, color 0.3s;
+    }
+    #agentic-airlines .process-card.open .process-toggle-ico { transform: rotate(45deg); background: var(--magenta); color: var(--white); border-color: var(--magenta); }
+    #agentic-airlines .process-detail { max-height: 0; overflow: hidden; transition: max-height 0.45s ease, margin-top 0.45s ease; margin-top: 0; }
+    #agentic-airlines .process-card.open .process-detail { max-height: 900px; margin-top: 22px; }
+
+    #agentic-airlines .evo-path { display: flex; gap: 0; margin-bottom: 20px; overflow-x: auto; }
+    #agentic-airlines .evo-stage { flex: 1; min-width: 132px; padding: 14px 12px; border: 1px solid var(--line); border-right: none; text-align: center; }
+    #agentic-airlines .evo-stage:last-child { border-right: 1px solid var(--line); }
+    #agentic-airlines .evo-stage.as-is { background: #fef2f2; }
+    #agentic-airlines .evo-stage.t1 { background: #fff8ec; }
+    #agentic-airlines .evo-stage.t2 { background: #eefaf5; }
+    #agentic-airlines .evo-stage.to-be { background: #ecfdf5; border-color: #bbf7d0; }
+    #agentic-airlines .evo-label { display: block; font-size: 9.5px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 6px; }
+    #agentic-airlines .evo-title { font-size: 12.5px; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+    #agentic-airlines .evo-copy { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+    #agentic-airlines .process-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    #agentic-airlines .process-meta-box { background: var(--soft); border-radius: 8px; padding: 14px 16px; border-left: 3px solid var(--magenta); }
+    #agentic-airlines .process-meta-box h5 { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; color: var(--navy-800); }
+    #agentic-airlines .process-meta-box p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* --- Fundaciones / visión agéntica --- */
+    #agentic-airlines .agentic-vision { background: var(--navy-950); color: var(--white); position: relative; overflow: hidden; }
+    #agentic-airlines .agentic-vision::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 15% 20%, rgba(255,0,102,0.16), transparent 32%),
+                  radial-gradient(circle at 85% 75%, rgba(125,211,252,0.14), transparent 34%);
+      pointer-events: none;
+    }
+    #agentic-airlines .flight-path-wrap { position: relative; margin: 100px 0 48px; width: 100%; aspect-ratio: 1200 / 260; }
+    #agentic-airlines .flight-stage-badge {
+      position: absolute; top: -56px; left: 0; z-index: 4;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 9px 18px; border-radius: 999px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(6px);
+      animation: agFloatUp 0.8s ease-out both;
+    }
+    #agentic-airlines .flight-stage-count { font-size: 13px; font-weight: 900; color: var(--cyan); letter-spacing: 0.02em; white-space: nowrap; }
+    #agentic-airlines .flight-stage-count b { color: rgba(255,255,255,0.4); font-weight: 700; }
+    #agentic-airlines .flight-stage-name { font-size: 12.5px; font-weight: 800; color: var(--white); white-space: nowrap; }
+    #agentic-airlines .flight-stage-phase {
+      font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--navy-950); background: linear-gradient(96deg, #ff0066, #7dd3fc);
+      padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+    }
+    #agentic-airlines .flight-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    #agentic-airlines .flight-path-track { fill: none; stroke: rgba(255,255,255,0.14); stroke-width: 2.5; stroke-linecap: round; }
+    #agentic-airlines .flight-path-progress {
+      fill: none; stroke: url(#flightGradient); stroke-width: 3; stroke-linecap: round;
+      stroke-dasharray: 100; stroke-dashoffset: 100;
+      filter: drop-shadow(0 0 8px rgba(125,211,252,0.55));
+      transition: stroke-dashoffset 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    #agentic-airlines .flight-plane {
+      position: absolute; font-size: 24px; z-index: 3; pointer-events: none;
+      transform: translate(-50%,-50%) rotate(90deg);
+      transition: left 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), top 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      filter: drop-shadow(0 0 16px rgba(255,0,102,0.8)) drop-shadow(0 0 30px rgba(125,211,252,0.4));
+    }
+    #agentic-airlines .flight-nodes { position: absolute; inset: 0; }
+    #agentic-airlines .flight-node {
+      position: absolute; width: 30px; height: 30px; padding: 0;
+      transform: translate(-50%,-50%);
+      background: none; border: none; cursor: pointer;
+      animation: agFloatUp 0.7s ease-out both;
+    }
+    #agentic-airlines .flight-node:nth-child(1) { animation-delay: 0.15s; }
+    #agentic-airlines .flight-node:nth-child(2) { animation-delay: 0.28s; }
+    #agentic-airlines .flight-node:nth-child(3) { animation-delay: 0.41s; }
+    #agentic-airlines .flight-node:nth-child(4) { animation-delay: 0.54s; }
+    #agentic-airlines .flight-node:nth-child(5) { animation-delay: 0.67s; }
+    #agentic-airlines .flight-node:nth-child(6) { animation-delay: 0.80s; }
+    #agentic-airlines .flight-node .dot {
+      width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.35); background: var(--navy-950);
+      display: grid; place-items: center; font-size: 11px; font-weight: 900; color: rgba(255,255,255,0.72);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #agentic-airlines .flight-node .lbl {
+      position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+      width: 130px; text-align: center; font-size: 11.5px; font-weight: 800; line-height: 1.3;
+      color: rgba(255,255,255,0.6); transition: color 0.3s;
+    }
+    #agentic-airlines .flight-node:hover .dot { border-color: rgba(255,255,255,0.6); transform: scale(1.12); }
+    #agentic-airlines .flight-node:hover .lbl { color: rgba(255,255,255,0.85); }
+    #agentic-airlines .flight-node.active .dot { border-color: var(--magenta); background: var(--magenta); color: var(--white); box-shadow: 0 0 0 7px rgba(255,0,102,0.22); transform: scale(1.08); }
+    #agentic-airlines .flight-node.active .lbl { color: var(--white); }
+
+    #agentic-airlines .vision-panels { margin-top: 64px; }
+    #agentic-airlines .vision-panel { display: none; }
+    #agentic-airlines .vision-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; animation: agFadeUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    #agentic-airlines .vp-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 30px;
+      backdrop-filter: blur(6px);
+    }
+    #agentic-airlines .vp-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    #agentic-airlines .vp-ico { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(120deg, var(--magenta), var(--cyan));
+      display: grid; place-items: center; font-size: 16px; flex-shrink: 0; }
+    #agentic-airlines .vp-head h4 { font-size: 17px; font-weight: 800; }
+    #agentic-airlines .vp-card p { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6; margin-bottom: 12px; }
+    #agentic-airlines .vp-card ul { margin: 10px 0 0 18px; padding: 0; color: rgba(255,255,255,0.78); font-size: 13.5px; }
+    #agentic-airlines .vp-card li { margin-bottom: 8px; line-height: 1.55; }
+    #agentic-airlines .vp-value {
+      margin-top: 18px; padding: 14px 16px; border-radius: 10px; background: rgba(56,211,159,0.12);
+      border-left: 3px solid var(--green); font-size: 13px; color: rgba(255,255,255,0.9);
+    }
+    #agentic-airlines .vp-value strong { display: block; color: var(--green); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+
+    #agentic-airlines .vision-closer {
+      margin-top: 48px; padding: 34px 38px; border-radius: 16px;
+      background: linear-gradient(100deg, rgba(255,0,102,0.14), rgba(125,211,252,0.08));
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    #agentic-airlines .vision-closer p { font-size: 15.5px; color: rgba(255,255,255,0.86); line-height: 1.7; }
+    #agentic-airlines .vision-closer p + p { margin-top: 12px; }
+
+    #agentic-airlines .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 56px; }
+    #agentic-airlines .layer-stack { display: flex; flex-direction: column; gap: 20px; margin-top: 56px; }
+    #agentic-airlines .layer-row { display: flex; align-items: center; gap: 22px; }
+    #agentic-airlines .layer-row-label { flex: 0 0 128px; display: flex; align-items: center; justify-content: center; }
+    #agentic-airlines .layer-row-label .flight-stage-phase { color: #fff !important; text-shadow: 0 1px 3px rgba(0,0,0,0.35); font-size: 11px; padding: 6px 14px; }
+    #agentic-airlines .layer-row-content { flex: 1; min-width: 0; }
+    #agentic-airlines .layer-card-wide {
+      width: 100%; min-height: 220px; padding: 40px 44px;
+      display: flex; flex-direction: column; justify-content: center; gap: 6px;
+    }
+    #agentic-airlines .layer-card-wide h4 { font-size: 22px !important; }
+    #agentic-airlines .layer-card-wide p { font-size: 15.5px !important; max-width: 640px; }
+    #agentic-airlines .layer-row-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    #agentic-airlines .layer-row-cards .vp-card { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
+    #agentic-airlines .foundations-quote {
+      margin-top: 40px; font-style: italic; font-size: 17px; line-height: 1.7;
+      color: rgba(255,255,255,0.82); max-width: 800px;
+    }
+
+    #agentic-airlines .ola-stack { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+    #agentic-airlines .ola-row {
+      display: flex; align-items: center; gap: 20px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px; padding: 18px 24px;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+      animation: agFloatUp 0.6s ease-out both;
+    }
+    #agentic-airlines .ola-row:hover { transform: translateX(6px); }
+    #agentic-airlines .ola-icon {
+      flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(255,255,255,0.07); color: var(--cyan);
+      display: grid; place-items: center;
+    }
+    #agentic-airlines .ola-body h4 { font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 4px; }
+    #agentic-airlines .ola-body p { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.5; margin: 0; }
+    #agentic-airlines .ola-row-final {
+      background: linear-gradient(100deg, rgba(255,0,102,0.2), rgba(125,211,252,0.16));
+      border-color: rgba(125,211,252,0.45);
+      box-shadow: 0 0 0 1px rgba(125,211,252,0.2), 0 16px 36px rgba(255,0,102,0.18);
+    }
+    #agentic-airlines .ola-row-final .ola-icon { background: linear-gradient(120deg, var(--magenta), var(--cyan)); color: var(--navy-950); }
+    #agentic-airlines .ola-row-final .ola-body p { color: rgba(255,255,255,0.85); }
+
+    /* --- Cómo ayudamos --- */
+    #agentic-airlines .help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 56px; }
+    #agentic-airlines .help-card {
+      position: relative;
+      border: 1px solid var(--line); border-radius: 16px; padding: 28px; background: var(--white);
+      transition: box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.3s, border-color 0.3s;
+      animation: agFloatUp 0.8s ease-out both;
+      box-shadow: 0 4px 16px rgba(6,18,37,0.08);
+    }
+    #agentic-airlines .help-card::before {
+      content: ""; position: absolute; inset: -1.5px; border-radius: 18px; z-index: -1;
+      background: linear-gradient(120deg, var(--magenta), var(--cyan), #752E7D, var(--magenta));
+      background-size: 300% 300%;
+      opacity: 0; transition: opacity 0.4s;
+      animation: agGradientShift 5s linear infinite;
+    }
+    #agentic-airlines .help-card:hover::before { opacity: 1; }
+    #agentic-airlines .help-card:nth-child(1) { animation-delay: 0.1s; }
+    #agentic-airlines .help-card:nth-child(2) { animation-delay: 0.2s; }
+    #agentic-airlines .help-card:nth-child(3) { animation-delay: 0.3s; }
+    #agentic-airlines .help-card:nth-child(4) { animation-delay: 0.4s; }
+    #agentic-airlines .help-card:nth-child(5) { animation-delay: 0.5s; }
+    #agentic-airlines .help-card:nth-child(6) { animation-delay: 0.6s; }
+    #agentic-airlines .help-card:hover { box-shadow: 0 16px 48px rgba(6,18,37,0.16); transform: translateY(-8px); border-color: rgba(255,0,102,0.3); }
+    #agentic-airlines .help-ico {
+      width: 44px; height: 44px; border-radius: 12px; background: transparent;
+      border: 2px solid var(--navy-800); display: grid; place-items: center;
+      color: var(--navy-800); font-size: 14px; font-weight: 900; margin-bottom: 20px;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #agentic-airlines .help-card:hover .help-ico { background: var(--ag-gradient); border-color: transparent; color: #fff; }
+    #agentic-airlines .help-card h4 { font-size: 17px; font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
+    #agentic-airlines .help-card p.help-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+    #agentic-airlines .help-artefact { margin-top: 14px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+    #agentic-airlines .help-artefact strong { color: var(--navy-800); }
+
+    #agentic-airlines .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    #agentic-airlines .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* --- Botón Agentic del header principal --- */
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+    .nav-agentic-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; border-radius: 999px; font-size: 12px; font-weight: 900;
+      background: linear-gradient(96deg, #ff0066, #7dd3fc); color: var(--navy-950);
+      border: none; cursor: pointer; white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(255,0,102,0.28);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+    .nav-agentic-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(255,0,102,0.42); }
+    .nav-agentic-btn:focus-visible { outline: 3px solid var(--magenta); outline-offset: 2px; }
+
+    /* --- Botón visión + modal --- */
+    #agentic-airlines .nav-vision-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 11px 20px; border-radius: 999px; font-size: 12px; font-weight: 900;
+      background: linear-gradient(96deg, #ff0066, #7dd3fc); color: var(--navy-950);
+      border: none; cursor: pointer; white-space: nowrap;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: agFloatUp 1.2s ease-out 0.75s both;
+    }
+    #agentic-airlines .nav-vision-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(255,0,102,0.35); }
+
+    #agentic-airlines .vision-modal-overlay {
+      position: fixed; inset: 0; z-index: 200; display: none;
+      align-items: center; justify-content: center; padding: 32px;
+      background: rgba(6,18,37,0.86); backdrop-filter: blur(6px);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    #agentic-airlines .vision-modal-overlay.open { display: flex; opacity: 1; }
+    #agentic-airlines .vision-modal {
+      position: relative; width: 100%; max-width: 1140px; max-height: 88vh; overflow-y: auto;
+      border-radius: 24px; padding: 56px 48px;
+      transform: scale(0.96); transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    #agentic-airlines .vision-modal-overlay.open .vision-modal { transform: scale(1); }
+    #agentic-airlines .vision-modal-close {
+      position: absolute; top: 20px; right: 20px; z-index: 5; width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff;
+      font-size: 16px; cursor: pointer; display: grid; place-items: center;
+      transition: background 0.3s;
+    }
+    #agentic-airlines .vision-modal-close:hover { background: var(--magenta); }
+    body.modal-open { overflow: hidden; }
+
+    @media (max-width: 980px) {
+      #agentic-airlines .ag-container { padding: 0 24px; }
+      #agentic-airlines .ag-hero-inner { padding: 120px 24px 60px; }
+      #agentic-airlines .ag-hero h1 { font-size: 68px; letter-spacing: -0.048em; }
+      #agentic-airlines .ag-title { font-size: 32px; }
+      #agentic-airlines .chain-rail { grid-template-columns: repeat(2, 1fr); }
+      #agentic-airlines .process-grid { grid-template-columns: 1fr; }
+      #agentic-airlines .help-grid { grid-template-columns: 1fr; }
+      #agentic-airlines .vision-panel.active { grid-template-columns: 1fr; }
+      #agentic-airlines .layer-row { flex-direction: column; align-items: stretch; }
+      #agentic-airlines .layer-row-cards { grid-template-columns: 1fr; }
+      #agentic-airlines .flight-path-wrap { aspect-ratio: 1200 / 320; margin: 92px 0 40px; }
+      #agentic-airlines .flight-node .lbl { font-size: 10px; width: 84px; top: 34px; }
+    }
+    @media (max-width: 640px) {
+      #agentic-airlines .ag-section { padding: 80px 0; }
+      #agentic-airlines .ag-hero h1 { font-size: 48px; letter-spacing: -0.04em; }
+      #agentic-airlines .ag-hero-copy { font-size: 17px; }
+      #agentic-airlines .chain-rail { grid-template-columns: repeat(2, 1fr); }
+      #agentic-airlines .process-meta { grid-template-columns: 1fr; }
+      #agentic-airlines .help-grid { gap: 16px; }
+      #agentic-airlines .help-card { padding: 20px; }
+      #agentic-airlines .vision-modal { padding: 44px 22px; }
+      #agentic-airlines .flight-path-wrap { aspect-ratio: 1200 / 420; margin: 80px 0 32px; }
+      #agentic-airlines .flight-node .lbl { display: none; }
+      #agentic-airlines .flight-stage-badge { top: -46px; flex-wrap: wrap; max-width: calc(100% - 20px); padding: 8px 14px; }
+      #agentic-airlines .flight-stage-name { font-size: 11px; }
+    }
+
 </style>
 </head>
 <body>
@@ -2775,9 +3317,12 @@
         <a href="#credenciales">Credenciales</a>
         <a href="#artefact">Artefact</a>
       </nav>
-      <div class="lang-pill" aria-label="Idioma" role="group">
-        <span class="active" data-lang="es" role="button" tabindex="0" aria-pressed="true">ES</span>
-        <span data-lang="en" role="button" tabindex="0" aria-pressed="false">EN</span>
+      <div class="nav-actions">
+        <button type="button" class="nav-agentic-btn" id="navAgenticBtn" aria-label="Ir a la sección Agentes en Aerolíneas">Agentic</button>
+        <div class="lang-pill" aria-label="Idioma" role="group">
+          <span class="active" data-lang="es" role="button" tabindex="0" aria-pressed="true">ES</span>
+          <span data-lang="en" role="button" tabindex="0" aria-pressed="false">EN</span>
+        </div>
       </div>
     </div>
   </header>
@@ -3212,6 +3757,153 @@
       </div>
     </section>
 
+
+
+    <!-- ==========================================================
+         AGENTES EN AEROLÍNEAS
+         ========================================================== -->
+    <section id="agentic-airlines" aria-labelledby="agentic-hero-title">
+
+      <!-- HERO -->
+      <div class="ag-hero">
+        <div class="ag-hero-bg" aria-hidden="true"></div>
+        <div class="mesh-blobs" aria-hidden="true">
+          <span class="mesh-blob b1"></span>
+          <span class="mesh-blob b2"></span>
+          <span class="mesh-blob b3"></span>
+          <span class="mesh-blob b4"></span>
+        </div>
+        <div class="ag-hero-gridlines" aria-hidden="true"></div>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div class="ag-hero-inner">
+          <h1 id="agentic-hero-title">Agentes en <span>Aerolíneas</span></h1>
+          <p class="ag-hero-copy">Un mapa comercial de dónde la inteligencia artificial agéntica ya genera valor en la cadena de una aerolínea de red, y de cómo Artefact puede llevarlo a producción.</p>
+          <div class="ag-hero-actions">
+            <a class="scroll-cue" href="#cadena"><span class="dot" aria-hidden="true">↓</span> Explora la cadena de valor</a>
+            <button type="button" class="nav-vision-btn" id="visionModalBtn">Visión 2028-2030 ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CADENA DE VALOR -->
+      <div class="ag-section impact-chain" id="cadena">
+        <div class="ag-container">
+          <p class="ag-label reveal">Cadena de valor</p>
+          <h2 class="ag-title reveal">Dónde vemos más impacto a lo largo de la cadena de valor</h2>
+          <p class="ag-lead reveal">Evaluamos 8 dominios en madurez de datos, viabilidad de despliegue en 6 meses e impacto ajustado por riesgo. Toca cada tarjeta para voltearla o cambiar al ranking.</p>
+
+          <div class="chain-toggle reveal" role="tablist" aria-label="Vista de cadena de valor">
+            <button type="button" class="chain-toggle-btn active" data-view="cards" role="tab" aria-selected="true"><strong>Flashcards</strong><span>Explorar cada dominio</span></button>
+            <button type="button" class="chain-toggle-btn" data-view="ranking" role="tab" aria-selected="false"><strong>Ranking</strong><span>Comparar los 8</span></button>
+          </div>
+
+          <div class="chain-rail" id="chainRail"></div>
+          <div class="chain-ranking" id="chainRanking" style="display:none;"></div>
+        </div>
+      </div>
+
+      <!-- FOCO DE VALOR -->
+      <div class="ag-section" id="foco">
+        <div class="ag-container">
+          <p class="ag-label reveal">Foco a corto plazo</p>
+          <h2 class="ag-title reveal">Dónde vemos más valor en el corto plazo</h2>
+          <p class="ag-lead reveal">De las 3 áreas con mejor balance entre datos, monetización y riesgo, elegimos 2 procesos representativos cada una.</p>
+
+          <div class="area-tabnav" id="areaTabNav" role="tablist" aria-label="Áreas de foco"></div>
+          <div id="areaBlocks"></div>
+        </div>
+      </div>
+
+      <!-- FUNDACIONES -->
+      <div class="ag-section agentic-vision light-on-dark" id="fundaciones">
+        <div class="mesh-blobs" aria-hidden="true">
+          <span class="mesh-blob b3" style="width:380px;height:380px;"></span>
+          <span class="mesh-blob b4" style="width:320px;height:320px;"></span>
+        </div>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div class="ag-container" style="position:relative; z-index:1;">
+          <p class="ag-label reveal">Nuestro punto de vista</p>
+          <h2 class="ag-title reveal" style="color:#fff;">Antes de escalar agentes, hay que construir las fundaciones correctas</h2>
+          <p class="ag-lead reveal" style="color:rgba(255,255,255,0.72);">El 80% oculto —dónde vive el conocimiento del negocio y quién lo gobierna— decide si un agente es confiable o un riesgo.</p>
+
+          <div class="layer-stack reveal">
+            <div class="layer-row">
+              <div class="layer-row-label"><span class="flight-stage-phase">20% visible</span></div>
+              <div class="layer-row-content">
+                <div class="vp-card layer-card-wide">
+                  <h4 style="font-size:17px;font-weight:800;margin-bottom:10px;">Application</h4>
+                  <p>La superficie donde se encuentran humanos e IA — la aplicación completa, no solo una interfaz.</p>
+                </div>
+              </div>
+            </div>
+            <div class="layer-row">
+              <div class="layer-row-label"><span class="flight-stage-phase">80% oculto</span></div>
+              <div class="layer-row-content layer-row-cards">
+                <div class="vp-card">
+                  <h4 style="font-size:17px;font-weight:800;margin-bottom:10px;">AI Platform</h4>
+                  <p>La capa que define qué sabe la IA y qué puede hacer con esa información.</p>
+                </div>
+                <div class="vp-card">
+                  <h4 style="font-size:17px;font-weight:800;margin-bottom:10px;">Model Infra</h4>
+                  <p>Dónde se enruta, gobierna y optimiza cada modelo.</p>
+                </div>
+                <div class="vp-card">
+                  <h4 style="font-size:17px;font-weight:800;margin-bottom:10px;">Hardware</h4>
+                  <p>Las GPUs, servidores de inferencia y orquestación que ejecutan los modelos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="foundations-quote reveal">"Invertir en Contexto, Ontología y Esquemas —no solo en el modelo— es donde se construye la ventaja competitiva."</p>
+        </div>
+      </div>
+
+      <!-- CÓMO AYUDAMOS -->
+      <div class="ag-section" id="ayuda" style="background: var(--soft); position: relative; overflow: hidden;">
+        <div class="ag-container" style="position: relative; z-index: 1;">
+          <p class="ag-label reveal">Cómo te podemos ayudar</p>
+          <h2 class="ag-title reveal">Factibilidad Artefact para llevar agentes a producción</h2>
+
+          <div class="help-toggle reveal" role="tablist" aria-label="Tipo de caso">
+            <button type="button" class="help-toggle-btn active" data-set="apps" role="tab" aria-selected="true"><strong>Aplicaciones</strong><span>Casos actuales</span></button>
+            <button type="button" class="help-toggle-btn" data-set="foundation" role="tab" aria-selected="false"><strong>Foundation</strong><span>Casos nuevos</span></button>
+          </div>
+
+          <div class="help-grid" id="helpGrid"></div>
+        </div>
+      </div>
+
+      <!-- MODAL VISIÓN 2028-2030 -->
+      <div class="vision-modal-overlay" id="visionModalOverlay" role="dialog" aria-modal="true" aria-label="Visión 2028-2030">
+        <div class="vision-modal agentic-vision light-on-dark">
+          <button type="button" class="vision-modal-close" id="visionModalClose" aria-label="Cerrar">✕</button>
+          <div class="ag-container" style="position:relative; z-index:1; max-width:100%; padding:0;">
+            <p class="ag-label">Visión 2028 - 2030</p>
+            <h2 class="ag-title" style="color:#fff; font-size:34px;">Así se siente volar con una aerolínea agéntica</h2>
+
+            <div class="flight-path-wrap">
+              <div class="flight-stage-badge" id="flightStageBadge"></div>
+              <svg class="flight-svg" viewBox="0 0 1200 260" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="flightGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ff0066"/>
+                    <stop offset="100%" stop-color="#7dd3fc"/>
+                  </linearGradient>
+                </defs>
+                <path class="flight-path-track" d="M 60,215 C 96.0,211.7 204.0,202.5 276.0,195.0 C 348.0,187.5 420.0,187.5 492.0,170.0 C 564.0,152.5 636.0,111.7 708.0,90.0 C 780.0,68.3 852.0,23.3 924.0,40.0 C 996.0,56.7 1104.0,165.0 1140.0,190.0"/>
+                <path class="flight-path-progress" id="flightProgressPath" pathLength="100" d="M 60,215 C 96.0,211.7 204.0,202.5 276.0,195.0 C 348.0,187.5 420.0,187.5 492.0,170.0 C 564.0,152.5 636.0,111.7 708.0,90.0 C 780.0,68.3 852.0,23.3 924.0,40.0 C 996.0,56.7 1104.0,165.0 1140.0,190.0"/>
+              </svg>
+              <div class="flight-plane" id="flightPlane">✈</div>
+              <div class="flight-nodes" id="flightNodes"></div>
+            </div>
+
+            <div class="vision-panels" id="visionPanels"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
 
   </main>
 
@@ -4182,6 +4874,446 @@
           }
         });
       });
+    })();
+  </script>
+  <script>
+    /* ==========================================================
+       AGENTES EN AEROLÍNEAS — datos e interacción
+       Todo va dentro de una IIFE y los selectores se acotan a
+       #agentic-airlines para no interferir con la landing.
+       ========================================================== */
+    (function () {
+      var root = document.getElementById('agentic-airlines');
+      if (!root) return;
+
+      const domains = [
+        { id:'network', name:'Network & Fleet Planning', img:'value-network.jpg', score:2.9, maturity:3.1, viability:2.6, impact:3.0, tier:'low', read:'Alto valor estratégico, pero alta dependencia de simulación y sistemas legados.' },
+        { id:'crew', name:'Crew Planning', img:'value-crew.png', score:3.4, maturity:3.7, viability:3.3, impact:3.2, tier:'medium', read:'Beneficio claro, pero restricciones legales y calidad de datos lo vuelven complejo.' },
+        { id:'pricing', name:'Pricing & Revenue Management', img:'value-pricing.png', score:4.3, maturity:4.5, viability:4.1, impact:4.2, tier:'high', read:'Mejor equilibrio entre datos, monetización y gobernanza.' },
+        { id:'distribution', name:'Sales & Distribution', img:'value-distribution.png', score:4.3, maturity:4.4, viability:4.3, impact:4.3, tier:'high', read:'Canal directo y conversaciones transaccionales: la vía más rápida a ingresos.' },
+        { id:'ground', name:'Ground Operations & CX', img:'value-ground.jpg', score:3.9, maturity:4.0, viability:4.0, impact:3.8, tier:'medium', read:'Terreno fértil para asistentes y automatización de disrupciones en tiempo real.' },
+        { id:'occ', name:'Flight Ops & OCC', img:'value-occ.jpg', score:3.6, maturity:3.9, viability:3.4, impact:3.5, tier:'medium', read:'Casos sólidos ya en producción con sensibilidad operativa alta.' },
+        { id:'mro', name:'MRO & Engineering', img:'value-mro.png', score:3.7, maturity:3.9, viability:3.5, impact:3.6, tier:'medium', read:'Despliegues reales y medibles en mantenimiento predictivo.' },
+        { id:'finance', name:'Finance & Support', img:'value-finance.jpg', score:3.6, maturity:3.5, viability:4.0, impact:3.4, tier:'medium', read:'Fácil de iniciar con copilotos internos.' },
+      ];
+
+      const areas = [
+        {
+          tag: 'Foco #1 · Pricing & Revenue Management',
+          title: 'Pricing & Revenue Management',
+          desc: 'El copiloto de precios y ancillaries con mejor equilibrio entre monetización y gobernanza.',
+          img: 'commercial-ai.png',
+          processes: [
+            {
+              name: 'Dynamic Pricing de Ancillaries',
+              teaser: 'De ajustes manuales a un agente que ejecuta pricing dentro de guardrails.',
+              problem: 'Precios sin optimización dinámica por falta de ajuste en tiempo real.',
+              value: '+10-15% en ingresos por ancillaries. Decisiones en minutos.',
+              stages: [
+                {l:'AS-IS', t:'Pricing manual', c:'Revisión manual diferida.'},
+                {l:'Fase 1', t:'Copiloto inteligente', c:'Propuestas aprobadas por humanos.'},
+                {l:'Fase 2', t:'Agente condicionado', c:'Ejecución bajo margen auditado.'},
+                {l:'TO-BE', t:'Sistema agéntico', c:'Ajustes continuos con trazabilidad.'},
+              ]
+            }
+          ]
+        },
+        {
+          tag: 'Foco #2 · Sales & Distribution',
+          title: 'Sales & Distribution',
+          desc: 'Conversaciones transaccionales en el canal directo.',
+          img: 'value-distribution.png',
+          processes: [
+            {
+              name: 'Customer Service en Canales Digitales',
+              teaser: 'Agente omnichannel que cotiza, cambia y vende.',
+              problem: 'Llamadas costosas y resolución lenta en momentos de estrés.',
+              value: '-70% en costo por interacción. 85-95% contención.',
+              stages: [
+                {l:'AS-IS', t:'Contact center saturado', c:'Tiempos de espera largos.'},
+                {l:'Fase 1', t:'Chatbot FAQ', c:'Preguntas frecuentes simples.'},
+                {l:'Fase 2', t:'Agente transaccional', c:'Cotiza y reserva directo en PSS.'},
+                {l:'TO-BE', t:'Omnichannel completo', c:'Memoria unificada web/app/WA.'},
+              ]
+            }
+          ]
+        },
+        {
+          tag: 'Foco #3 · Ground Operations & CX',
+          title: 'Ground Operations & CX',
+          desc: 'Anticipación en momentos críticos del viaje.',
+          img: 'operations-ai.jpg',
+          processes: [
+            {
+              name: 'Disruption Management (IROPS)',
+              teaser: 'Soluciones automáticas antes de que el pasajero reclame.',
+              problem: 'Avalancha de contactos y desinformación durante retrasos.',
+              value: '-50% contactos pico. Costos de disrupción -30%.',
+              stages: [
+                {l:'AS-IS', t:'Información reactiva', c:'Avisos tardíos en aeropuerto.'},
+                {l:'Fase 1', t:'Push automático', c:'SMS/app genérico.'},
+                {l:'Fase 2', t:'Agente ofertor', c:'Rebooking y vouchers automáticos.'},
+                {l:'TO-BE', t:'Orquestador de crisis', c:'Predice e interviene en tiempo real.'},
+              ]
+            }
+          ]
+        }
+      ];
+
+      const journey = [
+        { id:'busqueda', label:'Búsqueda & Inspiración', short:'Búsqueda', phase:'En tierra',
+          exp: 'El pasajero abre la app y un agente conversacional pregunta fechas, presupuesto y preferencias. Analiza su historial, sugiere 3 opciones (estándar, premium, curada) con ancillaries pre-seleccionados y precio dinámico. Cierra la compra en 5 minutos sin salir del chat.',
+          back: ['Copiloto de búsqueda: cruza CRM, historial y datos de mercado (competencia, clima, eventos).','Motor de precios agéntico: genera 3 opciones validadas contra inventario.','Recomendador de ancillaries: predice preferencias con un score de likelihood.','Ejecución integrada: PSS, inventario, CRM y pago orquestados en tiempo real.'],
+          value: '+15% en conversión. +20% en valor promedio de ancillaries. Tiempo de compra -80%.' },
+        { id:'compra', label:'Compra & Personalización', short:'Compra', phase:'En tierra',
+          exp: 'Tras comprar, el pasajero recibe un SMS con el resumen y un enlace conversacional para personalizar: asiento, servicios especiales, lounge, wifi. Todo ocurre en el chat, sin fricción.',
+          back: ['CDP integrada: golden record de cliente actualizado con cada interacción.','Agente de personalización: sugiere bundles dinámicos (NDC) y ejecuta cambios contra el PSS.','Sistema de órdenes inteligente: cada cambio es una orden auditada y reversible.','Retroalimentación autónoma: el agente aprende de aceptaciones y rechazos.'],
+          value: '+25% en revenue post-compra. +35% en lifetime value. Contact center -40%.' },
+        { id:'presalida', label:'Pre-salida', short:'Pre-salida', phase:'Rodaje',
+          exp: '72 horas antes, el agente contacta proactivamente por WhatsApp: confirma check-in, sugiere servicios para el viaje e informa requisitos. Todo anticipado, cero estrés.',
+          back: ['Planificador predictivo: analiza el patrón de viaje y predice necesidades.','Orquestador de servicios: coordina con partners (hotel, transfer, seguros).','Sistema de conformidad: valida documentos y alerta riesgos.','Agente de confirmación: cierra servicios y envía documentos por app.'],
+          value: '+40% en ancillary uptake. No-show -30%. CSAT +25%.' },
+        { id:'aeropuerto', label:'Aeropuerto & Embarque', short:'Aeropuerto', phase:'Despegue',
+          exp: 'En el mostrador, el staff (asistido por IA) ve el perfil completo del pasajero: check-in ultra-rápido, equipaje etiquetado automáticamente, oferta de última hora si hay disponibilidad, boarding sin fricción.',
+          back: ['Copiloto de mostrador: sugiere acciones al staff en tiempo real.','Gestión de capacidad: monitorea colas y anticipa cuellos de botella.','Agente de excepciones: detecta casos complejos y ofrece soluciones automáticas.','Boarding inteligente: optimiza el orden de embarque.'],
+          value: 'On-time performance +8%. Throughput +10%. Costo operativo -25%.' },
+        { id:'vuelo', label:'Durante el Vuelo', short:'Vuelo', phase:'Crucero',
+          exp: 'La tripulación tiene el contexto completo del pasajero en sus tablets: bebida favorita, dieta, conexión ajustada. El entretenimiento se personaliza y el servicio se siente hecho a medida.',
+          back: ['Asistente de tripulación: sugerencias en tiempo real desde la tablet.','Monitoreo de vuelo: predice demanda de servicio y turbulencias.','Copiloto de conexiones: prepara rebooking automático si hay riesgo de retraso.','Monetización dinámica: ofrece upgrades y servicios premium según contexto.'],
+          value: 'NPS en vuelo +20%. Ancillary revenue en cabina +30%. Retención +25%.' },
+        { id:'postvuelo', label:'Post-vuelo & Retención', short:'Post-vuelo', phase:'Aterrizaje',
+          exp: 'A los 5 minutos de desembarcar, el pasajero recibe feedback conversacional. Si algo salió mal, el agente ofrece una solución al instante. Semanas después, recibe una recomendación de su próximo viaje.',
+          back: ['Feedback agéntico: captura NPS y sentiment automáticamente, sin formularios.','Agente de recuperación: ofrece compensación automática ante experiencias negativas.','Motor de recomendación de viajes: predice el próximo viaje según patrón e historial.','Retención automatizada: reactiva clientes inactivos con ofertas personalizadas.'],
+          value: 'NPS global +30. Churn -35%. Repeat booking +40%. CLV +50%.' },
+      ];
+
+      /* Coordenadas (% del viewBox 1200x260) de cada etapa sobre el perfil de vuelo */
+      const journeyPos = [
+        { x: 5.0,  y: 82.7 },
+        { x: 23.0, y: 75.0 },
+        { x: 41.0, y: 65.4 },
+        { x: 59.0, y: 34.6 },
+        { x: 77.0, y: 15.4 },
+        { x: 95.0, y: 73.1 },
+      ];
+      /* Rotación del avión (grados) por etapa: nivelado en tierra, ascenso, crucero, descenso */
+      const journeyRotation = [90, 88, 78, 42, 92, 128];
+
+      const helps = [
+        { name:'Agente conversacional de venta y atención',
+          desc:'Un agente en web, app y WhatsApp que cotiza, reserva, cambia, hace check-in y vende ancillaries, con escalamiento fluido a un humano.',
+          why:'Orquestación de agentes + integración con PSS: nuestro foco natural.' },
+        { name:'Copiloto de pricing y ancillaries dinámico',
+          desc:'Motor de recomendación de precios y bundles con aprobación humana, integrado a inventario y revenue management.',
+          why:'Modelos de pricing + gobernanza de decisiones: expertise directa de Artefact.' },
+        { name:'Plataforma de datos de cliente (CDP) + Next Best Offer',
+          desc:'Unifica PNR, lealtad, comportamiento web y compras pasadas en un golden record para personalizar cada oferta.',
+          why:'Ingeniería de datos y unificación de fuentes: uno de nuestros pilares.' },
+        { name:'Agente B2B para agencias y contact center',
+          desc:'Automatiza consultas de PNR, condiciones tarifarias, cambios involuntarios y servicios especiales para el canal indirecto.',
+          why:'Integración de reglas de negocio complejas en un agente auditable.' },
+        { name:'Agente de comunicación proactiva en disrupciones',
+          desc:'Monitorea OCC/DCS, detecta el impacto en pasajeros y activa soluciones automáticas antes de que se genere el reclamo.',
+          why:'Conectamos sistemas operativos y de cliente en un solo flujo de decisión.' },
+        { name:'Copiloto de mantenimiento y documentación técnica',
+          desc:'Acceso conversacional a manuales y bitácoras técnicas para acelerar el diagnóstico y reducir tiempo en tierra.',
+          why:'Mayor complejidad regulatoria: lo abordamos con un piloto acotado y gobernado.' },
+      ];
+
+      const helpsFoundation = [
+        { name:'Context Spine Ontológico',
+          desc:'Ontología, capa semántica y grafo de contexto que conectan productos de datos, métricas y reglas ya existentes — sin reemplazar el Data Mesh, para que personas y agentes hablen el mismo idioma.',
+          why:'Es la fundación que hace confiables a los agentes: sin ella, cada agente reconstruye el contexto desde cero.' },
+        { name:'Auditoría Agéntica de BI',
+          desc:'Agentes vía MCP que barren el inventario de tableros, detectan duplicidad de lógicas (Power BI, Looker) y consolidan una Single Source of Truth.',
+          why:'Reduce el ecosistema analítico a una fracción, liberando presupuesto y horas de ingeniería hacia IA.' },
+        { name:'PoV Agentic Data Ops',
+          desc:'Piloto acotado de 10 a 14 semanas sobre 2 a 5 pipelines: documentación automatizada, linaje, análisis de impacto y validaciones de CI/CD con autonomía limitada y gobernada.',
+          why:'Escalamos solo cuando la evidencia confirma mejoras medibles en tiempo, precisión y control.' },
+        { name:'Auditoría Agéntica de ML Ops',
+          desc:'Mapeo y refactorización de repositorios de machine learning: elimina deuda técnica, centraliza el feature engineering y deja el código trazable para MLOps.',
+          why:'Menos modelos "caja negra", más reutilización y menor riesgo regulatorio.' },
+      ];
+
+      /* ---------------- RENDER: CADENA DE VALOR (flashcards) ---------------- */
+      const chainRail = document.getElementById('chainRail');
+
+      domains.forEach((d, i) => {
+        const tile = document.createElement('div');
+        tile.className = 'chain-tile';
+        tile.tabIndex = 0;
+        tile.setAttribute('role', 'button');
+        tile.setAttribute('aria-label', `Voltear tarjeta ${d.name}`);
+        tile.innerHTML = `
+          <div class="tile-inner">
+            <div class="tile-face tile-front">
+              <img src="images/${d.img}" alt="">
+              <div class="tile-front-tint"></div>
+              <div class="chain-rank">${i+1}</div>
+              <div class="chain-score">${d.score.toFixed(1)}<small>score</small></div>
+              <div class="tile-front-name">${d.name}</div>
+              <div class="tile-flip-hint">Toca para comparar ↻</div>
+            </div>
+            <div class="tile-face tile-back">
+              <div>
+                <div class="tile-back-rank">#${i+1}</div>
+                <div class="tile-back-title">${d.name}</div>
+                <p class="tile-back-read">${d.read}</p>
+              </div>
+              <div class="tile-back-scores">
+                <div class="spotlight-score-card"><div class="num">${d.maturity.toFixed(1)}</div><div class="lbl">Madurez</div></div>
+                <div class="spotlight-score-card"><div class="num">${d.viability.toFixed(1)}</div><div class="lbl">Viabilidad</div></div>
+                <div class="spotlight-score-card"><div class="num">${d.impact.toFixed(1)}</div><div class="lbl">Impacto</div></div>
+              </div>
+            </div>
+          </div>`;
+        const flip = () => tile.classList.toggle('flipped');
+        tile.addEventListener('click', flip);
+        tile.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+        chainRail.appendChild(tile);
+      });
+
+      /* ---------------- RENDER: CADENA DE VALOR (ranking, escalera invertida) ---------------- */
+      const chainRankingEl = document.getElementById('chainRanking');
+      const rankedDomains = [...domains].sort((a, b) => b.score - a.score);
+
+      rankedDomains.forEach((d, i) => {
+        const row = document.createElement('div');
+        row.className = 'rank-row';
+        row.style.marginLeft = (i * 26) + 'px';
+        row.style.width = `calc(100% - ${i * 26}px)`;
+        row.innerHTML = `
+          <div class="rank-row-left">
+            <span class="rank-row-num">#${i + 1}</span>
+            <div>
+              <div class="rank-row-name">${d.name}</div>
+              <p class="rank-row-desc">${d.read}</p>
+            </div>
+          </div>
+          <div class="rank-row-score">
+            <div class="num">${d.score.toFixed(1)}</div>
+            <div class="lbl">Score</div>
+          </div>`;
+        chainRankingEl.appendChild(row);
+      });
+
+      root.querySelectorAll('.chain-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          root.querySelectorAll('.chain-toggle-btn').forEach(b => {
+            b.classList.toggle('active', b === btn);
+            b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+          });
+          const view = btn.dataset.view;
+          chainRail.style.display = view === 'cards' ? 'grid' : 'none';
+          chainRankingEl.style.display = view === 'ranking' ? 'flex' : 'none';
+        });
+      });
+
+      /* ---------------- RENDER: ÁREAS + PROCESOS ---------------- */
+      const areaBlocksEl = document.getElementById('areaBlocks');
+      const areaTabNavEl = document.getElementById('areaTabNav');
+
+      areas.forEach((area, ai) => {
+        const tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = 'area-tab' + (ai === 0 ? ' active' : '');
+        tab.dataset.index = ai;
+        tab.innerHTML = `<span class="area-tab-num">${String(ai+1).padStart(2,'0')}</span><span class="area-tab-name">${area.title}</span>`;
+        tab.addEventListener('click', () => setArea(ai));
+        areaTabNavEl.appendChild(tab);
+
+        const block = document.createElement('div');
+        block.className = 'area-block' + (ai === 0 ? ' active' : '');
+        block.dataset.index = ai;
+        const processesHtml = area.processes.map(p => `
+          <div class="process-card">
+            <div class="process-card-head">
+              <div>
+                <div class="process-tag">Evolución de producto</div>
+                <h4>${p.name}</h4>
+                <p class="teaser">${p.teaser}</p>
+              </div>
+              <div class="process-toggle-ico">+</div>
+            </div>
+            <div class="process-detail">
+              <div class="evo-path">
+                ${p.stages.map((s,i) => `
+                  <div class="evo-stage ${i===0?'as-is':(i===p.stages.length-1?'to-be':'t'+i)}">
+                    <span class="evo-label">${s.l}</span>
+                    <div class="evo-title">${s.t}</div>
+                    <div class="evo-copy">${s.c}</div>
+                  </div>`).join('')}
+              </div>
+              <div class="process-meta">
+                <div class="process-meta-box"><h5>Problema inicial</h5><p>${p.problem}</p></div>
+                <div class="process-meta-box"><h5>Éxito medible</h5><p>${p.value}</p></div>
+              </div>
+            </div>
+          </div>`).join('');
+
+        block.innerHTML = `
+          <div class="area-head">
+            <img src="images/${area.img}" alt="${area.title}">
+            <div class="area-head-body">
+              <span class="area-tag">${area.tag}</span>
+              <h3>${area.title}</h3>
+              <p>${area.desc}</p>
+            </div>
+          </div>
+          <div class="process-grid">${processesHtml}</div>`;
+        areaBlocksEl.appendChild(block);
+      });
+
+      function setArea(i) {
+        root.querySelectorAll('.area-tab').forEach(t => t.classList.toggle('active', Number(t.dataset.index) === i));
+        root.querySelectorAll('.area-block').forEach(b => b.classList.toggle('active', Number(b.dataset.index) === i));
+      }
+
+      root.querySelectorAll('.process-card').forEach(card => {
+        card.querySelector('.process-card-head').addEventListener('click', () => {
+          card.classList.toggle('open');
+        });
+      });
+
+      /* ---------------- RENDER: VISIÓN AGÉNTICA ---------------- */
+      const flightNodes = document.getElementById('flightNodes');
+      const visionPanels = document.getElementById('visionPanels');
+      const flightPlane = document.getElementById('flightPlane');
+      const flightProgressPath = document.getElementById('flightProgressPath');
+      const flightStageBadge = document.getElementById('flightStageBadge');
+
+      journey.forEach((stage, i) => {
+        const pos = journeyPos[i];
+        const node = document.createElement('button');
+        node.type = 'button';
+        node.className = 'flight-node' + (i === 0 ? ' active' : '');
+        node.dataset.index = i;
+        node.style.left = pos.x + '%';
+        node.style.top = pos.y + '%';
+        node.innerHTML = `<span class="dot">${i+1}</span><span class="lbl">${stage.short}</span>`;
+        node.addEventListener('click', () => setStage(i));
+        flightNodes.appendChild(node);
+
+        const panel = document.createElement('div');
+        panel.className = 'vision-panel' + (i === 0 ? ' active' : '');
+        panel.dataset.index = i;
+        panel.innerHTML = `
+          <div class="vp-card">
+            <div class="vp-head"><div class="vp-ico">01</div><h4>Experiencia del pasajero</h4></div>
+            <p>${stage.exp}</p>
+          </div>
+          <div class="vp-card">
+            <div class="vp-head"><div class="vp-ico">02</div><h4>Cadena de valor agéntica</h4></div>
+            <ul>${stage.back.map(b => `<li>${b}</li>`).join('')}</ul>
+            <div class="vp-value"><strong>Impacto de valor</strong>${stage.value}</div>
+          </div>`;
+        visionPanels.appendChild(panel);
+      });
+
+      function positionPlane(i) {
+        const pos = journeyPos[i];
+        flightPlane.style.left = pos.x + '%';
+        flightPlane.style.top = pos.y + '%';
+        flightPlane.style.transform = `translate(-50%,-50%) rotate(${journeyRotation[i]}deg)`;
+        const pct = journey.length === 1 ? 100 : (i / (journey.length - 1)) * 100;
+        flightProgressPath.style.strokeDashoffset = String(100 - pct);
+      }
+
+      function renderBadge(i) {
+        const stage = journey[i];
+        flightStageBadge.innerHTML = `
+          <span class="flight-stage-count">${String(i+1).padStart(2,'0')}<b> / ${String(journey.length).padStart(2,'0')}</b></span>
+          <span class="flight-stage-name">${stage.label}</span>
+          <span class="flight-stage-phase">${stage.phase}</span>`;
+      }
+
+      function setStage(i) {
+        root.querySelectorAll('.flight-node').forEach(n => n.classList.toggle('active', Number(n.dataset.index) === i));
+        root.querySelectorAll('.vision-panel').forEach(p => p.classList.toggle('active', Number(p.dataset.index) === i));
+        positionPlane(i);
+        renderBadge(i);
+      }
+      positionPlane(0);
+      renderBadge(0);
+
+      /* ---------------- RENDER: CÓMO AYUDAMOS (toggle Aplicaciones / Foundation) ---------------- */
+      const helpGrid = document.getElementById('helpGrid');
+      const helpSets = { apps: helps, foundation: helpsFoundation };
+
+      function renderHelps(setName) {
+        helpGrid.innerHTML = '';
+        helpSets[setName].forEach((h, i) => {
+          const card = document.createElement('div');
+          card.className = 'help-card';
+          card.innerHTML = `
+            <div class="help-ico">${String(i + 1).padStart(2, '0')}</div>
+            <h4>${h.name}</h4>
+            <p class="help-desc">${h.desc}</p>
+            <div class="help-artefact"><strong>Por qué Artefact:</strong> ${h.why}</div>`;
+          helpGrid.appendChild(card);
+        });
+      }
+      renderHelps('apps');
+
+      root.querySelectorAll('.help-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          root.querySelectorAll('.help-toggle-btn').forEach(b => {
+            b.classList.toggle('active', b === btn);
+            b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+          });
+          renderHelps(btn.dataset.set);
+        });
+      });
+
+      /* ---------------- MODAL VISIÓN ---------------- */
+      const visionModalOverlay = document.getElementById('visionModalOverlay');
+      const visionModalBtn = document.getElementById('visionModalBtn');
+      const visionModalClose = document.getElementById('visionModalClose');
+
+      function openVisionModal() {
+        visionModalOverlay.classList.add('open');
+        document.body.classList.add('modal-open');
+      }
+      function closeVisionModal() {
+        visionModalOverlay.classList.remove('open');
+        document.body.classList.remove('modal-open');
+      }
+      visionModalBtn.addEventListener('click', openVisionModal);
+      visionModalClose.addEventListener('click', closeVisionModal);
+      visionModalOverlay.addEventListener('click', (e) => { if (e.target === visionModalOverlay) closeVisionModal(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVisionModal(); });
+
+      /* ---------------- REVEAL ON SCROLL ---------------- */
+      const revealEls = root.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => obs.observe(el));
+      } else {
+        revealEls.forEach(el => el.classList.add('in'));
+      }
+
+      /* ---------------- NAVEGACIÓN A LA SECCIÓN ---------------- */
+      const HEADER_OFFSET = 86;
+      function smoothScrollTo(el) {
+        if (!el) return;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+
+      const agenticBtn = document.getElementById('navAgenticBtn');
+      if (agenticBtn) {
+        agenticBtn.addEventListener('click', () => smoothScrollTo(root));
+      }
+
+      const scrollCue = root.querySelector('.scroll-cue');
+      if (scrollCue) {
+        scrollCue.addEventListener('click', (e) => {
+          e.preventDefault();
+          smoothScrollTo(document.getElementById('cadena'));
+        });
+      }
     })();
   </script>
 </body>
