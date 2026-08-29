@@ -1020,7 +1020,8 @@
       overflow: hidden;
     }
 
-    .stage-media img {
+    .stage-media img,
+    .stage-media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -2301,7 +2302,7 @@
       .hero {
         background-image:
           linear-gradient(92deg, rgba(6, 18, 37, 0.9) 6%, rgba(6, 18, 37, 0.5) 34%, rgba(6, 18, 37, 0.2) 62%, rgba(6, 18, 37, 0.4) 100%),
-          url("images/portada.png");
+          url("images/portada.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -2846,7 +2847,7 @@
       position: absolute; inset: 0; z-index: 0;
       background-image:
         linear-gradient(115deg, rgba(6,18,37,0.97) 4%, rgba(8,19,43,0.9) 34%, rgba(31,39,85,0.72) 62%, rgba(89,28,91,0.55) 100%),
-        url('images/hero-airline-ai.png');
+        url('images/hero-airline-ai.jpg');
       background-size: cover; background-position: center;
       animation: agWaveGradient 16s ease-in-out infinite;
     }
@@ -3329,7 +3330,7 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <video class="hero-video" autoplay loop muted playsinline preload="auto" poster="images/portada.png" aria-hidden="true">
+      <video class="hero-video" autoplay loop muted playsinline preload="auto" poster="images/portada.jpg" aria-hidden="true">
         <source src="videos/portada_2.mp4" type="video/mp4">
       </video>
       <div class="hero-grid-overlay" aria-hidden="true"></div>
@@ -3710,28 +3711,28 @@
         </div>
         <div class="capabilities">
           <article class="capability" style="min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <img class="capability-bg" src="images/1-pureplayerdataandIA.png" alt="">
+            <img class="capability-bg" src="images/1-pureplayerdataandIA.jpg" alt="">
             <div class="capability-overlay"></div>
             <span>01</span>
             <h3>Pure player Data & IA</h3>
             <p>Especialización profunda frente a consultoras generalistas, desde visión estratégica hasta modelos y productos de datos operativos.</p>
           </article>
           <article class="capability" style="min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <img class="capability-bg" src="images/2-end-to-endreal.png" alt="">
+            <img class="capability-bg" src="images/2-end-to-endreal.jpg" alt="">
             <div class="capability-overlay"></div>
             <span>02</span>
             <h3>End-to-end real</h3>
             <p>Blueprint, arquitectura, ingeniería, MLOps, adopción y gobierno conectados desde el inicio para evitar pilotos aislados.</p>
           </article>
           <article class="capability" style="min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <img class="capability-bg" src="images/3-cloudagnostic.png" alt="">
+            <img class="capability-bg" src="images/3-cloudagnostic.jpg" alt="">
             <div class="capability-overlay"></div>
             <span>03</span>
             <h3>Cloud agnostic</h3>
             <p>Diseño en la nube del cliente, con DataOps, IaC, seguridad por diseño y contratos de datos para escalar con control.</p>
           </article>
           <article class="capability" style="min-height:380px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <img class="capability-bg" src="images/4-experienciat3.png" alt="">
+            <img class="capability-bg" src="images/4-experienciat3.jpg" alt="">
             <div class="capability-overlay"></div>
             <span>04</span>
             <h3>Experiencia T3</h3>
@@ -3915,7 +3916,8 @@
         title: "Network & Fleet Planning",
         definition: "Mejora decisiones de rutas, frecuencias, horarios y gauge con lectura integrada de demanda, rentabilidad y fragilidad operativa.",
         pains: ["Decisiones de red lentas", "Capacidad mal asignada", "Propagación de demoras"],
-        image: "gifs/cdv1.gif",
+        image: "images/loops/cdv1.jpg",
+        video: "videos/loops/cdv1.mp4",
         cases: [
           {
             name: "Route Insights & Demand Sensing",
@@ -3937,7 +3939,8 @@
         title: "Pricing & Revenue Management",
         definition: "Mejora decisiones de forecast, pricing e ingresos complementarios para capturar valor por asiento y contexto comercial.",
         pains: ["Forecast rígido", "Pricing poco contextual", "Ancillaries submonetizados"],
-        image: "gifs/cdv2.gif",
+        image: "images/loops/cdv2.jpg",
+        video: "videos/loops/cdv2.mp4",
         cases: [
           {
             badge: "Predictive ML & Automation",
@@ -3974,7 +3977,8 @@
         title: "Sales & Distribution",
         definition: "Mejora decisiones de mix de canales, agencias y POS para crecer sin sacrificar margen comercial.",
         pains: ["Costo de distribución opaco", "Canales sin rentabilidad clara", "Fugas de margen"],
-        image: "gifs/cdv3.gif",
+        image: "images/loops/cdv3.jpg",
+        video: "videos/loops/cdv3.mp4",
         cases: [
           {
             badge: "Financial Analytics & Lakehouse",
@@ -4011,7 +4015,8 @@
         type: "Cadena de valor",
         definition: "Mejora decisiones de recuperación operativa y priorización de demoras con visión económica total de la red.",
         pains: ["OCC en silos", "Recuperación reactiva", "Costo total invisible"],
-        image: "gifs/cdv4.gif",
+        image: "images/loops/cdv4.jpg",
+        video: "videos/loops/cdv4.mp4",
         cases: [
           {
             badge: "Mixed-Integer Optimization & ML",
@@ -4048,7 +4053,8 @@
         type: "Cadena de valor",
         definition: "Mejora decisiones de staffing, capacidad belly y atención en crisis para proteger puntualidad y experiencia.",
         pains: ["Staffing reactivo", "Capacidad belly incierta", "IRROPS saturan atención"],
-        image: "gifs/cdv5.gif",
+        image: "images/loops/cdv5.jpg",
+        video: "videos/loops/cdv5.mp4",
         cases: [
           {
             name: "Airport Flow Forecasting",
@@ -4076,7 +4082,8 @@
         type: "Backoffice",
         definition: "Mejora decisiones preventivas sobre disponibilidad, legalidad y readiness de tripulación antes de la contingencia.",
         pains: ["Problemas visibles tarde", "Overtime costoso", "Riesgo de compliance"],
-        image: "gifs/bo1.gif",
+        image: "images/loops/bo1.jpg",
+        video: "videos/loops/bo1.mp4",
         cases: [
           {
             name: "Crew Analytics & Recovery Readiness Cockpit",
@@ -4092,7 +4099,8 @@
         type: "Backoffice",
         definition: "Mejora decisiones de intervención, inventario y abastecimiento técnico para reducir AOG y capital inmovilizado.",
         pains: ["Fallas no planificadas", "Inventario defensivo", "Visibilidad limitada de repuestos"],
-        image: "gifs/bo2.gif",
+        image: "images/loops/bo2.jpg",
+        video: "videos/loops/bo2.mp4",
         cases: [
           {
             name: "Predictive MRO & AOG Prevention",
@@ -4114,7 +4122,8 @@
         type: "Backoffice",
         definition: "Mejora decisiones de cierre, conciliación y performance management para dirigir con una sola historia financiera.",
         pains: ["Cierres lentos", "Revenue accounting manual", "KPIs en silos"],
-        image: "gifs/bo3.gif",
+        image: "images/loops/bo3.jpg",
+        video: "videos/loops/bo3.mp4",
         cases: [
           {
             name: "Revenue Accounting Exception Automation",
@@ -4429,7 +4438,7 @@
           </div>`;
       stageSpotlight.innerHTML = `
         <div class="stage-media">
-          <img src="${stage.image}" alt="Imagen temporal para ${stage.title}">
+          <video src="${stage.video}" poster="${stage.image}" autoplay loop muted playsinline preload="metadata" aria-label="${stage.title}"></video>
         </div>
         <div class="stage-content">
           <div class="stage-kicker">
@@ -5065,12 +5074,12 @@
 
       const domains = [
         { id:'network', name:'Network & Fleet Planning', img:'value-network.jpg', score:2.9, maturity:3.1, viability:2.6, impact:3.0, tier:'low', read:'Alto valor estratégico, pero alta dependencia de simulación y sistemas legados.' },
-        { id:'crew', name:'Crew Planning', img:'value-crew.png', score:3.4, maturity:3.7, viability:3.3, impact:3.2, tier:'medium', read:'Beneficio claro, pero restricciones legales y calidad de datos lo vuelven complejo.' },
-        { id:'pricing', name:'Pricing & Revenue Management', img:'value-pricing.png', score:4.3, maturity:4.5, viability:4.1, impact:4.2, tier:'high', read:'Mejor equilibrio entre datos, monetización y gobernanza.' },
-        { id:'distribution', name:'Sales & Distribution', img:'value-distribution.png', score:4.3, maturity:4.4, viability:4.3, impact:4.3, tier:'high', read:'Canal directo y conversaciones transaccionales: la vía más rápida a ingresos.' },
+        { id:'crew', name:'Crew Planning', img:'value-crew.jpg', score:3.4, maturity:3.7, viability:3.3, impact:3.2, tier:'medium', read:'Beneficio claro, pero restricciones legales y calidad de datos lo vuelven complejo.' },
+        { id:'pricing', name:'Pricing & Revenue Management', img:'value-pricing.jpg', score:4.3, maturity:4.5, viability:4.1, impact:4.2, tier:'high', read:'Mejor equilibrio entre datos, monetización y gobernanza.' },
+        { id:'distribution', name:'Sales & Distribution', img:'value-distribution.jpg', score:4.3, maturity:4.4, viability:4.3, impact:4.3, tier:'high', read:'Canal directo y conversaciones transaccionales: la vía más rápida a ingresos.' },
         { id:'ground', name:'Ground Operations & CX', img:'value-ground.jpg', score:3.9, maturity:4.0, viability:4.0, impact:3.8, tier:'medium', read:'Terreno fértil para asistentes y automatización de disrupciones en tiempo real.' },
         { id:'occ', name:'Flight Ops & OCC', img:'value-occ.jpg', score:3.6, maturity:3.9, viability:3.4, impact:3.5, tier:'medium', read:'Casos sólidos ya en producción con sensibilidad operativa alta.' },
-        { id:'mro', name:'MRO & Engineering', img:'value-mro.png', score:3.7, maturity:3.9, viability:3.5, impact:3.6, tier:'medium', read:'Despliegues reales y medibles en mantenimiento predictivo.' },
+        { id:'mro', name:'MRO & Engineering', img:'value-mro.jpg', score:3.7, maturity:3.9, viability:3.5, impact:3.6, tier:'medium', read:'Despliegues reales y medibles en mantenimiento predictivo.' },
         { id:'finance', name:'Finance & Support', img:'value-finance.jpg', score:3.6, maturity:3.5, viability:4.0, impact:3.4, tier:'medium', read:'Fácil de iniciar con copilotos internos.' },
       ];
 
@@ -5079,7 +5088,7 @@
           tag: 'Foco #1 · Pricing & Revenue Management',
           title: 'Pricing & Revenue Management',
           desc: 'El copiloto de precios y ancillaries con mejor equilibrio entre monetización y gobernanza.',
-          img: 'commercial-ai.png',
+          img: 'commercial-ai.jpg',
           processes: [
             {
               name: 'Dynamic Pricing de Ancillaries',
@@ -5099,7 +5108,7 @@
           tag: 'Foco #2 · Sales & Distribution',
           title: 'Sales & Distribution',
           desc: 'Conversaciones transaccionales en el canal directo.',
-          img: 'value-distribution.png',
+          img: 'value-distribution.jpg',
           processes: [
             {
               name: 'Customer Service en Canales Digitales',
