@@ -4180,13 +4180,15 @@
       const backofficeStages = valueStages.filter((stage) => stage.type === "Backoffice");
       routeMap.innerHTML = `
         <div>
+          <p class="route-strip-title">Áreas clave del negocio</p>
           <div class="route-grid-main">
             ${mainStages.map((stage, index) => renderStageCard(stage, index)).join("")}
           </div>
         </div>
         <div>
+          <p class="route-strip-title">Capacidades transversales</p>
           <div class="route-grid-backoffice">
-            ${backofficeStages.map((stage, index) => renderStageCard(stage, mainStages.length + index, true)).join("")}
+            ${backofficeStages.map((stage, index) => renderStageCard(stage, index, true)).join("")}
           </div>
         </div>
       `;
