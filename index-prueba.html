@@ -294,6 +294,121 @@
     .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(255, 0, 102, 0.4); }
     .hero-cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
 
+    /* ===== Glosario de siglas de aviación (para perfiles no técnicos) ===== */
+    .glosario {
+      margin-top: 44px;
+      padding: 26px;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .glosario-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+    .glosario-title::before {
+      content: "📖";
+      font-size: 18px;
+    }
+    .glosario-lead {
+      margin: 0 0 18px;
+      font-size: 14px;
+      color: rgba(15, 23, 42, 0.62);
+    }
+    .glosario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .glosario-item {
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--soft);
+      border-left: 3px solid var(--magenta);
+    }
+    .glosario-item dt {
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+    .glosario-item dd {
+      margin: 4px 0 0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(15, 23, 42, 0.7);
+    }
+    /* Tooltip inline reutilizable para siglas dentro del texto */
+    .gloss {
+      position: relative;
+      border-bottom: 1px dotted currentColor;
+      cursor: help;
+      font-weight: 700;
+    }
+    .gloss::after {
+      content: attr(data-tip);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 8px);
+      transform: translateX(-50%) translateY(4px);
+      width: max-content;
+      max-width: 260px;
+      padding: 8px 11px;
+      border-radius: 8px;
+      background: var(--navy-950);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-align: left;
+      white-space: normal;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 40;
+    }
+    .gloss:hover::after,
+    .gloss:focus-visible::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===== Consistencia UI: interactivo vs. dato estático =====
+       Todo elemento accionable comparte cursor, foco visible y afordancia;
+       los bloques de datos se mantienen como superficies estáticas. */
+    button,
+    [role="button"],
+    [role="tab"],
+    a.hero-cta,
+    .route-node,
+    .chain-tile,
+    .cred-toggle,
+    .cred-tab {
+      cursor: pointer;
+    }
+    button:focus-visible,
+    [role="button"]:focus-visible,
+    [role="tab"]:focus-visible,
+    .route-node:focus-visible,
+    .chain-tile:focus-visible,
+    .cred-tab:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px;
+    }
+    /* Superficies de datos: sin cursor de acción ni comportamiento clicable */
+    .thesis-card,
+    .glosario-item,
+    .spotlight-score-card,
+    .hero-metric,
+    .cred-item,
+    .route-copy-badges span {
+      cursor: default;
+    }
+
     .hero-image-card {
       position: absolute;
       right: 0;
@@ -3505,6 +3620,29 @@
           <div class="value-layout">
             <article class="stage-spotlight" id="stage-spotlight" aria-live="polite"></article>
           </div>
+
+          <div class="glosario" aria-labelledby="glosario-title">
+            <p class="glosario-title" id="glosario-title">Glosario de siglas de aviación</p>
+            <p class="glosario-lead">Referencia rápida de los términos técnicos usados en esta página, pensada para perfiles no operativos.</p>
+            <dl class="glosario-grid">
+              <div class="glosario-item">
+                <dt>OCC — Operations Control Center</dt>
+                <dd>Centro de control de operaciones: coordina en tiempo real vuelos, tripulación y recuperación ante disrupciones.</dd>
+              </div>
+              <div class="glosario-item">
+                <dt>OTP — On-Time Performance</dt>
+                <dd>Puntualidad: porcentaje de vuelos que salen o llegan dentro del margen horario previsto.</dd>
+              </div>
+              <div class="glosario-item">
+                <dt>MRO — Maintenance, Repair &amp; Overhaul</dt>
+                <dd>Mantenimiento, reparación y revisión de aeronaves y componentes para asegurar disponibilidad técnica.</dd>
+              </div>
+              <div class="glosario-item">
+                <dt>Belly Capacity</dt>
+                <dd>Capacidad de carga en la bodega inferior del avión de pasajeros, aprovechable para transportar mercancías.</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
     </section>
@@ -4728,6 +4866,8 @@
         "Capacidad de soporte": "Support capability",
         "5 Áreas clave del negocio": "5 Key business areas",
         "3 Capacidades de Soporte": "3 Support capabilities",
+        "Glosario de siglas de aviación": "Glossary of aviation acronyms",
+        "Referencia rápida de los términos técnicos usados en esta página, pensada para perfiles no operativos.": "Quick reference for the technical terms used on this page, aimed at non-operational profiles.",
         "Tripulación / Crew Planning": "Crew / Crew Planning",
         "Finanzas y Soporte Corporativo": "Finance & Corporate Support",
         "Mejora decisiones de rutas, frecuencias, horarios y gauge con lectura integrada de demanda, rentabilidad y fragilidad operativa.": "Improves decisions on routes, frequencies, schedules and gauge with an integrated read of demand, profitability and operational fragility.",
@@ -4996,9 +5136,9 @@
         "Foco a corto plazo": "Short-term focus",
         "Dónde vemos más valor en el corto plazo": "Where we see the most value in the short term",
         "De las 3 áreas con mejor balance entre datos, monetización y riesgo, elegimos 2 procesos representativos cada una.": "From the 3 areas with the best balance of data, monetization and risk, we picked 2 representative processes for each.",
-        "Foco #1 · Pricing & Revenue Management": "Focus #1 · Pricing & Revenue Management",
-        "Foco #2 · Sales & Distribution": "Focus #2 · Sales & Distribution",
-        "Foco #3 · Ground Operations & CX": "Focus #3 · Ground Operations & CX",
+        "Foco prioritario #1": "Priority focus #1",
+        "Foco prioritario #2": "Priority focus #2",
+        "Foco prioritario #3": "Priority focus #3",
         "El copiloto de precios y ancillaries con mejor equilibrio entre monetización y gobernanza.": "The pricing and ancillaries copilot with the best balance of monetization and governance.",
         "Conversaciones transaccionales en el canal directo.": "Transactional conversations in the direct channel.",
         "Anticipación en momentos críticos del viaje.": "Anticipation at critical moments of the journey.",
@@ -5030,7 +5170,7 @@
         "Cotiza y reserva directo en PSS.": "Quotes and books directly in the PSS.",
         "Omnichannel completo": "Full omnichannel",
         "Memoria unificada web/app/WA.": "Unified memory across web/app/WA.",
-        "Soluciones automáticas antes de que el pasajero reclame.": "Automatic solutions before the passenger complains.",
+        "Service Recovery: soluciones automáticas antes de que el pasajero presente una reclamación.": "Service Recovery: automatic solutions before the passenger files a complaint.",
         "Avalancha de contactos y desinformación durante retrasos.": "A flood of contacts and misinformation during delays.",
         "-50% contactos pico. Costos de disrupción -30%.": "-50% peak contacts. Disruption costs -30%.",
         "Información reactiva": "Reactive information",
@@ -5126,7 +5266,7 @@
         "Automatiza consultas de PNR, condiciones tarifarias, cambios involuntarios y servicios especiales para el canal indirecto.": "Automates PNR queries, fare conditions, involuntary changes and special services for the indirect channel.",
         "Integración de reglas de negocio complejas en un agente auditable.": "Integration of complex business rules into an auditable agent.",
         "Agente de comunicación proactiva en disrupciones": "Proactive communication agent for disruptions",
-        "Monitorea OCC/DCS, detecta el impacto en pasajeros y activa soluciones automáticas antes de que se genere el reclamo.": "Monitors OCC/DCS, detects passenger impact and triggers automatic solutions before a complaint is raised.",
+        "Monitorea OCC/DCS, detecta el impacto en pasajeros y activa soluciones de Service Recovery antes de que se genere la reclamación.": "Monitors OCC/DCS, detects passenger impact and triggers Service Recovery solutions before a complaint is raised.",
         "Conectamos sistemas operativos y de cliente en un solo flujo de decisión.": "We connect operational and customer systems into a single decision flow.",
         "Copiloto de mantenimiento y documentación técnica": "Maintenance and technical documentation copilot",
         "Acceso conversacional a manuales y bitácoras técnicas para acelerar el diagnóstico y reducir tiempo en tierra.": "Conversational access to manuals and technical logs to speed up diagnosis and reduce time on the ground.",
@@ -5251,7 +5391,7 @@
 
       const areas = [
         {
-          tag: 'Foco #1 · Pricing & Revenue Management',
+          tag: 'Foco prioritario #1',
           title: 'Pricing & Revenue Management',
           desc: 'El copiloto de precios y ancillaries con mejor equilibrio entre monetización y gobernanza.',
           img: 'commercial-ai.jpg',
@@ -5271,7 +5411,7 @@
           ]
         },
         {
-          tag: 'Foco #2 · Sales & Distribution',
+          tag: 'Foco prioritario #2',
           title: 'Sales & Distribution',
           desc: 'Conversaciones transaccionales en el canal directo.',
           img: 'value-distribution.jpg',
@@ -5291,14 +5431,14 @@
           ]
         },
         {
-          tag: 'Foco #3 · Ground Operations & CX',
+          tag: 'Foco prioritario #3',
           title: 'Ground Operations & CX',
           desc: 'Anticipación en momentos críticos del viaje.',
           img: 'operations-ai.jpg',
           processes: [
             {
               name: 'Disruption Management (IROPS)',
-              teaser: 'Soluciones automáticas antes de que el pasajero reclame.',
+              teaser: 'Service Recovery: soluciones automáticas antes de que el pasajero presente una reclamación.',
               problem: 'Avalancha de contactos y desinformación durante retrasos.',
               value: '-50% contactos pico. Costos de disrupción -30%.',
               stages: [
@@ -5365,7 +5505,7 @@
           desc:'Automatiza consultas de PNR, condiciones tarifarias, cambios involuntarios y servicios especiales para el canal indirecto.',
           why:'Integración de reglas de negocio complejas en un agente auditable.' },
         { name:'Agente de comunicación proactiva en disrupciones',
-          desc:'Monitorea OCC/DCS, detecta el impacto en pasajeros y activa soluciones automáticas antes de que se genere el reclamo.',
+          desc:'Monitorea OCC/DCS, detecta el impacto en pasajeros y activa soluciones de Service Recovery antes de que se genere la reclamación.',
           why:'Conectamos sistemas operativos y de cliente en un solo flujo de decisión.' },
         { name:'Copiloto de mantenimiento y documentación técnica',
           desc:'Acceso conversacional a manuales y bitácoras técnicas para acelerar el diagnóstico y reducir tiempo en tierra.',
