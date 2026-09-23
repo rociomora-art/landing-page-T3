@@ -215,6 +215,85 @@
       font-weight: 800;
     }
 
+    /* ===== Hero toggle Pasajeros | Cargo (estilo Uber) ===== */
+    .hero-toggle {
+      display: inline-flex;
+      gap: 4px;
+      padding: 5px;
+      margin: 0 0 24px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(6, 18, 37, 0.55);
+      backdrop-filter: blur(6px);
+    }
+    .hero-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .hero-toggle-btn .toggle-ico { font-size: 17px; }
+    .hero-toggle-btn:hover { color: #fff; }
+    .hero-toggle-btn.active {
+      background: var(--magenta);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(255, 0, 102, 0.35);
+    }
+    .hero-toggle-btn:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px;
+    }
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 30px;
+    }
+    .hero-metric { display: flex; flex-direction: column; }
+    .hero-metric .num {
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1;
+      color: #fff;
+    }
+    .hero-metric .lbl {
+      margin-top: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.66);
+      max-width: 190px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+      min-height: 52px;
+      padding: 0 28px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--magenta), #ff5c94);
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(255, 0, 102, 0.4); }
+    .hero-cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
     .hero-image-card {
       position: absolute;
       right: 0;
@@ -3339,15 +3418,34 @@
       <div class="hero-inner">
         <div>
           <p class="eyebrow">Aerolíneas · Data & AI</p>
-          <h1 id="hero-title">Agregar valor con IA en aerolíneas</h1>
-          <p class="hero-copy">La oportunidad no está solo en usar IA, sino en convertir datos comerciales, operacionales y de cliente en mejores decisiones.</p>
-          <div class="hero-pills" aria-label="Pilares de valor">
+
+          <div class="hero-toggle" role="tablist" aria-label="Elige el foco de negocio">
+            <button type="button" class="hero-toggle-btn active" data-hero="pasajeros" role="tab" aria-selected="true" aria-controls="hero-title">
+              <span class="toggle-ico" aria-hidden="true">🧑‍✈️</span> Pasajeros
+            </button>
+            <button type="button" class="hero-toggle-btn" data-hero="cargo" role="tab" aria-selected="false" aria-controls="hero-title">
+              <span class="toggle-ico" aria-hidden="true">📦</span> Cargo
+            </button>
+          </div>
+
+          <h1 id="hero-title">Agregar valor con IA en la experiencia de vuelo</h1>
+          <p class="hero-copy" id="hero-copy">La oportunidad no está solo en usar IA, sino en convertir datos comerciales, operacionales y de cliente en mejores decisiones de ticketing, revenue y experiencia del pasajero.</p>
+
+          <div class="hero-pills" id="hero-pills" aria-label="Pilares de valor" aria-live="polite">
             <span class="pill">Anticipar demanda</span>
             <span class="pill">Optimizar capacidad</span>
             <span class="pill">Proteger el revenue</span>
             <span class="pill">Mejorar la experiencia del pasajero</span>
             <span class="pill">Aumentar la eficiencia operativa</span>
           </div>
+
+          <div class="hero-metrics" id="hero-metrics" aria-live="polite">
+            <div class="hero-metric"><span class="num">+15%</span><span class="lbl">Conversión en canal directo</span></div>
+            <div class="hero-metric"><span class="num">+20%</span><span class="lbl">Valor promedio de ancillaries</span></div>
+            <div class="hero-metric"><span class="num">-80%</span><span class="lbl">Tiempo de compra</span></div>
+          </div>
+
+          <a class="hero-cta" id="hero-cta" href="#casos">Explora casos de pasajeros <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -3389,7 +3487,7 @@
           <div class="route-shell">
             <div class="route-copy">
               <div>
-                <strong>Explora las 5 áreas clave del negocio y 3 capacidades transversales</strong>
+                <strong>Explora las 5 Áreas clave del negocio y 3 Capacidades de Soporte</strong>
               </div>
               <div class="route-copy-meta">
                 <p>Principales pain points y el análisis detallado de casos de uso para cada frente estratégico</p>
@@ -3791,15 +3889,15 @@
         <div class="ag-container">
           <p class="ag-label reveal">Cadena de valor</p>
           <h2 class="ag-title reveal">Dónde vemos más impacto a lo largo de la cadena de valor</h2>
-          <p class="ag-lead reveal">Evaluamos 8 dominios en madurez de datos, viabilidad de despliegue en 6 meses e impacto ajustado por riesgo. Toca cada tarjeta para voltearla o cambiar al ranking.</p>
+          <p class="ag-lead reveal">Evaluamos 8 dominios en madurez de datos, viabilidad de despliegue en 6 meses e impacto ajustado por riesgo. Empieza por la visión macro del ranking y luego explora cada dominio en detalle.</p>
 
           <div class="chain-toggle reveal" role="tablist" aria-label="Vista de cadena de valor">
-            <button type="button" class="chain-toggle-btn active" data-view="cards" role="tab" aria-selected="true"><strong>Flashcards</strong><span>Explorar cada dominio</span></button>
-            <button type="button" class="chain-toggle-btn" data-view="ranking" role="tab" aria-selected="false"><strong>Ranking</strong><span>Comparar los 8</span></button>
+            <button type="button" class="chain-toggle-btn active" data-view="ranking" role="tab" aria-selected="true"><strong>Ranking</strong><span>Comparar los 8</span></button>
+            <button type="button" class="chain-toggle-btn" data-view="cards" role="tab" aria-selected="false"><strong>Flashcards</strong><span>Explorar cada dominio</span></button>
           </div>
 
-          <div class="chain-rail" id="chainRail"></div>
-          <div class="chain-ranking" id="chainRanking" style="display:none;"></div>
+          <div class="chain-ranking" id="chainRanking"></div>
+          <div class="chain-rail" id="chainRail" style="display:none;"></div>
         </div>
       </div>
 
@@ -3823,7 +3921,7 @@
         </div>
         <div class="grain-overlay" aria-hidden="true"></div>
         <div class="ag-container" style="position:relative; z-index:1;">
-          <p class="ag-label reveal">Nuestro punto de vista</p>
+          <p class="ag-label reveal">Fundaciones para escalar</p>
           <h2 class="ag-title reveal" style="color:#fff;">Antes de escalar agentes, hay que construir las fundaciones correctas</h2>
           <p class="ag-lead reveal" style="color:rgba(255,255,255,0.72);">El 80% oculto —dónde vive el conocimiento del negocio y quién lo gobierna— decide si un agente es confiable o un riesgo.</p>
 
@@ -3907,6 +4005,60 @@
     </section>
 
   </main>
+
+  <script>
+    /* ===== Hero interactivo: toggle Pasajeros | Cargo (sin recargar URL) ===== */
+    (function () {
+      const heroContent = {
+        pasajeros: {
+          title: 'Agregar valor con IA en la experiencia de vuelo',
+          copy: 'La oportunidad no está solo en usar IA, sino en convertir datos comerciales, operacionales y de cliente en mejores decisiones de ticketing, revenue y experiencia del pasajero.',
+          pills: ['Anticipar demanda', 'Personalizar la oferta', 'Proteger el revenue', 'Mejorar la experiencia del pasajero', 'Automatizar el ticketing'],
+          metrics: [
+            { num: '+15%', lbl: 'Conversión en canal directo' },
+            { num: '+20%', lbl: 'Valor promedio de ancillaries' },
+            { num: '-80%', lbl: 'Tiempo de compra' }
+          ],
+          cta: 'Explora casos de pasajeros'
+        },
+        cargo: {
+          title: 'Agregar valor con IA en la logística de carga aérea',
+          copy: 'Convierte datos de vuelos, capacidad y demanda en mejores decisiones de carga: expone la belly capacity disponible, optimiza el despacho y protege el margen del transporte de mercancías.',
+          pills: ['Predecir belly capacity', 'Optimizar el despacho', 'Maximizar el yield de carga', 'Reducir capacidad ociosa', 'Planificar cargo con certeza'],
+          metrics: [
+            { num: '+12%', lbl: 'Uso de belly capacity vendible' },
+            { num: '-25%', lbl: 'Capacidad ociosa por vuelo' },
+            { num: '+18%', lbl: 'Yield de carga por ruta' }
+          ],
+          cta: 'Explora casos de cargo'
+        }
+      };
+
+      const btns = document.querySelectorAll('.hero-toggle-btn');
+      const elTitle = document.getElementById('hero-title');
+      const elCopy = document.getElementById('hero-copy');
+      const elPills = document.getElementById('hero-pills');
+      const elMetrics = document.getElementById('hero-metrics');
+      const elCta = document.getElementById('hero-cta');
+
+      function applyHero(mode) {
+        const data = heroContent[mode];
+        if (!data) return;
+        elTitle.textContent = data.title;
+        elCopy.textContent = data.copy;
+        elPills.innerHTML = data.pills.map(p => `<span class="pill">${p}</span>`).join('');
+        elMetrics.innerHTML = data.metrics.map(m => `<div class="hero-metric"><span class="num">${m.num}</span><span class="lbl">${m.lbl}</span></div>`).join('');
+        elCta.firstChild.textContent = data.cta + ' ';
+        btns.forEach(b => {
+          const on = b.dataset.hero === mode;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+
+      btns.forEach(b => b.addEventListener('click', () => applyHero(b.dataset.hero)));
+    })();
+  </script>
 
   <script>
     const valueStages = [
@@ -4142,7 +4294,7 @@
     ];
 
     const state = {
-      stageId: "network"
+      stageId: "distribution"
     };
 
     const routeMap = document.querySelector("#route-map");
@@ -4153,6 +4305,9 @@
     }
 
     function renderStageCard(stage, index, compact = false) {
+      // Numeración independiente por grupo: áreas clave "01–05", capacidades de soporte "S1–S3".
+      const dot = compact ? `S${index + 1}` : String(index + 1).padStart(2, "0");
+      const typeLabel = compact ? "Capacidad de soporte" : "Área clave del negocio";
       return `
         <button
           type="button"
@@ -4163,8 +4318,8 @@
           <img class="route-node-bg" src="${stage.image}" alt="" aria-hidden="true">
           <span class="route-node-content">
             <span class="node-topline">
-              <span class="node-dot">${String(index + 1).padStart(2, "0")}</span>
-              <span class="node-type">${stage.type}</span>
+              <span class="node-dot">${dot}</span>
+              <span class="node-type">${typeLabel}</span>
             </span>
             <span>
               <strong>${stage.title}</strong>
@@ -4175,18 +4330,23 @@
       `;
     }
 
+    // Orden del journey del cliente: Preventa/Reserva -> Salida/Operación Terrestre -> Vuelo/Tracking.
+    const journeyOrder = { distribution: 0, revenue: 1, ground: 2, occ: 3, network: 4 };
+
     function renderRoute() {
-      const mainStages = valueStages.filter((stage) => stage.type === "Cadena de valor");
+      const mainStages = valueStages
+        .filter((stage) => stage.type === "Cadena de valor")
+        .sort((a, b) => (journeyOrder[a.id] ?? 99) - (journeyOrder[b.id] ?? 99));
       const backofficeStages = valueStages.filter((stage) => stage.type === "Backoffice");
       routeMap.innerHTML = `
         <div>
-          <p class="route-strip-title">Áreas clave del negocio</p>
+          <p class="route-strip-title">5 Áreas clave del negocio</p>
           <div class="route-grid-main">
             ${mainStages.map((stage, index) => renderStageCard(stage, index)).join("")}
           </div>
         </div>
         <div>
-          <p class="route-strip-title">Capacidades transversales</p>
+          <p class="route-strip-title">3 Capacidades de Soporte</p>
           <div class="route-grid-backoffice">
             ${backofficeStages.map((stage, index) => renderStageCard(stage, index, true)).join("")}
           </div>
@@ -4555,7 +4715,7 @@
         "Casos de uso": "Use cases",
         "Desbloquea el potencial de la IA en la cadena de valor y back office": "Unlock the potential of AI across the value chain and back office",
         "Descubre metodologías y soluciones para identificar dónde se crea, protege o recupera valor en tu compañía antes de hablar de herramientas aisladas de IA": "Discover methodologies and solutions to identify where value is created, protected or recovered in your company before talking about isolated AI tools",
-        "Explora las 5 áreas clave del negocio y 3 capacidades transversales": "Explore the 5 key business areas and 3 cross-cutting capabilities",
+        "Explora las 5 Áreas clave del negocio y 3 Capacidades de Soporte": "Explore the 5 key business areas and 3 support capabilities",
         "Principales pain points y el análisis detallado de casos de uso para cada frente estratégico": "Main pain points and detailed use-case analysis for each strategic front",
         "Comercial": "Commercial",
         "Operación": "Operations",
@@ -4564,6 +4724,10 @@
         // Mapa de valor: tipos, títulos, definiciones y pains
         "Cadena de valor": "Value chain",
         "Backoffice": "Back office",
+        "Área clave del negocio": "Key business area",
+        "Capacidad de soporte": "Support capability",
+        "5 Áreas clave del negocio": "5 Key business areas",
+        "3 Capacidades de Soporte": "3 Support capabilities",
         "Tripulación / Crew Planning": "Crew / Crew Planning",
         "Finanzas y Soporte Corporativo": "Finance & Corporate Support",
         "Mejora decisiones de rutas, frecuencias, horarios y gauge con lectura integrada de demanda, rentabilidad y fragilidad operativa.": "Improves decisions on routes, frequencies, schedules and gauge with an integrated read of demand, profitability and operational fragility.",
