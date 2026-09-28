@@ -20,6 +20,10 @@
       </nav>
       <div class="nav-actions">
         <a class="nav-agentic-btn" id="navAgenticBtn" href="agentic-airlines.html" aria-label="Ir a la sección Agentes en Aerolíneas">Agentic</a>
+        <div class="mode-pill" aria-label="Modo del sitio" role="group">
+          <span class="active" data-mode-value="pax" role="button" tabindex="0" aria-pressed="true">Pasajeros</span>
+          <span data-mode-value="cargo" role="button" tabindex="0" aria-pressed="false">Carga</span>
+        </div>
         <div class="lang-pill" aria-label="Idioma" role="group">
           <span class="active" data-lang="es" role="button" tabindex="0" aria-pressed="true">ES</span>
           <span data-lang="en" role="button" tabindex="0" aria-pressed="false">EN</span>
@@ -31,37 +35,243 @@
   <main id="top">
     <section id="casos" class="section cases" aria-labelledby="casos-title">
       <div class="container">
-        <p class="section-label">Casos de uso</p>
-        <h2 id="casos-title" class="section-title">Desbloquea el potencial de la IA en la cadena de valor y back office</h2>
-        <p class="lead">Descubre metodologías y soluciones para identificar dónde se crea, protege o recupera valor en tu compañía antes de hablar de herramientas aisladas de IA</p>
 
-        <div class="value-explorer">
-          <div class="route-shell">
-            <div class="route-copy">
-              <div>
-                <strong>Explora las 5 áreas clave del negocio y 3 capacidades transversales</strong>
-              </div>
-              <div class="route-copy-meta">
-                <p>Principales pain points y el análisis detallado de casos de uso para cada frente estratégico</p>
-                <div class="route-copy-badges" aria-hidden="true">
-                  <span>Comercial</span>
-                  <span>Operación</span>
-                  <span>Experiencia</span>
-                  <span>Soporte corporativo</span>
+        <!-- CADENA DE VALOR — PASAJEROS -->
+        <div data-mode-section="pax">
+          <p class="section-label">Casos de uso</p>
+          <h2 id="casos-title" class="section-title">Desbloquea el potencial de la IA en la cadena de valor y back office</h2>
+          <p class="lead">Descubre metodologías y soluciones para identificar dónde se crea, protege o recupera valor en tu compañía antes de hablar de herramientas aisladas de IA</p>
+
+          <div class="value-explorer">
+            <div class="route-shell">
+              <div class="route-copy">
+                <div>
+                  <strong>Explora las 5 áreas clave del negocio y 3 capacidades transversales</strong>
+                </div>
+                <div class="route-copy-meta">
+                  <p>Principales pain points y el análisis detallado de casos de uso para cada frente estratégico</p>
+                  <div class="route-copy-badges" aria-hidden="true">
+                    <span>Comercial</span>
+                    <span>Operación</span>
+                    <span>Experiencia</span>
+                    <span>Soporte corporativo</span>
+                  </div>
                 </div>
               </div>
+              <div class="route-map-ui" id="route-map" aria-label="Cadena de valor interactiva"></div>
             </div>
-            <div class="route-map-ui" id="route-map" aria-label="Cadena de valor interactiva"></div>
-          </div>
 
-          <div class="value-layout">
-            <article class="stage-spotlight" id="stage-spotlight" aria-live="polite"></article>
+            <div class="value-layout">
+              <article class="stage-spotlight" id="stage-spotlight" aria-live="polite"></article>
+            </div>
           </div>
         </div>
+
+        <!-- CADENA DE VALOR — CARGO -->
+        <div data-mode-section="cargo" class="cargo-mode" style="display:none;">
+          <p class="section-label">Casos de uso · Air Cargo</p>
+          <h2 class="section-title" style="color:#fff;">Inteligencia algorítmica para toda la cadena de valor de carga aérea</h2>
+          <p class="lead" style="color:rgba(255,255,255,0.68);">De la cotización spot a la aduana: dónde la IA agéntica ya genera rentabilidad y cumplimiento en bodegas de pasaje y flotas cargueras.</p>
+
+          <!-- VALOR ESTRATÉGICO: 4 pilares -->
+          <div class="cargo-block" id="cargo-pilares">
+            <p class="cargo-eyebrow">Cadena de valor adaptativa</p>
+            <h3 class="cargo-heading">4 frentes estratégicos de la carga aérea</h3>
+            <p class="cargo-sub">Comercial, operaciones, experiencia B2B y cumplimiento regulatorio, evaluados con el mismo criterio de madurez de datos y viabilidad de despliegue que el resto del portafolio.</p>
+            <div class="cargo-pillars">
+              <article class="cargo-pillar-card">
+                <span class="cargo-pillar-num">01</span>
+                <h4>Comercial &amp; Dynamic Revenue Management</h4>
+                <p>Pricing dinámico spot, sobreventa estocástica bivariada (peso/volumen), micro-negociación autónoma e integración con marketplaces (cargo.one, Freightos).</p>
+              </article>
+              <article class="cargo-pillar-card">
+                <span class="cargo-pillar-num">02</span>
+                <h4>Operaciones &amp; Logística de Red</h4>
+                <p>Predicción de <span class="term" tabindex="0">belly capacity<span class="term-tooltip">Espacio físico y peso admisible residual en las bodegas inferiores de aviones comerciales de pasaje disponible para carga comercial y correo.</span></span> remanente, balanceo dinámico de pallets/contenedores <span class="term" tabindex="0">ULD<span class="term-tooltip">Unit Load Device: contenedores o pallets certificados diseñados para acoplarse directamente a las pistas de anclaje de la aeronave.</span></span>, reducción de turnaround y MRO especializado para compuertas y sistemas CLS.</p>
+              </article>
+              <article class="cargo-pillar-card">
+                <span class="cargo-pillar-num">03</span>
+                <h4>Experiencia B2B &amp; Proactive Tracking</h4>
+                <p>Telemetría IoT en contenedores activos/pasivos, protección predictiva de cadena fría (Pharma/Fresh), prevención de demoras y resolución autónoma de consultas WISMC (Where Is My Cargo).</p>
+              </article>
+              <article class="cargo-pillar-card">
+                <span class="cargo-pillar-num">04</span>
+                <h4>Documentación, Aduanas &amp; Cumplimiento</h4>
+                <p>Digitalización de manifiestos, validación de reglas <span class="term" tabindex="0">IATA DGR<span class="term-tooltip">Reglamentaciones estrictas para el embalaje, rotulación y transporte aéreo seguro de sustancias y mercancías peligrosas.</span></span>, transición al estándar <span class="term" tabindex="0">IATA ONE Record<span class="term-tooltip">Estándar moderno de IATA basado en APIs web y grafos de datos enlazados que crea un registro único y compartido para cada envío.</span></span> y mitigación de retenciones fiscales ICS2/ACAS.</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- CASOS DE USO / FLASHCARDS -->
+          <div class="cargo-block" id="cargo-flashcards">
+            <p class="cargo-eyebrow">Casos de uso</p>
+            <h3 class="cargo-heading">8 agentes de IA a lo largo de la cadena de carga</h3>
+            <p class="cargo-sub">Cada agente resuelve un dolor operativo concreto (As-Is) con una solución agéntica medible (To-Be) e impacto cuantificado.</p>
+
+            <div class="cargo-flashcards">
+
+              <article class="cargo-flash-card">
+                <span class="cargo-flash-badge">Comercial</span>
+                <h4>CargoQuote Dynamic Engine</h4>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-pain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                  <div><strong>Dolor (As-Is)</strong><p>Cotizaciones spot manuales vía email demoradas de 4 a 18 horas; pérdida sistemática de solicitudes frente a forwarders que demandan respuesta en tiempo real.</p></div>
+                </div>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                  <div><strong>Solución agéntica (To-Be)</strong><p>Ingesta inteligente multicanal, inferencia semántica del envío, cálculo de bid prices marginales de red y micro-negociación algorítmica en menos de 10 segundos.</p></div>
+                </div>
+                <div class="cargo-flash-kpi">Respuesta &lt; 15 seg · +15% a +22% en conversión de cotizaciones spot · +4.0% a +6.5% en yield de red</div>
+              </article>
+
+              <article class="cargo-flash-card">
+                <span class="cargo-flash-badge">Comercial</span>
+                <h4>Neuro-Overbooking Optimizer</h4>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-pain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                  <div><strong>Dolor (As-Is)</strong><p>Spoilage crónico del 15% al 30% por reservas caídas y cancelaciones de última hora en perecederos; o sobreventa descalibrada que genera costosos offloads en plataforma.</p></div>
+                </div>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                  <div><strong>Solución agéntica (To-Be)</strong><p>Estimación continua del Show-up Score probabilístico (p_k) por forwarder y ruta, ajustando curvas bivariadas de sobreventa de peso y volumen según la función de beneficio esperado.</p></div>
+                </div>
+                <div class="cargo-flash-kpi">Spoilage -30% a -42% · Offloads en rampa -55% · +3.2 a +5.0 p.p. en factor de ocupación de peso</div>
+              </article>
+
+              <article class="cargo-flash-card">
+                <span class="cargo-flash-badge">Operaciones</span>
+                <h4>BellyYield Auto-Disrupter</h4>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-pain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                  <div><strong>Dolor (As-Is)</strong><p>Los despachadores aplican buffers estáticos y conservadores de peso por incertidumbre de pasajeros y combustible, dejando entre 2 y 4 toneladas de carga vendible vacías por vuelo intercontinental.</p></div>
+                </div>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                  <div><strong>Solución agéntica (To-Be)</strong><p>Inferencia bayesiana dinámica a T-72h, T-24h y T-4h sobre equipaje real y reservas de combustible, desbloqueando automáticamente inventario residual premium para paquetería express y e-commerce.</p></div>
+                </div>
+                <div class="cargo-flash-kpi">+1.5 a 3.0 Ton comerciales adicionales por vuelo wide-body · Cancelaciones operativas -70%</div>
+              </article>
+
+              <article class="cargo-flash-card">
+                <span class="cargo-flash-badge">Operaciones</span>
+                <h4>Autonomous ULD Fleet Allocator &amp; 3D Load Planner</h4>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-pain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                  <div><strong>Dolor (As-Is)</strong><p>Desbalances estructurales de ULDs que dejan sin pallets refrigerados a los centros de exportación y saturan los hubs de destino; planificación manual de estiba que transporta "aire".</p></div>
+                </div>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                  <div><strong>Solución agéntica (To-Be)</strong><p>Gemelo digital de la flota de ULDs con optimización combinatoria a 7 y 14 días para reposicionamiento predictivo en vuelos de pasaje, más estiba tridimensional optimizada según el contorno del fuselaje.</p></div>
+                </div>
+                <div class="cargo-flash-kpi">Costes de alquiler/reposicionamiento de ULDs -28% a -36% · Utilización de volumen cúbico +8% a +12%</div>
+              </article>
+
+              <article class="cargo-flash-card">
+                <span class="cargo-flash-badge">Tracking &amp; CX</span>
+                <h4>ColdChain Sentinel &amp; Disruption Handler</h4>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-pain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                  <div><strong>Dolor (As-Is)</strong><p>Supervisión reactiva de la cadena de frío en fármacos y perecederos; las fluctuaciones térmicas en pista o escalas imprevistas se detectan cuando la mercancía ya está dañada.</p></div>
+                </div>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                  <div><strong>Solución agéntica (To-Be)</strong><p>Monitoreo predictivo continuo vía IoT con algoritmos de degradación térmica que proyectan variaciones según clima y demoras de vuelo, activando protocolos en rampa o re-enrutamiento preventivo autónomo.</p></div>
+                </div>
+                <div class="cargo-flash-kpi">Incidencias por pérdida de temperatura -70% · Alertas a forwarders &lt; 3 min · Retención de cuentas Pharma +15 p.p.</div>
+              </article>
+
+              <article class="cargo-flash-card">
+                <span class="cargo-flash-badge">Tracking &amp; CX</span>
+                <h4>CargoCare Cognitive Orchestrator</h4>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-pain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                  <div><strong>Dolor (As-Is)</strong><p>Call centers y escritorios de atención colapsados respondiendo miles de consultas repetitivas de localización (WISMC), estatus aduanal y entrega de POD a los forwarders.</p></div>
+                </div>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                  <div><strong>Solución agéntica (To-Be)</strong><p>Asistente B2B basado en Agentic RAG con ejecución directa de funciones conectado a CMS centrales (iCargo, Cargospot) para resolución autónoma en WhatsApp corporativo, portal web y correo.</p></div>
+                </div>
+                <div class="cargo-flash-kpi">75% a 85% de autoservicio end-to-end · Tiempos de ciclo -40% · Costes de soporte -35% a -45%</div>
+              </article>
+
+              <article class="cargo-flash-card">
+                <span class="cargo-flash-badge">Compliance</span>
+                <h4>DG-Vision Regulatory Validator</h4>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-pain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                  <div><strong>Dolor (As-Is)</strong><p>Verificación manual de declaraciones de mercancías peligrosas (DGD) de 40 a 90 minutos por guía aérea, expuesta a rechazos por inconsistencias y riesgos severos de seguridad en vuelo.</p></div>
+                </div>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                  <div><strong>Solución agéntica (To-Be)</strong><p>Visión artificial y razonamiento ontológico multimodal para cotejar documentos DGD, empaques y rotulado físico contra las tablas IATA DGR y variaciones de operador en tiempo real.</p></div>
+                </div>
+                <div class="cargo-flash-kpi">Verificación &lt; 90 seg · 99.5% de precisión en reglas de segregación química · Cero demoras atribuibles a documentación DGR</div>
+              </article>
+
+              <article class="cargo-flash-card">
+                <span class="cargo-flash-badge">Compliance</span>
+                <h4>ONE Record Semantic Customs Agent</h4>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-pain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                  <div><strong>Dolor (As-Is)</strong><p>Datos fragmentados en mensajes legados Cargo-IMP con descripciones genéricas que causan inconsistencias frente a códigos del Sistema Armonizado (HS) y retenciones aduaneras de 24 a 72 horas.</p></div>
+                </div>
+                <div class="cargo-flash-row">
+                  <svg class="cargo-flash-icon is-solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                  <div><strong>Solución agéntica (To-Be)</strong><p>Agente semántico nativo en el estándar web IATA ONE Record (JSON-LD) que concilia guías MAWB/HAWB con facturas, asigna códigos arancelarios y genera manifiestos anticipados (ICS2/ACAS).</p></div>
+                </div>
+                <div class="cargo-flash-kpi">Dwell time aduanero -40% a -50% · Inconsistencias de manifiestos -95% · Auditorías aduaneras 80% más veloces</div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- BENCHMARKS -->
+          <div class="cargo-block" id="cargo-benchmarks">
+            <p class="cargo-eyebrow">Validación de mercado</p>
+            <h3 class="cargo-heading">Benchmarks globales de referencia</h3>
+            <div class="cargo-benchmarks">
+              <article class="cargo-benchmark-card">
+                <strong>Lufthansa Cargo</strong>
+                <p>Automatización Mail2Booking con Azure OpenAI + UiPath para transformar correos en reservas firmes en minutos, y liderazgo pionero en el intercambio semántico IATA ONE Record.</p>
+              </article>
+              <article class="cargo-benchmark-card">
+                <strong>Qatar Airways Cargo</strong>
+                <p>Plataforma de inteligencia tarifaria con FLYR Labs basada en Deep Learning para modelado dinámico de demanda en red de fuselaje ancho y equilibrio algorítmico entre acuerdos BSA y mercado spot.</p>
+              </article>
+              <article class="cargo-benchmark-card">
+                <strong>Delta Cargo</strong>
+                <p>Modernización del núcleo transaccional en la nube con IBS iCargo y distribución omnicanal vía APIs dinámicas en Freightos WebCargo y cargo.one con modelos de tarifa integral All-In.</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- VISION 2028-2030 -->
+          <div class="cargo-block" id="cargo-vision">
+            <p class="cargo-eyebrow">Visión 2028-2030</p>
+            <h3 class="cargo-heading">The Autonomous Air Cargo Network</h3>
+            <div class="cargo-timeline">
+              <article class="cargo-timeline-step">
+                <span class="cargo-timeline-year">2026</span>
+                <p>Transición masiva al estándar IATA ONE Record y orquestación de agentes copiloto (Human-in-the-Loop) para Revenue Management y DGR.</p>
+              </article>
+              <article class="cargo-timeline-step">
+                <span class="cargo-timeline-year">2028</span>
+                <p>Negociación máquina a máquina (M2M) totalmente autónoma para cotizaciones spot de forwarders y reposicionamiento predictivo de flota de ULDs.</p>
+              </article>
+              <article class="cargo-timeline-step">
+                <span class="cargo-timeline-year">2030</span>
+                <p>Red logística autónoma auto-reparable (Self-Healing Air Cargo Network): despacho de bodegas belly, estiba 3D en rampa y gestión aduanera orquestadas sin fricción humana en terminales inteligentes.</p>
+              </article>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   </main>
 
+  <script src="js/mode.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/casos.js"></script>

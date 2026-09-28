@@ -20,6 +20,10 @@
       </nav>
       <div class="nav-actions">
         <a class="nav-agentic-btn" id="navAgenticBtn" href="agentic-airlines.html" aria-label="Ir a la sección Agentes en Aerolíneas">Agentic</a>
+        <div class="mode-pill" aria-label="Modo del sitio" role="group">
+          <span class="active" data-mode-value="pax" role="button" tabindex="0" aria-pressed="true">Pasajeros</span>
+          <span data-mode-value="cargo" role="button" tabindex="0" aria-pressed="false">Carga</span>
+        </div>
         <div class="lang-pill" aria-label="Idioma" role="group">
           <span class="active" data-lang="es" role="button" tabindex="0" aria-pressed="true">ES</span>
           <span data-lang="en" role="button" tabindex="0" aria-pressed="false">EN</span>
@@ -29,7 +33,8 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
+    <!-- HERO PASAJEROS -->
+    <section class="hero" data-mode-section="pax" aria-labelledby="hero-title">
       <video class="hero-video" autoplay loop muted playsinline preload="auto" poster="images/portada.jpg" aria-hidden="true">
         <source src="videos/portada_2.mp4" type="video/mp4">
       </video>
@@ -52,8 +57,44 @@
         </div>
       </div>
     </section>
+
+    <!-- HERO CARGO -->
+    <section class="hero hero-cargo" data-mode-section="cargo" style="display:none;" aria-labelledby="hero-cargo-title">
+      <div class="hero-inner">
+        <div>
+          <span class="cargo-badge">IA Agéntica &amp; Data Intelligence para Air Cargo</span>
+          <h1 id="hero-cargo-title">Maximice la rentabilidad de cada metro cúbico y kilogramo en bodega con IA Agéntica.</h1>
+          <p class="hero-copy">Inteligencia algorítmica para bodegas de pasajeros (<span class="term" tabindex="0">belly capacity<span class="term-tooltip">Espacio físico y peso admisible residual en las bodegas inferiores de aviones comerciales de pasaje, disponible para carga comercial y correo.</span></span>) y flotas cargueras dedicadas. Optimice el factor de ocupación, automatice cotizaciones spot en milisegundos y acelere el despacho documental sin reemplazar sus sistemas legados.</p>
+
+          <div class="cargo-cta-row">
+            <button type="button" class="cargo-cta-primary">Agendar Diagnóstico Técnico de Carga</button>
+            <a class="cargo-cta-secondary" href="casos.html">Ver Arquitectura de Integración (API/ONE Record)</a>
+          </div>
+
+          <div class="cargo-kpi-strip" aria-label="Métricas clave de Air Cargo">
+            <div class="cargo-kpi">
+              <strong>+4.0% a +6.5%</strong>
+              <span>Yield promedio por tonelada-kilómetro transportada</span>
+            </div>
+            <div class="cargo-kpi">
+              <strong>-30% a -42%</strong>
+              <span>Reducción en capacidad perdida (spoilage) por no-shows y cancelaciones</span>
+            </div>
+            <div class="cargo-kpi">
+              <strong>+1.5 a 3.0 Ton</strong>
+              <span>Toneladas adicionales capturadas por vuelo wide-body en bodegas belly</span>
+            </div>
+            <div class="cargo-kpi">
+              <strong>&lt; 90 seg</strong>
+              <span>Validación regulatoria de declaraciones de mercancías peligrosas (IATA DGR)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <script src="js/mode.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/i18n.js"></script>
 </body>

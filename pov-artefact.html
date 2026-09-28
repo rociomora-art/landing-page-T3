@@ -20,6 +20,10 @@
       </nav>
       <div class="nav-actions">
         <a class="nav-agentic-btn" id="navAgenticBtn" href="agentic-airlines.html" aria-label="Ir a la sección Agentes en Aerolíneas">Agentic</a>
+        <div class="mode-pill" aria-label="Modo del sitio" role="group">
+          <span class="active" data-mode-value="pax" role="button" tabindex="0" aria-pressed="true">Pasajeros</span>
+          <span data-mode-value="cargo" role="button" tabindex="0" aria-pressed="false">Carga</span>
+        </div>
         <div class="lang-pill" aria-label="Idioma" role="group">
           <span class="active" data-lang="es" role="button" tabindex="0" aria-pressed="true">ES</span>
           <span data-lang="en" role="button" tabindex="0" aria-pressed="false">EN</span>
@@ -56,6 +60,7 @@
     </section>
   </main>
 
+  <script src="js/mode.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/i18n.js"></script>
 </body>
