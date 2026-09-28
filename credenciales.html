@@ -35,6 +35,8 @@
   <main id="top">
     <section id="credenciales" class="section credentials" aria-labelledby="credenciales-title">
       <div class="container">
+
+        <div data-mode-section="pax">
         <p class="section-label">Credenciales Artefact</p>
         <h2 id="credenciales-title" class="section-title">Casos de éxito aplicables a la realidad de una aerolínea.</h2>
         <p class="lead">Inspírate con nuestros casos de éxito y descubre qué es posible</p>
@@ -318,6 +320,295 @@
             </div>
 
           </div>
+        </div>
+        </div>
+
+        <!-- CARGA / AIR CARGO -->
+        <div data-mode-section="cargo" class="cred-cargo" style="display:none;">
+          <p class="section-label">Credenciales Artefact · Air Cargo</p>
+          <h2 class="section-title">Casos de éxito aplicables a la realidad de la carga aérea.</h2>
+          <p class="lead">Inspírate con nuestros casos de éxito de air cargo y descubre qué es posible</p>
+
+          <!-- TABS -->
+          <div class="cred-tabs" role="tablist">
+            <button class="cred-tab active" role="tab" aria-selected="true" aria-controls="tab-cadena-cargo" id="btn-cadena-cargo" onclick="switchCargoTab('cadena')">
+              ✈ Cadena de Valor
+            </button>
+            <button class="cred-tab" role="tab" aria-selected="false" aria-controls="tab-backoffice-cargo" id="btn-backoffice-cargo" onclick="switchCargoTab('backoffice')">
+              ⚙ Back Office
+            </button>
+          </div>
+
+          <!-- CADENA DE VALOR CARGO -->
+          <div id="tab-cadena-cargo" class="cred-panel" role="tabpanel">
+            <div class="cred-grid">
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Riyadh Air / Cargo</span>
+                    <span class="cred-area">Trade Lane &amp; Network Planning</span>
+                  </div>
+                  <h3 class="cred-title">Trade Lane &amp; Route Insights Dashboard</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Desbalance estructural entre corredores de exportación de alto rendimiento (headhaul) y retornos subutilizados (backhaul), operando sin visibilidad unificada de rentabilidad neta por par O&amp;D ni desglose entre capacidad belly y cargueros.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Dashboard unificado de inteligencia de red que integra flujos de oferta y demanda global de carga, costes operativos de vuelo y márgenes netos por ruta a nivel de ATK/FTK (Available/Freight Tonne Kilometres).</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Detección de +12% en oportunidades de optimización en itinerarios mixtos y aumento de +4.5% en margen de contribución neta en rutas troncales.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Oman Air</span>
+                    <span class="cred-area">Network &amp; Fleet Operations</span>
+                  </div>
+                  <h3 class="cred-title">Schedule Robustness &amp; Freighter Utilization Analytics</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Tiempos de giro en rampa (turnaround) impredecibles e interferencias de mantenimiento que degradaban la utilización diaria de aeronaves y provocaban demoras en cadena en conexiones intercontinentales de mercancías.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Modelo analítico predictivo para simular la resiliencia de itinerarios frente a contingencias operativas, optimizando los colchones de tiempo de conexión de carga y la rotación eficiente de flota.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Incremento de +1.8 horas de utilización diaria en aeronaves de fuselaje ancho y reducción del 22% en demoras de salida atribuibles a transferencias de carga en hub.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Aerolínea Norteamericana</span>
+                    <span class="cred-area">Cargo Revenue Management</span>
+                  </div>
+                  <h3 class="cred-title">Dynamic Cargo Revenue &amp; Capacity Forecast Engine</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Modelos estáticos de tarificación y gestión de inventario en hojas de cálculo, generando spoilage crónico (15%-25%) por caídas de reservas o descargas forzadas en rampa (offloads) por sobreventa descalibrada.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Motor predictivo de Machine Learning para pronóstico estocástico de demanda spot frente a acuerdos fijos (BSA) y cálculo de precios sombra de red (bid prices) bajo optimización bivariada (peso y volumen).</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Reducción del 35% en capacidad perdida (spoilage) e incremento de +4.8% en yield promedio por tonelada transportada en rutas transcontinentales.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Riyadh Air / Cargo</span>
+                    <span class="cred-area">Forwarder Sales &amp; Distribution</span>
+                  </div>
+                  <h3 class="cred-title">Freight Forwarder B2B Sales Insights</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Falta de visibilidad centralizada sobre el comportamiento transaccional, elasticidad de tarifas y cumplimiento de asignaciones de espacio (allotments) de las agencias de carga (freight forwarders).</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Plataforma analítica de inteligencia comercial B2B que centraliza el desempeño de forwarders, analiza la tasa de conversión de cotizaciones spot y monitorea desviaciones en contratos Block Space Agreements (BSA).</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Aumento de +18% en el cumplimiento contractual de forwarders y reducción del 40% en tiempos de preparación de revisiones comerciales de cuentas clave.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Aeroméxico Cargo</span>
+                    <span class="cred-area">Distribution &amp; Channel Optimization</span>
+                  </div>
+                  <h3 class="cred-title">Cargo Distribution Cost &amp; Channel Optimization (EDI/e-Booking)</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Elevados costes de distribución por comisiones en plataformas intermediarias y mensajería tradicional EDI, con baja adopción de canales digitales directos y disparidad en márgenes de venta.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Modelo de Costos de Distribución (CER aplicado a Carga) que audita la rentabilidad neta por canal de reserva (APIs directas, marketplaces como Freightos/cargo.one, portales web propios y mensajería EDI heredada).</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Disminución del 24% en costes unitarios de distribución y migración de más del 30% del volumen spot hacia canales directos de menor coste transaccional.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Riyadh Air / Cargo</span>
+                    <span class="cred-area">Flight Operations &amp; Cargo iQ</span>
+                  </div>
+                  <h3 class="cred-title">Cargo OTP &amp; Flown As Booked (FAB) Performance Analytics</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Carencia de monitoreo en tiempo real de los hitos de servicio estandarizados por IATA Cargo iQ, generando penalizaciones por entregas fuera de SLA y baja visibilidad en vuelos con escala.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Plataforma de analítica operacional en tiempo real que rastrea hitos de envío (RCS, DEP, ARR, RCF, NFD) y predice riesgos de incumplimiento del indicador clave Flown As Booked (FAB).</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Aumento de +8.5 puntos porcentuales en cumplimiento de acuerdos de nivel de servicio (SLAs) y reducción del 60% en penalizaciones contractuales por retrasos de carga.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">Ground Operations &amp; Ramp Logistics</span>
+                  </div>
+                  <h3 class="cred-title">Belly Payload Prediction &amp; ULD Turnaround Optimizer</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Desbalances geográficos crónicos de pallets y contenedores (ULDs), junto con procesos manuales de estiba que incrementaban los tiempos en tierra y generaban sobrecostes de alquiler de equipos de urgencia.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Gemelo digital y optimización combinatoria de rotación de ULDs que modela el balanceo físico de peso y calcula instrucciones predictivas de reposicionamiento a 7 y 14 días.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Reducción del 28% en costes por alquiler y reposicionamiento de ULDs, y disminución de 15 minutos en el tiempo de preparación física de la carga (build-up time).</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">B2B Experience &amp; Tracking</span>
+                  </div>
+                  <h3 class="cred-title">Forwarder Experience Journey &amp; Proactive Disruption Insights</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Gestión reactiva ante incidencias de carga crítica (cadena de frío farmacéutica y perecederos), canalizada mediante miles de correos y llamadas repetitivas (Where Is My Cargo / WISMC) que saturaban el soporte.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Sistema de alertas proactivas alimentado por telemetría IoT de envíos sensibles y datos operacionales de vuelo, integrando un asistente inteligente para resolución inmediata de consultas B2B.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Detección y mitigación anticipada del 75% de las desviaciones térmicas y reducción del 45% en el volumen de llamadas de soporte operativo de clientes corporativos.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Oman Air</span>
+                    <span class="cred-area">Operations &amp; Belly Capacity</span>
+                  </div>
+                  <h3 class="cred-title">Baggage Prediction for Dynamic Belly Cargo Monetization</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Despachadores aplicando márgenes de peso de seguridad excesivamente conservadores ante la incertidumbre del equipaje facturado por pasajeros, desaprovechando toneladas vendibles de carga en bodega.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Algoritmo predictivo de Machine Learning que infiere a T-72h, T-24h y T-4h la distribución exacta de peso de pasajeros y equipaje por ruta y estacionalidad, liberando capacidad residual para carga comercial.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Captura y monetización de entre 1.5 y 2.8 toneladas adicionales de carga útil por vuelo de fuselaje ancho en rutas intercontinentales de largo radio.</p></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- BACK OFFICE CARGO -->
+          <div id="tab-backoffice-cargo" class="cred-panel" role="tabpanel" hidden>
+            <div class="cred-grid">
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">Technical Crew Planning</span>
+                  </div>
+                  <h3 class="cred-title">Cargo Pilot &amp; Technical Crew Analytics</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Complejidad en la programación de tripulaciones técnicas para vuelos cargueros con itinerarios nocturnos irregulares, múltiples escalas de carga y estrictos límites regulatorios de descanso.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Plataforma de analítica predictiva de tripulaciones que optimiza el emparejamiento de vuelos (pairing), minimiza tiempos muertos en escalas y anticipa curvas de fatiga operacional.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Reducción del 18% en sobrecostes por horas extras y viáticos imprevistos, con un 14% de mejora en el balance de descanso regulatorio del personal técnico.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">Digital &amp; AI Strategy</span>
+                  </div>
+                  <h3 class="cred-title">Air Cargo Digital &amp; ONE Record Strategy Roadmap</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Sistemas centrales heredados basados en mensajería electrónica fragmentada (Cargo-IMP/EDI) que frenaban la adopción del estándar web abierto de datos IATA ONE Record.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Hoja de ruta estratégica de transformación digital y diseño de arquitectura desacoplada basada en ontologías JSON-LD y APIs RESTful para el intercambio unificado de datos de expedición.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Aceleración estimada de 24 meses en la adopción tecnológica y habilitación del intercambio digital seguro en el 100% de la red de agentes y aduanas socias.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">Operations Training</span>
+                  </div>
+                  <h3 class="cred-title">Dangerous Goods (DGR) &amp; Cargo Handling Training Dashboard</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Altas tasas de rechazo en auditorías operativas y dispersión en la certificación técnica del personal de almacén para la aceptación y segregación de mercancías peligrosas.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Dashboard centralizado de analítica de competencias y formación técnica que correlaciona errores de manipulación en pista con módulos específicos de la normativa IATA DGR.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Reducción del 40% en incidencias operativas de rampa por manipulación de carga especial y 98% de tasa de aprobación en certificaciones anuales obligatorias.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">HR &amp; Specialized Talent</span>
+                  </div>
+                  <h3 class="cred-title">Cargo Operations Recruitment Insights Dashboard</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Dificultad para reclutar y retener perfiles técnicos especializados (supervisores de estiba, despachadores certificados y agentes aduanales) en estaciones y almacenes de alta demanda.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Plataforma analítica de recursos humanos que mapea la eficiencia del embudo de contratación, evalúa la rotación por aeropuerto y proyecta necesidades de personal por temporada alta.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Disminución del tiempo promedio de contratación (Time-to-Hire) de 45 a 22 días en roles operativos y reducción del 15% en rotación temprana en terminales de carga.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">B2B Market Intelligence</span>
+                  </div>
+                  <h3 class="cred-title">Trade Lane Competitor Capacity &amp; Rate Intelligence</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Falta de visibilidad sobre tarifas spot y capacidad ofertada por competidores en corredores troncales, derivando en cotizaciones descalibradas y pérdida de cuentas corporativas.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Ecosistema de inteligencia de mercado que procesa datos de transacciones de la industria (CASS, WorldACD, portales aduaneros y benchmarks de mercado) para monitorear tendencias en tiempo real.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Detección anticipada de fluctuaciones tarifarias en el 85% de las rutas comerciales clave y ajuste proactivo de precios con impacto de +3.2% en ingresos brutos.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">B2B Portal Analytics</span>
+                  </div>
+                  <h3 class="cred-title">Forwarder Digital Portal &amp; Booking Intelligence</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Baja penetración del canal digital directo y abandono frecuente durante el proceso de cotización y reserva electrónica (e-booking) en el portal corporativo de carga.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Plataforma de analítica digital y telemetría de comportamiento de usuario que identifica cuellos de botella en el flujo de búsqueda de itinerarios, confirmación de guías aéreas y cotizaciones.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Aumento de +32% en la tasa de conversión de reservas dentro del portal propio y reducción del 50% en los pasos operativos requeridos para emitir una reserva digital.</p></div>
+                </div>
+              </div>
+
+              <div class="cred-card">
+                <div class="cred-card-header">
+                  <div class="cred-card-meta">
+                    <span class="cred-client">Artefact Case</span>
+                    <span class="cred-area">Industry Intelligence</span>
+                  </div>
+                  <h3 class="cred-title">CASS &amp; WorldACD Market Share Intelligence Platform</h3>
+                  <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+                </div>
+                <div class="cred-body" hidden>
+                  <div class="cred-item"><strong>Desafío</strong><p>Conciliación manual lenta de los informes de facturación y compensación de IATA CASS y estadísticas de WorldACD, retrasando las decisiones comerciales ejecutivas semanas después del cierre de mes.</p></div>
+                  <div class="cred-item"><strong>Solución</strong><p>Pipeline automatizado de ingeniería de datos y visualización analítica que procesa millones de transacciones de facturación para calcular cuota de mercado por país, producto y agente.</p></div>
+                  <div class="cred-item"><strong>Resultados</strong><p>Automatización total de la conciliación de cuota de mercado con actualización semanal y reducción de 5 días-hombre al mes en la preparación de reportes directivos.</p></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
       </div>

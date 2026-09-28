@@ -2638,7 +2638,7 @@
       transition: background 0.2s, color 0.2s;
     }
     .cred-tab.active {
-      background: linear-gradient(135deg, #0a1730 0%, #a8185a 60%, #ff0066 100%);
+      background: #be123c;
       color: #fff;
       border-color: transparent;
     }
@@ -2679,8 +2679,8 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #e0357a;
-      background: rgba(224,95,160,0.1);
+      color: #be123c;
+      background: #fff1f2;
       padding: 0.2rem 0.55rem;
       border-radius: 20px;
     }
@@ -3299,7 +3299,8 @@
 
 /* ==========================================================
    MODO CARGA (Pasajeros / Carga) — toggle + componentes
-   Paleta industrial: slate/zinc oscuros + acentos ámbar/esmeralda.
+   Acento único: índigo tecnológico + celeste, alineado al degradado
+   del botón Agentic. Sin cálidos (nada de ámbar/naranja).
    No introduce framework nuevo: extiende las variables de :root.
    ========================================================== */
 :root {
@@ -3308,9 +3309,9 @@
   --cargo-slate-800: #1e293b;
   --cargo-slate-700: #334155;
   --cargo-slate-400: #94a3b8;
-  --cargo-amber: #f59e0b;
-  --cargo-orange: #f97316;
-  --cargo-emerald: #10b981;
+  --cargo-indigo: #4338ca;
+  --cargo-violet: #6d28d9;
+  --cargo-sky: #0284c7;
 }
 
 /* --- Toggle Pasajeros / Carga en el header --- */
@@ -3347,6 +3348,11 @@
   background: rgba(0, 0, 0, 0.08);
 }
 
+html[data-mode="cargo"] .mode-pill .active {
+  background: linear-gradient(135deg, var(--cargo-indigo), var(--cargo-violet));
+  box-shadow: 0 2px 10px rgba(67, 56, 202, 0.45);
+}
+
 @media (max-width: 720px) {
   .mode-pill span { padding: 0 10px; font-size: 11px; }
 }
@@ -3354,7 +3360,7 @@
 /* --- Hero Carga (index.html) --- */
 .hero-cargo {
   background:
-    radial-gradient(1200px 520px at 15% -10%, rgba(245, 158, 11, 0.16), transparent 60%),
+    radial-gradient(1200px 520px at 15% -10%, rgba(67, 56, 202, 0.16), transparent 60%),
     linear-gradient(180deg, var(--cargo-slate-950) 0%, var(--cargo-slate-900) 100%);
 }
 
@@ -3364,9 +3370,9 @@
   gap: 8px;
   padding: 7px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  background: rgba(245, 158, 11, 0.1);
-  color: var(--cargo-amber);
+  border: 1px solid rgba(67, 56, 202, 0.4);
+  background: rgba(67, 56, 202, 0.1);
+  color: var(--cargo-indigo);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -3387,12 +3393,12 @@
   padding: 15px 26px;
   border-radius: 10px;
   border: none;
-  background: linear-gradient(135deg, var(--cargo-amber), var(--cargo-orange));
+  background: linear-gradient(135deg, var(--cargo-indigo), var(--cargo-violet));
   color: var(--cargo-slate-950);
   font-weight: 900;
   font-size: 15px;
   cursor: pointer;
-  box-shadow: 0 14px 30px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 14px 30px rgba(67, 56, 202, 0.3);
 }
 
 .cargo-cta-secondary {
@@ -3418,7 +3424,7 @@
 .cargo-kpi strong {
   display: block;
   margin-bottom: 6px;
-  color: var(--cargo-amber);
+  color: var(--cargo-indigo);
   font-size: 26px;
   font-weight: 900;
   font-variant-numeric: tabular-nums;
@@ -3446,7 +3452,7 @@
 .cargo-block:first-child { margin-top: 0; }
 
 .cargo-eyebrow {
-  color: var(--cargo-amber);
+  color: var(--cargo-indigo);
   font-size: 13px;
   font-weight: 900;
   text-transform: uppercase;
@@ -3491,8 +3497,8 @@
   height: 30px;
   margin-bottom: 14px;
   border-radius: 8px;
-  background: rgba(245, 158, 11, 0.16);
-  color: var(--cargo-amber);
+  background: rgba(67, 56, 202, 0.16);
+  color: var(--cargo-indigo);
   font-size: 13px;
   font-weight: 900;
 }
@@ -3536,8 +3542,8 @@
   padding: 4px 10px;
   margin-bottom: 14px;
   border-radius: 999px;
-  background: rgba(16, 185, 129, 0.14);
-  color: var(--cargo-emerald);
+  background: rgba(2, 132, 199, 0.14);
+  color: var(--cargo-sky);
   font-size: 11px;
   font-weight: 900;
   text-transform: uppercase;
@@ -3567,7 +3573,7 @@
 }
 
 .cargo-flash-icon.is-pain { color: rgba(255, 255, 255, 0.32); }
-.cargo-flash-icon.is-solution { color: var(--cargo-amber); }
+.cargo-flash-icon.is-solution { color: var(--cargo-indigo); }
 
 .cargo-flash-row strong {
   display: block;
@@ -3589,9 +3595,9 @@
   margin-top: 6px;
   padding: 14px 16px;
   border-radius: 10px;
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.22);
-  color: var(--cargo-amber);
+  background: rgba(67, 56, 202, 0.08);
+  border: 1px solid rgba(67, 56, 202, 0.22);
+  color: var(--cargo-indigo);
   font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
   font-size: 13px;
   line-height: 1.6;
@@ -3605,8 +3611,8 @@
 .term {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dashed var(--cargo-amber);
-  color: var(--cargo-amber);
+  border-bottom: 1px dashed var(--cargo-indigo);
+  color: var(--cargo-indigo);
   cursor: help;
 }
 
@@ -3684,14 +3690,14 @@
   position: relative;
   padding: 26px 22px;
   border-radius: 14px;
-  border: 1px solid rgba(245, 158, 11, 0.22);
-  background: linear-gradient(160deg, rgba(245, 158, 11, 0.08), transparent 60%);
+  border: 1px solid rgba(67, 56, 202, 0.22);
+  background: linear-gradient(160deg, rgba(67, 56, 202, 0.08), transparent 60%);
 }
 
 .cargo-timeline-year {
   display: inline-block;
   margin-bottom: 12px;
-  color: var(--cargo-amber);
+  color: var(--cargo-indigo);
   font-size: 28px;
   font-weight: 900;
 }
@@ -3704,5 +3710,44 @@
 
 @media (max-width: 980px) {
   .cargo-timeline { grid-template-columns: 1fr; }
+}
+
+/* --- Credenciales Carga: mismos componentes .cred-*, retinte índigo/celeste --- */
+.cred-cargo .cred-tab {
+  border-color: var(--cargo-indigo);
+  color: var(--cargo-indigo);
+}
+
+.cred-cargo .cred-tab.active {
+  background: linear-gradient(135deg, var(--cargo-indigo), var(--cargo-violet));
+  color: #fff;
+  border-color: transparent;
+}
+
+.cred-cargo .cred-tab:hover:not(.active) {
+  background: rgba(67, 56, 202, 0.07);
+}
+
+.cred-cargo .cred-card:hover {
+  box-shadow: 0 6px 24px rgba(67, 56, 202, 0.18);
+}
+
+.cred-cargo .cred-client {
+  color: var(--cargo-indigo);
+  background: #eef2ff;
+}
+
+.cred-cargo .cred-toggle {
+  border-color: var(--cargo-indigo);
+  color: var(--cargo-indigo);
+}
+
+.cred-cargo .cred-toggle[aria-expanded="true"] {
+  background: var(--cargo-indigo);
+  color: #fff;
+}
+
+.cred-cargo .cred-title {
+  color: var(--cargo-slate-900);
 }
 
