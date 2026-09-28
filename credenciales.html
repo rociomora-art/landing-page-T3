@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Credenciales Artefact | Aerolíneas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" aria-label="Navegación principal">
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="Artefact">
+      <img class="brand-logo" src="images/ARTEFACT.png" alt="Artefact">
+      </a>
+      <nav class="nav-links" aria-label="Secciones">
+        <a href="pov-artefact.html">POV Artefact</a>
+        <a href="casos.html">Cadena</a>
+        <a href="credenciales.html">Credenciales</a>
+        <a href="artefact.html">Artefact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-agentic-btn" id="navAgenticBtn" href="agentic-airlines.html" aria-label="Ir a la sección Agentes en Aerolíneas">Agentic</a>
+        <div class="lang-pill" aria-label="Idioma" role="group">
+          <span class="active" data-lang="es" role="button" tabindex="0" aria-pressed="true">ES</span>
+          <span data-lang="en" role="button" tabindex="0" aria-pressed="false">EN</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section id="credenciales" class="section credentials" aria-labelledby="credenciales-title">
+      <div class="container">
+        <p class="section-label">Credenciales Artefact</p>
+        <h2 id="credenciales-title" class="section-title">Casos de éxito aplicables a la realidad de una aerolínea.</h2>
+        <p class="lead">Inspírate con nuestros casos de éxito y descubre qué es posible</p>
+
+        <!-- TABS -->
+        <div class="cred-tabs" role="tablist">
+          <button class="cred-tab active" role="tab" aria-selected="true" aria-controls="tab-cadena" id="btn-cadena" onclick="switchTab('cadena')">
+            ✈ Cadena de Valor
+          </button>
+          <button class="cred-tab" role="tab" aria-selected="false" aria-controls="tab-backoffice" id="btn-backoffice" onclick="switchTab('backoffice')">
+            ⚙ Back Office
+          </button>
+        </div>
+
+        <!-- CADENA DE VALOR -->
+        <div id="tab-cadena" class="cred-panel" role="tabpanel">
+          <div class="cred-grid">
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Riyadh Air</span>
+                  <span class="cred-area">Network Planning &amp; Scheduling</span>
+                </div>
+                <h3 class="cred-title">Route Insights Dashboard</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Los equipos de Network Planning y Revenue carecían de una fuente única para evaluar rentabilidad, RASK y load factor a nivel de ruta.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Dashboards interactivos con datos flown y forward-looking (Flyr + Sutherland), con filtros y drill-downs por ruta, región y período, más reglas automatizadas de validación.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Plataforma central para decisiones de red · Visibilidad de yield, RASK y tendencias de demanda · Detección de rutas underperforming para acciones dirigidas.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Oman Air</span>
+                  <span class="cred-area">Network Planning</span>
+                </div>
+                <h3 class="cred-title">Schedule Robustness Analytics</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Sin herramienta para cuantificar la resiliencia de los itinerarios ni modelar la propagación de retrasos a través de rotaciones consecutivas.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Algoritmo de Robustness Index que calcula el delay efectivo de cada vuelo (original + propagado), agregado por rotación y a nivel de red, exportado como tabla de análisis.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Identificación de rotaciones de baja robustez · Optimización de buffer times · Reducción de efectos cascada en la red de vuelos.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Aerolínea Norteamericana</span>
+                  <span class="cred-area">Revenue Management &amp; Pricing</span>
+                </div>
+                <h3 class="cred-title">Ecosistema de Revenue Forecast</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Proceso de forecast de ingresos completamente manual, sin la granularidad ni flexibilidad necesarias para decisiones diarias de Revenue Management.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Ecosistema de modelos ML en AWS (Amazon Redshift + Glue) que pronostican Fare, Seat Factor y Ancillaries de forma independiente, con ejecuciones diarias automáticas y dashboard Power BI de 6 páginas.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Pronósticos fiables para los próximos 3 meses · Reducción significativa en tiempos de ejecución · Solución escalable a nuevos mercados y rutas.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Riyadh Air</span>
+                  <span class="cred-area">Sales &amp; Distribution</span>
+                </div>
+                <h3 class="cred-title">Indirect Sales Insights</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Los equipos comerciales no tenían visión consolidada del performance de ventas indirectas por agencia, país o mercado para guiar decisiones de distribución.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>ETL pipelines consolidando datos flown y forward-looking + dashboard Power BI con filtros dinámicos por agencia, país y mercado, incluyendo tendencias de tarifas y contribución por canal.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Identificación de mercados y agencias underperforming · Estrategias comerciales más precisas · Visibilidad única y consistente de ventas indirectas.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Aeroméxico</span>
+                  <span class="cred-area">Sales &amp; Distribution</span>
+                </div>
+                <h3 class="cred-title">Modelo de Costos de Distribución (CER)</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Centralizar los costos de distribución (comisiones, reservaciones, sistemas, gastos de venta) dispersos en 15+ orígenes para optimizar el Cost Effectiveness Revenue (CER) por canal, tipo de costo y agencia.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Pipeline integral de ingesta en AWS desde 4 fuentes principales y 15+ orígenes de datos, con un Modelo de Costos centralizado con reglas de negocio propias y reporte CER automatizado en Tableau con múltiples niveles de granularidad.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>USD 1.9M de ahorro detectados al redirigir volumen desde OTAs hacia AM.COM · Modelo centralizado para estrategias de reducción de costos y negociaciones con agencias · Visibilidad completa del CER por canal.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Riyadh Air</span>
+                  <span class="cred-area">Flight Operations &amp; OTP</span>
+                </div>
+                <h3 class="cred-title">On-Time Performance &amp; Delay Analytics</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Sin monitoreo centralizado de demoras por ruta, aeropuerto o tipo de aeronave, ni herramienta de Root Cause Analysis para el equipo de operaciones.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Dashboard en dos capas: live monitoring de OTP y pantallas analíticas de Root Cause Analysis y Disruption Scale, consolidando datos de Flight Ops, Scheduling y Ground Handling.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Detección proactiva de patrones de demora recurrentes · Intervenciones dirigidas para reducir retrasos · Base para decisiones de recuperación operacional.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Oman Air</span>
+                  <span class="cred-area">Ground Operations</span>
+                </div>
+                <h3 class="cred-title">Airport Joiners Flow Forecasting</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Imposibilidad de planificar recursos de check-in y lounge con anticipación por falta de forecast preciso de volúmenes de pasajeros en aeropuerto.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Pipeline de ingesta de ~50 GB de datos Sabre (transacciones de check-in y solicitudes de lounge) + modelos Prophet y XGBoost para predicción en ventanas rodantes de 2 horas.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Mejora en planificación de personal de aeropuerto · Decisiones más precisas de supply de alimentos en lounge · Reducción de sobre y sub-aprovisionamiento.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Riyadh Air</span>
+                  <span class="cred-area">Customer Experience</span>
+                </div>
+                <h3 class="cred-title">Guest Experience Journey Insights</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Sin visibilidad integral de satisfacción del pasajero a través de las distintas etapas del viaje, desde la reserva hasta el post-trip.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Dashboard end-to-end monitoreando satisfacción en 6 etapas clave del journey, con satisfaction matrix cross-cutting y drill-downs por touchpoint y segmento de pasajero.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Monitoreo unificado desde booking hasta engagement de loyalty · Insights accionables para el equipo de CX · Base para mejoras dirigidas por touchpoint.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Oman Air</span>
+                  <span class="cred-area">Operations &amp; Cargo</span>
+                </div>
+                <h3 class="cred-title">Baggage Prediction for Cargo Capacity</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>El equipo de cargo no podía asignar capacidad disponible con precisión por desconocimiento del volumen y peso de equipaje a nivel de vuelo.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Pipeline ML end-to-end: padding de bookings futuros con XGBoost + modelos separados (XGBoost, Ridge, Random Forest) para bag count y peso · ~5.6% de error validado en ventana rodante semanal.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Forecast preciso de carga de equipaje a nivel de vuelo · Prevención de underselling de capacidad de cargo · Mejor planificación para la semana siguiente.</p></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BACK OFFICE -->
+        <div id="tab-backoffice" class="cred-panel" role="tabpanel" hidden>
+          <div class="cred-grid">
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Riyadh Air</span>
+                  <span class="cred-area">Crew Planning &amp; Management</span>
+                </div>
+                <h3 class="cred-title">Crew Analytics &amp; Management System</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Sin sistema centralizado ni visibilidad analítica sobre desempeño, capacitación, certificaciones y absentismo de la tripulación de vuelo.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Dashboard Power BI con 20+ KPIs de crew (staffing, training, performance) + diseño completo en Figma del Crew Management System con 100+ features, cubriendo scheduling, productivity, visas e incidentes.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Visibilidad integral sobre absentismo, satisfacción y training gaps · Sistema listo para implementación acelerada por el equipo tech de la aerolínea.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Emirates Airlines</span>
+                  <span class="cred-area">Estrategia &amp; Transformación Digital</span>
+                </div>
+                <h3 class="cred-title">Digital &amp; AI Strategy Roadmap</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Necesidad de una visión unificada de IA con casos de uso priorizados y un plan claro de habilitación de datos de primera parte y tecnología.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Roadmap de IA a 3 años con 50+ oportunidades identificadas en toda la organización, estrategia de datos 1P (guest data, web data), definición de 2nd/3rd party partnerships, plan de upskilling y 20+ casos detallados.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Roadmap activado con casos como Audience Targeting Engine, personalización web, CVM para loyalty y SLF forecast para planificación de rutas y capacidad.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Riyadh Air</span>
+                  <span class="cred-area">HR &amp; Crew Training</span>
+                </div>
+                <h3 class="cred-title">Training Insights Dashboard</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Sin analytics centralizado para evaluar efectividad de programas de entrenamiento de tripulación ni identificar brechas de desempeño por rango, flota o base.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Dashboard Power BI integrando Prodefis y Netline Crew con 10+ KPIs de programas Initial, Recurrent, Line Check y Proficiency Check, con filtros multidimensionales (flota, rango, homebase, nacionalidad).</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Mejora continua de programas de entrenamiento · Identificación de brechas de desempeño por segmento · Benchmarking con performance histórico.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Riyadh Air</span>
+                  <span class="cred-area">HR &amp; Talent Acquisition</span>
+                </div>
+                <h3 class="cred-title">Recruitment Insights Dashboard</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Sin visión centralizada del proceso de reclutamiento ni KPIs de hiring en tiempo real; reportes manuales que impedían decisiones ágiles en Talent Acquisition.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Integración directa con iCIMS (ATS) + dashboard interactivo con tracking automatizado end-to-end de métricas de contratación: hiring funnel, SLA por etapa y tendencias de talento.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Decisiones de RRHH más rápidas y data-driven · Visión unificada del estado de reclutamiento · Base para reportes automáticos de la función de RRHH.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Riyadh Air</span>
+                  <span class="cred-area">Inteligencia de Mercado &amp; Estrategia Comercial</span>
+                </div>
+                <h3 class="cred-title">Market Experience Analytics (Competitor Sentiment)</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Sin herramienta para monitorear la percepción pública de competidores ni benchmarks sistematizados de calidad de experiencia en las etapas clave del journey del pasajero.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Web scraping con UiPath sobre sitios y blogs + análisis de sentimiento con GenAI (IA generativa) across 6 etapas del journey · Dashboard con Overview de sentimiento y Rating Analysis por touchpoint.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Benchmarking granular de competidores por etapa del journey · Identificación de áreas donde competidores destacan o fallan · Base para mejoras estratégicas de servicio.</p></div>
+              </div>
+            </div>
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">FlyDubai · Riyadh Air</span>
+                  <span class="cred-area">Marketing &amp; Digital Analytics</span>
+                </div>
+                <h3 class="cred-title">Digital Marketing Analytics &amp; Web Intelligence</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Datos de marketing fragmentados entre múltiples plataformas (GA, Adobe, Meta, Sprinklr, Snapchat) sin visión consolidada de performance de canales pagos, orgánicos y web/app.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Implementación de GA360 Suite + BigQuery para FlyDubai + dashboard consolidado para Riyadh Air integrando Paid Media, Social Media, Web/App Engagement y conversión, con 60+ KPIs mapeados.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Page load time mejorado 16% (FlyDubai) · Visión cross-channel unificada · Optimización de targeting y asignación de presupuesto basada en ROAS y atribución.</p></div>
+              </div>
+            </div>
+
+
+            <div class="cred-card">
+              <div class="cred-card-header">
+                <div class="cred-card-meta">
+                  <span class="cred-client">Aerolínea Norteamericana</span>
+                  <span class="cred-area">Inteligencia Comercial &amp; Network</span>
+                </div>
+                <h3 class="cred-title">Market Share &amp; Industry Intelligence Platform</h3>
+                <button class="cred-toggle" aria-expanded="false" onclick="toggleCard(this)"><span>+</span></button>
+              </div>
+              <div class="cred-body" hidden>
+                <div class="cred-item"><strong>Desafío</strong><p>Se necesitaba un ecosistema de datos unificado en AWS para consolidar fuentes clave de demanda a nivel industria (MIDT, DDS, PRISM) y habilitar análisis de market share, market size y analítica self-service para Revenue Management, Network Planning y Sales.</p></div>
+                <div class="cred-item"><strong>Solución</strong><p>Pipeline ETL con AWS Redshift + Apache Iceberg (arquitectura Hot &amp; Cold), ETLs incrementales automáticos, arquitectura medallón con reglas de calidad DAMA, 6 vistas materializadas y data marts para múltiples unidades de negocio.</p></div>
+                <div class="cred-item"><strong>Resultados</strong><p>Eliminación de procesos manuales de ingesta · Acceso inmediato a datos recientes (2-3 años) · 8 nuevos casos de uso y 7 reportes de Tableau habilitados · Gobernanza robusta y analítica self-service para Revenue Management, Sales y Network Planning.</p></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="js/nav.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/credenciales.js"></script>
+</body>
+</html>

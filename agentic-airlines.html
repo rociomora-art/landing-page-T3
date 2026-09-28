@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentes en Aerolíneas | Artefact</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" aria-label="Navegación principal">
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="Artefact">
+      <img class="brand-logo" src="images/ARTEFACT.png" alt="Artefact">
+      </a>
+      <nav class="nav-links" aria-label="Secciones">
+        <a href="pov-artefact.html">POV Artefact</a>
+        <a href="casos.html">Cadena</a>
+        <a href="credenciales.html">Credenciales</a>
+        <a href="artefact.html">Artefact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-agentic-btn" id="navAgenticBtn" href="agentic-airlines.html" aria-label="Ir a la sección Agentes en Aerolíneas">Agentic</a>
+        <div class="lang-pill" aria-label="Idioma" role="group">
+          <span class="active" data-lang="es" role="button" tabindex="0" aria-pressed="true">ES</span>
+          <span data-lang="en" role="button" tabindex="0" aria-pressed="false">EN</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section id="agentic-airlines" aria-labelledby="agentic-hero-title">
+
+      <!-- HERO -->
+      <div class="ag-hero">
+        <div class="ag-hero-bg" aria-hidden="true"></div>
+        <div class="mesh-blobs" aria-hidden="true">
+          <span class="mesh-blob b1"></span>
+          <span class="mesh-blob b2"></span>
+          <span class="mesh-blob b3"></span>
+          <span class="mesh-blob b4"></span>
+        </div>
+        <div class="ag-hero-gridlines" aria-hidden="true"></div>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div class="ag-hero-inner">
+          <h1 id="agentic-hero-title">Agentes en <span>Aerolíneas</span></h1>
+          <p class="ag-hero-copy">Un mapa comercial de dónde la inteligencia artificial agéntica ya genera valor en la cadena de una aerolínea de red, y de cómo Artefact puede llevarlo a producción.</p>
+          <div class="ag-hero-actions">
+            <a class="scroll-cue" href="#cadena"><span class="dot" aria-hidden="true">↓</span> Explora la cadena de valor</a>
+            <button type="button" class="nav-vision-btn" id="visionModalBtn">Visión 2028-2030 ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CADENA DE VALOR -->
+      <div class="ag-section impact-chain" id="cadena">
+        <div class="ag-container">
+          <p class="ag-label reveal">Cadena de valor</p>
+          <h2 class="ag-title reveal">Dónde vemos más impacto a lo largo de la cadena de valor</h2>
+          <p class="ag-lead reveal">Evaluamos 8 dominios en madurez de datos, viabilidad de despliegue en 6 meses e impacto ajustado por riesgo. Toca cada tarjeta para voltearla o cambiar al ranking.</p>
+
+          <div class="chain-toggle reveal" role="tablist" aria-label="Vista de cadena de valor">
+            <button type="button" class="chain-toggle-btn active" data-view="cards" role="tab" aria-selected="true"><strong>Flashcards</strong><span>Explorar cada dominio</span></button>
+            <button type="button" class="chain-toggle-btn" data-view="ranking" role="tab" aria-selected="false"><strong>Ranking</strong><span>Comparar los 8</span></button>
+          </div>
+
+          <div class="chain-rail" id="chainRail"></div>
+          <div class="chain-ranking" id="chainRanking" style="display:none;"></div>
+        </div>
+      </div>
+
+      <!-- FOCO DE VALOR -->
+      <div class="ag-section" id="foco">
+        <div class="ag-container">
+          <p class="ag-label reveal">Foco a corto plazo</p>
+          <h2 class="ag-title reveal">Dónde vemos más valor en el corto plazo</h2>
+          <p class="ag-lead reveal">De las 3 áreas con mejor balance entre datos, monetización y riesgo, elegimos 2 procesos representativos cada una.</p>
+
+          <div class="area-tabnav" id="areaTabNav" role="tablist" aria-label="Áreas de foco"></div>
+          <div id="areaBlocks"></div>
+        </div>
+      </div>
+
+      <!-- FUNDACIONES -->
+      <div class="ag-section agentic-vision light-on-dark" id="fundaciones">
+        <div class="mesh-blobs" aria-hidden="true">
+          <span class="mesh-blob b3" style="width:380px;height:380px;"></span>
+          <span class="mesh-blob b4" style="width:320px;height:320px;"></span>
+        </div>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div class="ag-container" style="position:relative; z-index:1;">
+          <p class="ag-label reveal">Nuestro punto de vista</p>
+          <h2 class="ag-title reveal" style="color:#fff;">Antes de escalar agentes, hay que construir las fundaciones correctas</h2>
+          <p class="ag-lead reveal" style="color:rgba(255,255,255,0.72);">El 80% oculto —dónde vive el conocimiento del negocio y quién lo gobierna— decide si un agente es confiable o un riesgo.</p>
+
+          <div class="layer-stack reveal">
+            <div class="layer-row">
+              <div class="layer-row-label"><span class="flight-stage-phase">20% visible</span></div>
+              <div class="layer-row-content">
+                <div class="vp-card layer-card-wide">
+                  <h4 style="font-size:17px;font-weight:800;margin-bottom:10px;">Application</h4>
+                  <p>La superficie donde se encuentran humanos e IA — la aplicación completa, no solo una interfaz.</p>
+                </div>
+              </div>
+            </div>
+            <div class="layer-row">
+              <div class="layer-row-label"><span class="flight-stage-phase">80% oculto</span></div>
+              <div class="layer-row-content layer-row-cards">
+                <div class="vp-card">
+                  <h4 style="font-size:17px;font-weight:800;margin-bottom:10px;">AI Platform</h4>
+                  <p>La capa que define qué sabe la IA y qué puede hacer con esa información.</p>
+                </div>
+                <div class="vp-card">
+                  <h4 style="font-size:17px;font-weight:800;margin-bottom:10px;">Model Infra</h4>
+                  <p>Dónde se enruta, gobierna y optimiza cada modelo.</p>
+                </div>
+                <div class="vp-card">
+                  <h4 style="font-size:17px;font-weight:800;margin-bottom:10px;">Hardware</h4>
+                  <p>Las GPUs, servidores de inferencia y orquestación que ejecutan los modelos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="foundations-quote reveal">"Invertir en Contexto, Ontología y Esquemas —no solo en el modelo— es donde se construye la ventaja competitiva."</p>
+        </div>
+      </div>
+
+      <!-- CÓMO AYUDAMOS -->
+      <div class="ag-section" id="ayuda" style="background: var(--soft); position: relative; overflow: hidden;">
+        <div class="ag-container" style="position: relative; z-index: 1;">
+          <p class="ag-label reveal">Cómo te podemos ayudar</p>
+          <h2 class="ag-title reveal">Factibilidad Artefact para llevar agentes a producción</h2>
+
+          <div class="help-toggle reveal" role="tablist" aria-label="Tipo de caso">
+            <button type="button" class="help-toggle-btn active" data-set="apps" role="tab" aria-selected="true"><strong>Aplicaciones</strong><span>Casos actuales</span></button>
+            <button type="button" class="help-toggle-btn" data-set="foundation" role="tab" aria-selected="false"><strong>Foundation</strong><span>Casos nuevos</span></button>
+          </div>
+
+          <div class="help-grid" id="helpGrid"></div>
+        </div>
+      </div>
+
+      <!-- MODAL VISIÓN 2028-2030 -->
+      <div class="vision-modal-overlay" id="visionModalOverlay" role="dialog" aria-modal="true" aria-label="Visión 2028-2030">
+        <div class="vision-modal agentic-vision light-on-dark">
+          <button type="button" class="vision-modal-close" id="visionModalClose" aria-label="Cerrar">✕</button>
+          <div class="ag-container" style="position:relative; z-index:1; max-width:100%; padding:0;">
+            <p class="ag-label">Visión 2028 - 2030</p>
+            <h2 class="ag-title" style="color:#fff; font-size:34px;">Así se siente volar con una aerolínea agéntica</h2>
+
+            <div class="flight-path-wrap">
+              <div class="flight-stage-badge" id="flightStageBadge"></div>
+              <svg class="flight-svg" viewBox="0 0 1200 260" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="flightGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ff0066"/>
+                    <stop offset="100%" stop-color="#7dd3fc"/>
+                  </linearGradient>
+                </defs>
+                <path class="flight-path-track" d="M 60,215 C 96.0,211.7 204.0,202.5 276.0,195.0 C 348.0,187.5 420.0,187.5 492.0,170.0 C 564.0,152.5 636.0,111.7 708.0,90.0 C 780.0,68.3 852.0,23.3 924.0,40.0 C 996.0,56.7 1104.0,165.0 1140.0,190.0"/>
+                <path class="flight-path-progress" id="flightProgressPath" pathLength="100" d="M 60,215 C 96.0,211.7 204.0,202.5 276.0,195.0 C 348.0,187.5 420.0,187.5 492.0,170.0 C 564.0,152.5 636.0,111.7 708.0,90.0 C 780.0,68.3 852.0,23.3 924.0,40.0 C 996.0,56.7 1104.0,165.0 1140.0,190.0"/>
+              </svg>
+              <div class="flight-plane" id="flightPlane">✈</div>
+              <div class="flight-nodes" id="flightNodes"></div>
+            </div>
+
+            <div class="vision-panels" id="visionPanels"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="js/nav.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/agentic-airlines.js"></script>
+</body>
+</html>
