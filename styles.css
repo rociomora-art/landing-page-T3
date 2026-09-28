@@ -104,6 +104,11 @@
       color: var(--magenta);
     }
 
+    .nav-links a.active {
+      color: var(--magenta);
+      opacity: 1;
+    }
+
     .lang-pill {
       display: flex;
       align-items: center;
@@ -3351,6 +3356,11 @@
 html[data-mode="cargo"] .mode-pill .active {
   background: linear-gradient(135deg, var(--cargo-indigo), var(--cargo-violet));
   box-shadow: 0 2px 10px rgba(67, 56, 202, 0.45);
+}
+
+html[data-mode="cargo"] .nav-links a:hover,
+html[data-mode="cargo"] .nav-links a.active {
+  color: var(--cargo-indigo);
 }
 
 @media (max-width: 720px) {

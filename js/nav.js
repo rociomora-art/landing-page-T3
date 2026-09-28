@@ -23,3 +23,13 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 window.addEventListener("hashchange", () => scrollToSection(window.location.hash));
+
+/* Resalta en el header el link de la página en la que está el usuario,
+   para orientar en qué sección se encuentra. */
+(function highlightActiveNavLink() {
+  const currentFile = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    const linkFile = link.getAttribute("href").split("#")[0];
+    if (linkFile === currentFile) link.classList.add("active");
+  });
+})();

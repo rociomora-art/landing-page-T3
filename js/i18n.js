@@ -280,6 +280,23 @@
         "empleados especializados en Data & IA": "specialists in Data & AI",
         "oficinas con capacidad de despliegue global": "offices with global deployment capability",
         "países para operar programas multi-mercado": "countries to run multi-market programs",
+
+        // Nav
+        "Cadena de Valor": "Value Chain",
+        "Casos de éxito": "Success Stories",
+
+        // Por qué Artefact (fusión con POV Artefact)
+        "Por qué Artefact & Nuestro Enfoque": "Why Artefact & Our Approach",
+        "La credibilidad viene de unir estrategia, ingeniería y valor de negocio: IA operable, no pilotos perpetuos.": "Credibility comes from uniting strategy, engineering and business value: operable AI, not perpetual pilots.",
+        "Artefact compite como pure player global en Data & IA. Diseñamos soluciones conectadas para romper silos entre revenue, rampa y clientes, movilizando capacidades industriales directamente en la nube y gobernanza del cliente.": "Artefact competes as a global Data & AI pure player. We design connected solutions to break down silos between revenue, ramp and customers, mobilizing industrial capabilities directly within the client's cloud and governance.",
+        "Especialización profunda frente a consultoras generalistas. El foco no está en modelos aislados de laboratorio, sino en transformar decisiones críticas de capacidad, pricing dinámico, recuperación operativa y rentabilidad de red.": "Deep specialization versus generalist consultancies. The focus is not on isolated lab models, but on transforming critical decisions in capacity, dynamic pricing, operational recovery and network profitability.",
+        "End-to-end real: Cero pilotos perpetuos": "True end-to-end: zero perpetual pilots",
+        "Del blueprint arquitectónico a la adopción operativa con ingeniería de datos y MLOps. Diseñamos para mover casos de uso desde la idea inicial hasta una capacidad industrializada en producción en tiempo récord.": "From architectural blueprint to operational adoption with data engineering and MLOps. We design to move use cases from initial idea to an industrialized production capability in record time.",
+        "Cloud agnostic y datos sin silos": "Cloud agnostic and siloless data",
+        "Despliegue en la infraestructura en la nube del cliente con DataOps, IaC y seguridad por diseño. Conectamos señales dispersas de comercial, operaciones, canales y cliente en una sola capa de decisión inteligente.": "Deployed on the client's own cloud infrastructure with DataOps, IaC and security by design. We connect scattered commercial, operations, channel and customer signals into a single intelligent decision layer.",
+        "Experiencia profunda en Aviación (T3)": "Deep expertise in Aviation (T3)",
+        "Credenciales probadas en aerolíneas comerciales (pasajeros y carga aérea), aeropuertos y logística global, combinando delivery regional nearshoring con capacidad de ejecución internacional.": "Proven credentials across commercial airlines (passenger and air cargo), airports and global logistics, combining regional nearshoring delivery with international execution capability.",
+
         // ===== Agentes en Aerolíneas =====
         "Agentes en": "Agents in",
         "Aerolíneas": "Airlines",
