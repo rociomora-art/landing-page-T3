@@ -2,10 +2,20 @@
    Persiste en localStorage y alterna bloques [data-mode-section]. */
 (function () {
   var STORAGE_KEY = "artefact-mode";
+  var currentFile = location.pathname.split("/").pop();
+  var isHome = currentFile === "" || currentFile === "index.html";
   var mode = "pax";
-  try {
-    mode = localStorage.getItem(STORAGE_KEY) || "pax";
-  } catch (e) {}
+  if (!isHome) {
+    try {
+      mode = localStorage.getItem(STORAGE_KEY) || "pax";
+    } catch (e) {}
+  } else {
+    /* index.html es el punto de entrada del sitio: siempre abre en
+       Pasajeros, sin importar una selección de Carga previa. */
+    try {
+      localStorage.setItem(STORAGE_KEY, "pax");
+    } catch (e) {}
+  }
 
   function applySections() {
     document.querySelectorAll("[data-mode-section]").forEach(function (el) {
