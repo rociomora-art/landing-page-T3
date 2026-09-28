@@ -343,7 +343,7 @@
         "Casos de éxito reales de Artefact en aerolíneas, filtrables por tabs entre Cadena de Valor y Back Office.": "Real Artefact success stories in airlines, filterable via tabs between Value Chain and Back Office.",
         "Tesis, capacidades diferenciales de Artefact como pure player de Data & IA, y presencia global en oficinas, países y equipo.": "Thesis, Artefact's differential capabilities as a Data & AI pure player, and global presence across offices, countries and team.",
         "Agentes en Aerolíneas": "Agents in Airlines",
-        "Mapa comercial de IA agéntica en la cadena de valor: dominios evaluados, focos de corto plazo, fundaciones y visión 2028-2030.": "Commercial map of agentic AI across the value chain: evaluated domains, short-term focus areas, foundations and the 2028-2030 vision."
+        "Mapa comercial de IA agéntica en la cadena de valor: dominios evaluados, focos de corto plazo, fundaciones y visión 2028-2030.": "Commercial map of agentic AI across the value chain: evaluated domains, short-term focus areas, foundations and the 2028-2030 vision.",
 
         // ===== Agentes en Aerolíneas =====
         "Agentes en": "Agents in",
@@ -656,7 +656,7 @@
         "Aumento de +32% en la tasa de conversión de reservas dentro del portal propio y reducción del 50% en los pasos operativos requeridos para emitir una reserva digital.": "+32% increase in booking conversion rate within the proprietary portal and a 50% reduction in operational steps required to issue a digital booking.",
         "Conciliación manual lenta de los informes de facturación y compensación de IATA CASS y estadísticas de WorldACD, retrasando las decisiones comerciales ejecutivas semanas después del cierre de mes.": "Slow manual reconciliation of IATA CASS billing and settlement reports and WorldACD statistics, delaying executive commercial decisions for weeks after month-end close.",
         "Pipeline automatizado de ingeniería de datos y visualización analítica que procesa millones de transacciones de facturación para calcular cuota de mercado por país, producto y agente.": "Automated data engineering pipeline and analytics visualization processing millions of billing transactions to calculate market share by country, product and agent.",
-        "Automatización total de la conciliación de cuota de mercado con actualización semanal y reducción de 5 días-hombre al mes en la preparación de reportes directivos.": "Full automation of market-share reconciliation with weekly updates and a reduction of 5 person-days per month in preparing executive reports."
+        "Automatización total de la conciliación de cuota de mercado con actualización semanal y reducción de 5 días-hombre al mes en la preparación de reportes directivos.": "Full automation of market-share reconciliation with weekly updates and a reduction of 5 person-days per month in preparing executive reports.",
 
         // Cargo: badges, KPIs numéricos y nombres propios (EN = ES cuando ya son en inglés)
         "Operaciones": "Operations",
